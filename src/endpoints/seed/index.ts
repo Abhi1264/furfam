@@ -104,9 +104,16 @@ export const seed = async ({
       try {
         await operation()
         return // Success
-      } catch (error: any) {
-        const isDeadlock =
-          error?.message?.includes('deadlock') || error?.err?.message?.includes('deadlock')
+      } catch (error: unknown) {
+        const message =
+          typeof error === 'object' && error !== null ? (error as { message?: string }).message : ''
+        const errMessage =
+          typeof error === 'object' && error !== null
+            ? (error as { err?: { message?: string } }).err?.message
+            : ''
+        const isDeadlock = Boolean(
+          message?.includes('deadlock') || errMessage?.includes('deadlock'),
+        )
         if (isDeadlock && attempt < maxRetries) {
           const delay = attempt * 200 // Exponential backoff: 200ms, 400ms, 600ms
           payload.logger.warn(
@@ -122,10 +129,12 @@ export const seed = async ({
 
   // First, delete all versions sequentially
   for (const collection of deleteOrder) {
-    if (
-      collections.includes(collection as CollectionSlug) &&
-      Boolean((payload.collections as Record<string, any>)[collection]?.config?.versions)
-    ) {
+    // Safely read versions config with a typed lookup
+    const collDef = (payload.collections as Record<string, { config?: { versions?: unknown } }>)[
+      collection
+    ]
+    const hasVersions = Boolean(collDef?.config?.versions)
+    if (collections.includes(collection as CollectionSlug) && hasVersions) {
       try {
         await deleteWithRetry(
           () =>
@@ -544,22 +553,4 @@ function createPlaceholderImage(): File {
   }
 }
 
-async function fetchFileByURL(url: string): Promise<File> {
-  const res = await fetch(url, {
-    credentials: 'include',
-    method: 'GET',
-  })
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch file from ${url}, status: ${res.status}`)
-  }
-
-  const data = await res.arrayBuffer()
-
-  return {
-    name: url.split('/').pop() || `file-${Date.now()}`,
-    data: Buffer.from(data),
-    mimetype: `image/${url.split('.').pop()}`,
-    size: data.byteLength,
-  }
-}
+// Removed legacy fetchFileByURL helper; placeholder images are generated locally
