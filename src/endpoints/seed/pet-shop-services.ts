@@ -1,38 +1,18 @@
 import type { RequiredDataFromCollectionSlug } from 'payload'
 import type { Media } from '@/payload-types'
 
-type HomeArgs = {
+type ServicesArgs = {
   heroImage: Media
-  metaImage: Media
 }
 
-export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> = ({
+export const petShopServices: (args: ServicesArgs) => RequiredDataFromCollectionSlug<'pages'> = ({
   heroImage,
-  metaImage,
 }) => {
   return {
-    slug: 'home',
+    slug: 'services',
     _status: 'published',
     hero: {
-      type: 'highImpact',
-      links: [
-        {
-          link: {
-            type: 'custom',
-            appearance: 'default',
-            label: 'All posts',
-            url: '/posts',
-          },
-        },
-        {
-          link: {
-            type: 'custom',
-            appearance: 'outline',
-            label: 'Contact',
-            url: '/contact',
-          },
-        },
-      ],
+      type: 'mediumImpact',
       media: heroImage.id,
       richText: {
         root: {
@@ -47,7 +27,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                   format: 0,
                   mode: 'normal',
                   style: '',
-                  text: 'Payload Website Template',
+                  text: 'Our Pet Services',
                   version: 1,
                 },
               ],
@@ -61,67 +41,12 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
               type: 'paragraph',
               children: [
                 {
-                  type: 'link',
-                  children: [
-                    {
-                      type: 'text',
-                      detail: 0,
-                      format: 0,
-                      mode: 'normal',
-                      style: '',
-                      text: 'Visit the admin dashboard',
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  fields: {
-                    linkType: 'custom',
-                    newTab: false,
-                    url: '/admin',
-                  },
-                  format: '',
-                  indent: 0,
-                  version: 3,
-                },
-                {
                   type: 'text',
                   detail: 0,
                   format: 0,
                   mode: 'normal',
                   style: '',
-                  text: " to begin managing this site's content. The code for this template is completely open-source and can be found ",
-                  version: 1,
-                },
-                {
-                  type: 'link',
-                  children: [
-                    {
-                      type: 'text',
-                      detail: 0,
-                      format: 0,
-                      mode: 'normal',
-                      style: '',
-                      text: 'on our Github',
-                      version: 1,
-                    },
-                  ],
-                  direction: 'ltr',
-                  fields: {
-                    linkType: 'custom',
-                    newTab: true,
-                    url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
-                  },
-                  format: '',
-                  indent: 0,
-                  version: 3,
-                },
-                {
-                  type: 'text',
-                  detail: 0,
-                  format: 0,
-                  mode: 'normal',
-                  style: '',
-                  text: '. ',
+                  text: 'Professional pet care services to keep your furry friends healthy, happy, and looking their best.',
                   version: 1,
                 },
               ],
@@ -141,7 +66,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
     },
     layout: [
       {
-        blockName: 'Content Block',
+        blockName: 'Grooming Services',
         blockType: 'content',
         columns: [
           {
@@ -158,7 +83,277 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Core features',
+                        text: 'Professional Grooming',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    tag: 'h2',
+                    version: 1,
+                  },
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: "Our certified groomers provide comprehensive grooming services for dogs and cats. We use only premium, pet-safe products and gentle techniques to ensure your pet's comfort.",
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    textFormat: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+            size: 'full',
+          },
+          {
+            enableLink: false,
+            richText: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'heading',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Full Grooming Package',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    tag: 'h3',
+                    version: 1,
+                  },
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Complete bath, brush, nail trim, ear cleaning, and haircut. Perfect for regular maintenance.',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    textFormat: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+            size: 'half',
+          },
+          {
+            enableLink: false,
+            richText: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'heading',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Bath & Brush',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    tag: 'h3',
+                    version: 1,
+                  },
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'A refreshing bath with premium shampoo and conditioner, followed by a thorough brushing and blow-dry.',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    textFormat: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+            size: 'half',
+          },
+          {
+            enableLink: false,
+            richText: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'heading',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Nail Trimming',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    tag: 'h3',
+                    version: 1,
+                  },
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Safe and gentle nail trimming service. We can also show you how to trim nails at home.',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    textFormat: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+            size: 'half',
+          },
+          {
+            enableLink: false,
+            richText: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'heading',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'De-shedding Treatment',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    tag: 'h3',
+                    version: 1,
+                  },
+                  {
+                    type: 'paragraph',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Specialized treatment to reduce shedding and keep your home cleaner. Ideal for heavy shedders.',
+                        version: 1,
+                      },
+                    ],
+                    direction: 'ltr',
+                    format: '',
+                    indent: 0,
+                    textFormat: 0,
+                    version: 1,
+                  },
+                ],
+                direction: 'ltr',
+                format: '',
+                indent: 0,
+                version: 1,
+              },
+            },
+            size: 'half',
+          },
+        ],
+      },
+      {
+        blockName: 'Additional Services',
+        blockType: 'content',
+        columns: [
+          {
+            richText: {
+              root: {
+                type: 'root',
+                children: [
+                  {
+                    type: 'heading',
+                    children: [
+                      {
+                        type: 'text',
+                        detail: 0,
+                        format: 0,
+                        mode: 'normal',
+                        style: '',
+                        text: 'Additional Services',
                         version: 1,
                       },
                     ],
@@ -192,7 +387,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Admin Dashboard',
+                        text: 'Pet Nutrition Consultation',
                         version: 1,
                       },
                     ],
@@ -211,39 +406,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: "Manage this site's pages and posts from the ",
-                        version: 1,
-                      },
-                      {
-                        type: 'link',
-                        children: [
-                          {
-                            type: 'text',
-                            detail: 0,
-                            format: 0,
-                            mode: 'normal',
-                            style: '',
-                            text: 'admin dashboard',
-                            version: 1,
-                          },
-                        ],
-                        direction: 'ltr',
-                        fields: {
-                          linkType: 'custom',
-                          newTab: false,
-                          url: '/admin',
-                        },
-                        format: '',
-                        indent: 0,
-                        version: 2,
-                      },
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: '.',
+                        text: "Get personalized nutrition advice from our trained staff. We'll help you choose the right food for your pet's age, breed, and health needs.",
                         version: 1,
                       },
                     ],
@@ -277,7 +440,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Preview',
+                        text: 'Pet Training Classes',
                         version: 1,
                       },
                     ],
@@ -296,7 +459,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Using versions, drafts, and preview, editors can review and share their changes before publishing them.',
+                        text: 'Group and private training sessions for puppies and adult dogs. Learn basic commands, socialization, and behavior management.',
                         version: 1,
                       },
                     ],
@@ -330,7 +493,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Page Builder',
+                        text: 'Pet Boarding',
                         version: 1,
                       },
                     ],
@@ -349,145 +512,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                         format: 0,
                         mode: 'normal',
                         style: '',
-                        text: 'Custom page builder allows you to create unique page, post, and project layouts for any type of content.',
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    format: '',
-                    indent: 0,
-                    textFormat: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                version: 1,
-              },
-            },
-            size: 'oneThird',
-          },
-          {
-            enableLink: false,
-            richText: {
-              root: {
-                type: 'root',
-                children: [
-                  {
-                    type: 'heading',
-                    children: [
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: 'SEO',
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    format: '',
-                    indent: 0,
-                    tag: 'h3',
-                    version: 1,
-                  },
-                  {
-                    type: 'paragraph',
-                    children: [
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: 'Editors have complete control over SEO data and site content directly from the ',
-                        version: 1,
-                      },
-                      {
-                        type: 'link',
-                        children: [
-                          {
-                            type: 'text',
-                            detail: 0,
-                            format: 0,
-                            mode: 'normal',
-                            style: '',
-                            text: 'admin dashboard',
-                            version: 1,
-                          },
-                        ],
-                        direction: 'ltr',
-                        fields: {
-                          linkType: 'custom',
-                          newTab: false,
-                          url: '/admin',
-                        },
-                        format: '',
-                        indent: 0,
-                        version: 2,
-                      },
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: '.',
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    format: '',
-                    indent: 0,
-                    textFormat: 0,
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                version: 1,
-              },
-            },
-            size: 'oneThird',
-          },
-          {
-            enableLink: false,
-            richText: {
-              root: {
-                type: 'root',
-                children: [
-                  {
-                    type: 'heading',
-                    children: [
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: 'Dark Mode',
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    format: '',
-                    indent: 0,
-                    tag: 'h3',
-                    version: 1,
-                  },
-                  {
-                    type: 'paragraph',
-                    children: [
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: 'Users will experience this site in their preferred color scheme and each block can be inverted.',
+                        text: 'Safe and comfortable boarding facilities for when you need to travel. Your pets will receive excellent care and attention.',
                         version: 1,
                       },
                     ],
@@ -509,76 +534,15 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
         ],
       },
       {
-        blockName: 'Media Block',
-        blockType: 'mediaBlock',
-        media: metaImage.id,
-      },
-      {
-        blockName: 'Archive Block',
-        blockType: 'archive',
-        categories: [],
-        introContent: {
-          root: {
-            type: 'root',
-            children: [
-              {
-                type: 'heading',
-                children: [
-                  {
-                    type: 'text',
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Recent posts',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                tag: 'h3',
-                version: 1,
-              },
-              {
-                type: 'paragraph',
-                children: [
-                  {
-                    type: 'text',
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: 'The posts below are displayed in an "Archive" layout building block which is an extremely powerful way to display documents on a page. It can be auto-populated by collection or by category, or posts can be individually selected. Pagination controls will automatically appear if the number of results exceeds the number of items per page.',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                format: '',
-                indent: 0,
-                textFormat: 0,
-                version: 1,
-              },
-            ],
-            direction: 'ltr',
-            format: '',
-            indent: 0,
-            version: 1,
-          },
-        },
-        populateBy: 'collection',
-        relationTo: 'posts',
-      },
-      {
-        blockName: 'CTA',
+        blockName: 'Book Appointment',
         blockType: 'cta',
         links: [
           {
             link: {
               type: 'custom',
               appearance: 'default',
-              label: 'All posts',
-              url: '/posts',
+              label: 'Book Now',
+              url: '/contact',
             },
           },
         ],
@@ -595,14 +559,14 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: 'This is a call to action',
+                    text: 'Ready to Book a Service?',
                     version: 1,
                   },
                 ],
                 direction: 'ltr',
                 format: '',
                 indent: 0,
-                tag: 'h3',
+                tag: 'h2',
                 version: 1,
               },
               {
@@ -614,39 +578,7 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
                     format: 0,
                     mode: 'normal',
                     style: '',
-                    text: 'This is a custom layout building block ',
-                    version: 1,
-                  },
-                  {
-                    type: 'link',
-                    children: [
-                      {
-                        type: 'text',
-                        detail: 0,
-                        format: 0,
-                        mode: 'normal',
-                        style: '',
-                        text: 'configured in the admin dashboard',
-                        version: 1,
-                      },
-                    ],
-                    direction: 'ltr',
-                    fields: {
-                      linkType: 'custom',
-                      newTab: false,
-                      url: '/admin',
-                    },
-                    format: '',
-                    indent: 0,
-                    version: 2,
-                  },
-                  {
-                    type: 'text',
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: '.',
+                    text: "Contact us today to schedule an appointment. We're here to help your pet look and feel their best!",
                     version: 1,
                   },
                 ],
@@ -666,10 +598,11 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
       },
     ],
     meta: {
-      description: 'An open-source website built with Payload and Next.js.',
+      description:
+        'Professional pet grooming, nutrition consultation, training classes, and boarding services at FurFam Pet Shop. Book your appointment today!',
       image: heroImage.id,
-      title: 'Payload Website Template',
+      title: 'Pet Services - Grooming, Training & More | FurFam Pet Shop',
     },
-    title: 'Home',
+    title: 'Services',
   }
 }

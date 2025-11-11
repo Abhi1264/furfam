@@ -1,14 +1,25 @@
 import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest, File } from 'payload'
 
 import { contactForm as contactFormData } from './contact-form'
-import { contact as contactPageData } from './contact-page'
-import { home } from './home'
-import { image1 } from './image-1'
-import { image2 } from './image-2'
-import { imageHero1 } from './image-hero-1'
-import { post1 } from './post-1'
-import { post2 } from './post-2'
-import { post3 } from './post-3'
+import { petShopContact } from './pet-shop-contact'
+import { petShopHome } from './pet-shop-home'
+import { petShopAbout } from './pet-shop-about'
+import { petShopServices } from './pet-shop-services'
+import { petShopProducts } from './pet-shop-products'
+import { petImageHero } from './pet-image-hero'
+import { petImage1 } from './pet-image-1'
+import { petImage2 } from './pet-image-2'
+import { petImage3 } from './pet-image-3'
+import { petImage4 } from './pet-image-4'
+import { petImage5 } from './pet-image-5'
+import { petImage6 } from './pet-image-6'
+import { petImageMeta } from './pet-image-meta'
+import { petPost1 } from './pet-post-1'
+import { petPost2 } from './pet-post-2'
+import { petPost3 } from './pet-post-3'
+import { petPost4 } from './pet-post-4'
+import { petPost5 } from './pet-post-5'
+import { petPost6 } from './pet-post-6'
 
 const collections: CollectionSlug[] = [
   'categories',
@@ -22,7 +33,16 @@ const collections: CollectionSlug[] = [
 
 const globals: GlobalSlug[] = ['header', 'footer']
 
-const categories = ['Technology', 'News', 'Finance', 'Design', 'Software', 'Engineering']
+const categories = [
+  'Dogs',
+  'Cats',
+  'Small Pets',
+  'Birds',
+  'Fish',
+  'Pet Care',
+  'Nutrition',
+  'Grooming',
+]
 
 // Next.js revalidation errors are normal when seeding the database without a server running
 // i.e. running `yarn seed` locally instead of using the admin UI within an active app
@@ -43,10 +63,10 @@ export const seed = async ({
   // the custom `/api/seed` endpoint does not
   payload.logger.info(`— Clearing collections and globals...`)
 
-  // clear the database
-  await Promise.all(
-    globals.map((global) =>
-      payload.updateGlobal({
+  // Clear globals sequentially to avoid any potential conflicts
+  for (const global of globals) {
+    try {
+      await payload.updateGlobal({
         slug: global,
         data: {
           navItems: [],
@@ -55,19 +75,87 @@ export const seed = async ({
         context: {
           disableRevalidate: true,
         },
-      }),
-    ),
-  )
+      })
+    } catch (error) {
+      payload.logger.warn(`Failed to clear global ${global}: ${error}`)
+    }
+  }
 
-  await Promise.all(
-    collections.map((collection) => payload.db.deleteMany({ collection, req, where: {} })),
-  )
+  // Delete collections sequentially to avoid deadlocks with foreign key constraints
+  // Delete versions FIRST, then delete actual records
+  // Delete in order: child collections first, then parent collections
+  const deleteOrder = [
+    'form-submissions', // Child of forms
+    'posts', // May reference categories, media, users
+    'pages', // May reference media, forms
+    'categories', // Referenced by posts
+    'media', // Referenced by pages and posts
+    'forms', // Referenced by pages
+    'search', // May reference other collections
+  ]
 
-  await Promise.all(
-    collections
-      .filter((collection) => Boolean(payload.collections[collection].config.versions))
-      .map((collection) => payload.db.deleteVersions({ collection, req, where: {} })),
-  )
+  // Helper function to retry on deadlock
+  const deleteWithRetry = async (
+    operation: () => Promise<void>,
+    collectionName: string,
+    maxRetries = 3,
+  ) => {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        await operation()
+        return // Success
+      } catch (error: any) {
+        const isDeadlock =
+          error?.message?.includes('deadlock') || error?.err?.message?.includes('deadlock')
+        if (isDeadlock && attempt < maxRetries) {
+          const delay = attempt * 200 // Exponential backoff: 200ms, 400ms, 600ms
+          payload.logger.warn(
+            `Deadlock detected for ${collectionName}, retrying in ${delay}ms (attempt ${attempt}/${maxRetries})`,
+          )
+          await new Promise((resolve) => setTimeout(resolve, delay))
+          continue
+        }
+        throw error // Re-throw if not a deadlock or max retries reached
+      }
+    }
+  }
+
+  // First, delete all versions sequentially
+  for (const collection of deleteOrder) {
+    if (
+      collections.includes(collection as CollectionSlug) &&
+      Boolean((payload.collections as Record<string, any>)[collection]?.config?.versions)
+    ) {
+      try {
+        await deleteWithRetry(
+          () =>
+            payload.db.deleteVersions({ collection: collection as CollectionSlug, req, where: {} }),
+          `${collection} versions`,
+        )
+        // Small delay to avoid race conditions
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      } catch (error) {
+        payload.logger.warn(`Failed to delete versions for ${collection}: ${error}`)
+      }
+    }
+  }
+
+  // Then, delete actual records sequentially
+  for (const collection of deleteOrder) {
+    if (collections.includes(collection as CollectionSlug)) {
+      try {
+        await deleteWithRetry(
+          () => payload.db.deleteMany({ collection: collection as CollectionSlug, req, where: {} }),
+          collection,
+        )
+        // Small delay to avoid race conditions
+        await new Promise((resolve) => setTimeout(resolve, 100))
+      } catch (error) {
+        payload.logger.warn(`Failed to delete records for ${collection}: ${error}`)
+        // Continue with next collection even if one fails
+      }
+    }
+  }
 
   payload.logger.info(`— Seeding demo author and user...`)
 
@@ -76,67 +164,96 @@ export const seed = async ({
     depth: 0,
     where: {
       email: {
-        equals: 'demo-author@example.com',
+        equals: 'pet-care@furfam.com',
       },
     },
   })
 
   payload.logger.info(`— Seeding media...`)
 
-  const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
-    fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post1.webp',
-    ),
-    fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post2.webp',
-    ),
-    fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-post3.webp',
-    ),
-    fetchFileByURL(
-      'https://raw.githubusercontent.com/payloadcms/payload/refs/heads/main/templates/website/src/endpoints/seed/image-hero1.webp',
-    ),
-  ])
+  // Create placeholder images - user will replace these manually
+  const placeholderImageBuffer = createPlaceholderImage()
 
-  const [demoAuthor, image1Doc, image2Doc, image3Doc, imageHomeDoc] = await Promise.all([
+  const [
+    demoAuthor,
+    petHeroImage,
+    petImage1Doc,
+    petImage2Doc,
+    petImage3Doc,
+    petImage4Doc,
+    petImage5Doc,
+    petImage6Doc,
+    petMetaImage,
+  ] = await Promise.all([
     payload.create({
       collection: 'users',
       data: {
-        name: 'Demo Author',
-        email: 'demo-author@example.com',
+        name: 'Pet Care Expert',
+        email: 'pet-care@furfam.com',
         password: 'password',
       },
     }),
     payload.create({
       collection: 'media',
-      data: image1,
-      file: image1Buffer,
+      data: petImageHero,
+      file: placeholderImageBuffer,
     }),
     payload.create({
       collection: 'media',
-      data: image2,
-      file: image2Buffer,
+      data: petImage1,
+      file: placeholderImageBuffer,
     }),
     payload.create({
       collection: 'media',
-      data: image2,
-      file: image3Buffer,
+      data: petImage2,
+      file: placeholderImageBuffer,
     }),
     payload.create({
       collection: 'media',
-      data: imageHero1,
-      file: hero1Buffer,
+      data: petImage3,
+      file: placeholderImageBuffer,
     }),
-    categories.map((category) =>
-      payload.create({
+    payload.create({
+      collection: 'media',
+      data: petImage4,
+      file: placeholderImageBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: petImage5,
+      file: placeholderImageBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: petImage6,
+      file: placeholderImageBuffer,
+    }),
+    payload.create({
+      collection: 'media',
+      data: petImageMeta,
+      file: placeholderImageBuffer,
+    }),
+  ])
+
+  payload.logger.info(`— Seeding categories...`)
+
+  // Create categories sequentially to avoid foreign key constraint violations
+  // Categories may have nested relationships (breadcrumbs) that require sequential creation
+  const categoryDocs = []
+  for (const category of categories) {
+    try {
+      const categoryDoc = await payload.create({
         collection: 'categories',
         data: {
           title: category,
-          slug: category,
+          slug: category.toLowerCase().replace(/\s+/g, '-'),
         },
-      }),
-    ),
-  ])
+      })
+      categoryDocs.push(categoryDoc)
+    } catch (error) {
+      payload.logger.warn(`Failed to create category ${category}: ${error}`)
+    }
+  }
 
   payload.logger.info(`— Seeding posts...`)
 
@@ -148,7 +265,7 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+    data: petPost1({ heroImage: petImage1Doc, blockImage: petImage1Doc, author: demoAuthor }),
   })
 
   const post2Doc = await payload.create({
@@ -157,7 +274,7 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post2({ heroImage: image2Doc, blockImage: image3Doc, author: demoAuthor }),
+    data: petPost2({ heroImage: petImage2Doc, blockImage: petImage2Doc, author: demoAuthor }),
   })
 
   const post3Doc = await payload.create({
@@ -166,7 +283,34 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
+    data: petPost3({ heroImage: petImage3Doc, blockImage: petImage3Doc, author: demoAuthor }),
+  })
+
+  const post4Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: petPost4({ heroImage: petImage4Doc, blockImage: petImage4Doc, author: demoAuthor }),
+  })
+
+  const post5Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: petPost5({ heroImage: petImage5Doc, blockImage: petImage5Doc, author: demoAuthor }),
+  })
+
+  const post6Doc = await payload.create({
+    collection: 'posts',
+    depth: 0,
+    context: {
+      disableRevalidate: true,
+    },
+    data: petPost6({ heroImage: petImage6Doc, blockImage: petImage6Doc, author: demoAuthor }),
   })
 
   // update each post with related posts
@@ -175,20 +319,47 @@ export const seed = async ({
     collection: 'posts',
     data: {
       relatedPosts: [post2Doc.id, post3Doc.id],
+      categories: [],
     },
   })
   await payload.update({
     id: post2Doc.id,
     collection: 'posts',
     data: {
-      relatedPosts: [post1Doc.id, post3Doc.id],
+      relatedPosts: [post1Doc.id, post4Doc.id],
+      categories: [],
     },
   })
   await payload.update({
     id: post3Doc.id,
     collection: 'posts',
     data: {
-      relatedPosts: [post1Doc.id, post2Doc.id],
+      relatedPosts: [post1Doc.id, post5Doc.id],
+      categories: [],
+    },
+  })
+  await payload.update({
+    id: post4Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post2Doc.id, post6Doc.id],
+      categories: [],
+    },
+  })
+  await payload.update({
+    id: post5Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post3Doc.id, post6Doc.id],
+      categories: [],
+    },
+  })
+  await payload.update({
+    id: post6Doc.id,
+    collection: 'posts',
+    data: {
+      relatedPosts: [post4Doc.id, post5Doc.id],
+      categories: [],
     },
   })
 
@@ -202,16 +373,31 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [_, contactPage] = await Promise.all([
+  const [homePage, aboutPage, servicesPage, productsPage, contactPage] = await Promise.all([
     payload.create({
       collection: 'pages',
       depth: 0,
-      data: home({ heroImage: imageHomeDoc, metaImage: image2Doc }),
+      data: petShopHome({ heroImage: petHeroImage, metaImage: petMetaImage }),
     }),
     payload.create({
       collection: 'pages',
       depth: 0,
-      data: contactPageData({ contactForm: contactForm }),
+      data: petShopAbout({ heroImage: petHeroImage }),
+    }),
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: petShopServices({ heroImage: petHeroImage }),
+    }),
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: petShopProducts({ heroImage: petHeroImage }),
+    }),
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: petShopContact({ contactForm: contactForm }),
     }),
   ])
 
@@ -224,8 +410,48 @@ export const seed = async ({
         navItems: [
           {
             link: {
+              type: 'reference',
+              label: 'Home',
+              reference: {
+                relationTo: 'pages',
+                value: homePage.id,
+              },
+            },
+          },
+          {
+            link: {
+              type: 'reference',
+              label: 'About',
+              reference: {
+                relationTo: 'pages',
+                value: aboutPage.id,
+              },
+            },
+          },
+          {
+            link: {
+              type: 'reference',
+              label: 'Services',
+              reference: {
+                relationTo: 'pages',
+                value: servicesPage.id,
+              },
+            },
+          },
+          {
+            link: {
+              type: 'reference',
+              label: 'Products',
+              reference: {
+                relationTo: 'pages',
+                value: productsPage.id,
+              },
+            },
+          },
+          {
+            link: {
               type: 'custom',
-              label: 'Posts',
+              label: 'Blog',
               url: '/posts',
             },
           },
@@ -248,25 +474,49 @@ export const seed = async ({
         navItems: [
           {
             link: {
-              type: 'custom',
-              label: 'Admin',
-              url: '/admin',
+              type: 'reference',
+              label: 'About',
+              reference: {
+                relationTo: 'pages',
+                value: aboutPage.id,
+              },
+            },
+          },
+          {
+            link: {
+              type: 'reference',
+              label: 'Services',
+              reference: {
+                relationTo: 'pages',
+                value: servicesPage.id,
+              },
+            },
+          },
+          {
+            link: {
+              type: 'reference',
+              label: 'Products',
+              reference: {
+                relationTo: 'pages',
+                value: productsPage.id,
+              },
             },
           },
           {
             link: {
               type: 'custom',
-              label: 'Source Code',
-              newTab: true,
-              url: 'https://github.com/payloadcms/payload/tree/main/templates/website',
+              label: 'Blog',
+              url: '/posts',
             },
           },
           {
             link: {
-              type: 'custom',
-              label: 'Payload',
-              newTab: true,
-              url: 'https://payloadcms.com/',
+              type: 'reference',
+              label: 'Contact',
+              reference: {
+                relationTo: 'pages',
+                value: contactPage.id,
+              },
             },
           },
         ],
@@ -275,6 +525,23 @@ export const seed = async ({
   ])
 
   payload.logger.info('Seeded database successfully!')
+}
+
+// Creates a simple 1x1 pixel PNG placeholder image
+// User will replace these with actual images manually
+function createPlaceholderImage(): File {
+  // Minimal valid PNG: 1x1 pixel transparent PNG
+  const pngData = Buffer.from(
+    'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+    'base64',
+  )
+
+  return {
+    name: 'placeholder.png',
+    data: pngData,
+    mimetype: 'image/png',
+    size: pngData.length,
+  }
 }
 
 async function fetchFileByURL(url: string): Promise<File> {
