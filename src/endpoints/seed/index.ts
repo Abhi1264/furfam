@@ -20,6 +20,7 @@ import { petPost3 } from './pet-post-3'
 import { petPost4 } from './pet-post-4'
 import { petPost5 } from './pet-post-5'
 import { petPost6 } from './pet-post-6'
+import { breedsData } from './breeds-data'
 
 const collections: CollectionSlug[] = [
   'categories',
@@ -29,6 +30,7 @@ const collections: CollectionSlug[] = [
   'forms',
   'form-submissions',
   'search',
+  'breeds',
 ]
 
 const globals: GlobalSlug[] = ['header', 'footer']
@@ -88,6 +90,7 @@ export const seed = async ({
     'form-submissions', // Child of forms
     'posts', // May reference categories, media, users
     'pages', // May reference media, forms
+    'breeds', // May reference media
     'categories', // Referenced by posts
     'media', // Referenced by pages and posts
     'forms', // Referenced by pages
@@ -372,6 +375,21 @@ export const seed = async ({
     },
   })
 
+  payload.logger.info(`— Seeding breeds...`)
+
+  const breeds = breedsData(petImage1Doc, petImage2Doc, petImage3Doc)
+
+  for (const breed of breeds) {
+    try {
+        await payload.create({
+            collection: 'breeds',
+            data: breed,
+        })
+    } catch (error) {
+        payload.logger.warn(`Failed to seed breed ${breed.name}: ${error}`)
+    }
+  }
+
   payload.logger.info(`— Seeding contact form...`)
 
   const contactForm = await payload.create({
@@ -439,6 +457,13 @@ export const seed = async ({
           },
           {
             link: {
+                type: 'custom',
+                label: 'Breeds',
+                url: '/breeds',
+            },
+          },
+          {
+            link: {
               type: 'reference',
               label: 'Services',
               reference: {
@@ -489,6 +514,13 @@ export const seed = async ({
                 relationTo: 'pages',
                 value: aboutPage.id,
               },
+            },
+          },
+          {
+            link: {
+                type: 'custom',
+                label: 'Breeds',
+                url: '/breeds',
             },
           },
           {
