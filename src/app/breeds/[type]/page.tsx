@@ -83,6 +83,7 @@ export default async function BreedTypePage({ params }: Props) {
                     fill
                     className="object-cover"
                     priority
+                    draggable={false}
                   />
                 </div>
               </div>
@@ -111,6 +112,7 @@ export default async function BreedTypePage({ params }: Props) {
                         alt={breed.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        draggable={false}
                       />
                       <div className="absolute right-3 top-3 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
                         {breed.size}
@@ -177,6 +179,7 @@ export default async function BreedTypePage({ params }: Props) {
                         alt={t.name}
                         fill
                         className="object-cover"
+                        draggable={false}
                       />
                     </div>
                     <div>

@@ -26,6 +26,7 @@ export function PartnersSection() {
                 width={120}
                 height={48}
                 className="h-10 w-auto object-contain"
+                draggable={false}
               />
             </div>
           ))}

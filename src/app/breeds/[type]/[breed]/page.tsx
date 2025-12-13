@@ -100,6 +100,7 @@ export default async function BreedDetailPage({ params }: Props) {
                   fill
                   className="object-cover"
                   priority
+                  draggable={false}
                 />
               </div>
 
@@ -329,6 +330,7 @@ export default async function BreedDetailPage({ params }: Props) {
                         alt={relatedBreed.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        draggable={false}
                       />
                     </div>
                     <div className="p-4">

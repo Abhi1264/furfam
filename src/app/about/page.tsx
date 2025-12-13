@@ -121,6 +121,7 @@ export default function AboutPage() {
                     alt="FurFam team with puppies"
                     fill
                     className="object-cover"
+                    draggable={false}
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-xl md:block">

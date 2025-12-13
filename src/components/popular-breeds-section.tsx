@@ -78,6 +78,7 @@ export function PopularBreedsSection() {
                     alt={breed.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    draggable={false}
                   />
                   <button className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
                     <Heart className="h-5 w-5 text-muted-foreground hover:text-red-500" />

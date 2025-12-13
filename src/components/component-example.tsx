@@ -113,6 +113,7 @@ function CardExample() {
           height={500}
           width={500}
           className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale"
+          draggable={false}
         />
         <CardHeader>
           <CardTitle>Observability Plus is replacing Monitoring</CardTitle>

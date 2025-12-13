@@ -30,6 +30,7 @@ export function BreedTypesSection() {
                   alt={type.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  draggable={false}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-foreground/20 to-transparent" />
               </div>

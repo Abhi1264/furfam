@@ -23,6 +23,7 @@ export function AboutPreviewSection() {
                 alt="Happy family with their new pet"
                 fill
                 className="object-cover"
+                draggable={false}
               />
             </div>
             <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-xl md:block">
