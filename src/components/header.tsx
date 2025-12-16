@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, PawPrint, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,12 +20,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-gray-900">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-            <PawPrint className="h-6 w-6 text-primary-foreground" />
-          </div>
-          <span className="font-serif text-2xl font-semibold text-background">
-            FurFam
-          </span>
+          <Image src="/logo.svg" alt="Logo" width={175} height={56} draggable={false}/>
         </Link>
 
         {/* Desktop Navigation */}

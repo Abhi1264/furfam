@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
-  PawPrint,
   Facebook,
   Instagram,
   Twitter,
@@ -18,10 +18,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                <PawPrint className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <span className="font-serif text-2xl font-bold">FurFam</span>
+            <Image src="/logo.svg" alt="Logo" width={175} height={56} draggable={false}/>
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
               Your trusted partner in finding the perfect furry companion. We

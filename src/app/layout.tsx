@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" />
+      </head>
       <body className={`${nunito.className} ${fredoka.className} antialiased`}>
         {children}
         <Analytics />
