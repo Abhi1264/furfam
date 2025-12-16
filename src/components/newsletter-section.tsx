@@ -1,68 +1,36 @@
-"use client";
-
-import type React from "react";
-
-import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { PawPrint } from "lucide-react";
+import { BookOpen, ArrowRight } from "lucide-react";
 
 export function NewsletterSection() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
-
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl rounded-3xl bg-primary p-8 text-center text-primary-foreground md:p-12">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-background">
-            <PawPrint className="h-7 w-7 text-primary" />
+            <BookOpen className="h-7 w-7 text-primary" />
           </div>
           <h2 className="font-serif text-2xl font-bold md:text-3xl text-balance">
-            Subscribe & Get Updates
+            Explore Our Pet Care Blog
           </h2>
           <p className="mx-auto mt-3 max-w-md text-primary-foreground/90 leading-relaxed">
-            Join our newsletter for exclusive pet care tips, new breed
-            announcements, and special offers for FurFam members.
+            Discover expert advice, breed guides, training tips, and helpful
+            resources to help you care for your furry family member. Read our
+            latest articles and become a better pet parent.
           </p>
-
-          {subscribed ? (
-            <div className="mt-6 rounded-lg bg-background/10 p-4">
-              <p className="font-medium">
-                Thanks for subscribing! Check your inbox for a welcome gift.
-              </p>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="mx-auto mt-6 flex max-w-md flex-col gap-3 sm:flex-row"
+          <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="h-12 bg-foreground text-background hover:bg-foreground/90"
+              asChild
             >
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="h-12 flex-1 border-0 bg-background text-foreground placeholder:text-muted-foreground"
-              />
-              <Button
-                type="submit"
-                variant="secondary"
-                size="lg"
-                className="h-12 bg-foreground text-background hover:bg-foreground/90"
-              >
-                Subscribe
-              </Button>
-            </form>
-          )}
+              <Link href="/blogs">
+                Read Our Blog
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

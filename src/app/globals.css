@@ -130,3 +130,103 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Blog post prose styles */
+.prose {
+  @apply text-foreground;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-serif font-bold text-foreground mt-8 mb-4;
+}
+
+.prose h1 {
+  @apply text-4xl;
+}
+
+.prose h2 {
+  @apply text-3xl;
+}
+
+.prose h3 {
+  @apply text-2xl;
+}
+
+.prose h4 {
+  @apply text-xl;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed text-muted-foreground;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-4 pl-6 text-muted-foreground;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose a {
+  @apply text-primary no-underline hover:underline;
+}
+
+.prose strong {
+  @apply font-bold text-foreground;
+}
+
+.prose em {
+  @apply italic;
+}
+
+.prose code {
+  @apply bg-secondary px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-secondary p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary pl-4 italic my-4 text-muted-foreground;
+}
+
+.prose img {
+  @apply rounded-lg my-8;
+}
+
+.prose hr {
+  @apply border-border my-8;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th,
+.prose td {
+  @apply border border-border px-4 py-2;
+}
+
+.prose th {
+  @apply bg-secondary font-bold text-foreground;
+}

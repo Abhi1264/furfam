@@ -17,7 +17,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-gray-900">
+    <header className="sticky top-0 z-50 w-full bg-foreground">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.svg" alt="Logo" width={175} height={56} draggable={false}/>
@@ -54,6 +54,12 @@ export function Header() {
             className="text-xl font-medium text-background transition-colors hover:text-primary"
           >
             Services
+          </Link>
+          <Link
+            href="/blogs"
+            className="text-xl font-medium text-background transition-colors hover:text-primary"
+          >
+            Blogs
           </Link>
           <Link
             href="/contact"
@@ -120,6 +126,13 @@ export function Header() {
               onClick={() => setIsOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              href="/blogs"
+              className="font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Blogs
             </Link>
             <Link
               href="/contact"

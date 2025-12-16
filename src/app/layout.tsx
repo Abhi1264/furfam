@@ -8,6 +8,9 @@ const nunito = Nunito({ subsets: ["latin"] });
 const fredoka = Fredoka({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app"
+  ),
   title: "FurFam Pet Shop | Premium Dog Breeds & Pet Care",
   description:
     "Discover your perfect furry companion at FurFam. We offer premium dog breeds, expert pet care advice, and quality pet products. Find your new family member today!",
