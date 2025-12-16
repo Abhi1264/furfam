@@ -9,6 +9,7 @@ import { NewsletterSection } from "@/components/newsletter-section";
 import { PopularBreedsSection } from "@/components/popular-breeds-section";
 import { PartnersSection } from "@/components/partners-section";
 import { FAQSection } from "@/components/faq-section";
+import { GallerySection } from "@/components/gallery-section";
 import { CTABanner } from "@/components/cta-banner";
 import { StatsSection } from "@/components/stats-section";
 import { ProcessSection } from "@/components/process-section";
@@ -23,6 +24,7 @@ export default function HomePage() {
         <FeaturesSection />
         <BreedTypesSection />
         <PopularBreedsSection />
+        <GallerySection />
         <ProcessSection />
         <AboutPreviewSection />
         <StatsSection />

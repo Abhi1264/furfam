@@ -95,8 +95,7 @@ export function HeroSection() {
                 <Image
                   src="/home-hero.jpg"
                   alt="Happy pets at FurFam"
-                  height={450}
-                  width={450}
+                  fill
                   className="object-cover"
                   priority
                   draggable={false}
