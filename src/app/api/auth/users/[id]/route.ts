@@ -1,5 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser, deleteUser, readUsers } from "@/lib/auth-utils";
+import { getSession, deleteUser, readUsers } from "@/lib/auth-utils";
+
+async function getCurrentUserFromRequest(request: NextRequest) {
+  const token = request.cookies.get("auth-token")?.value;
+  if (!token) return null;
+
+  const session = await getSession(token);
+  if (!session) return null;
+
+  const users = await readUsers();
+  return users[session.userId] || null;
+}
 
 // DELETE - Delete a user (requires auth)
 export async function DELETE(
@@ -7,7 +18,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const currentUser = await getCurrentUser();
+    const currentUser = await getCurrentUserFromRequest(request);
     if (!currentUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

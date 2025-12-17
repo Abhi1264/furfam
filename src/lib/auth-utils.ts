@@ -172,9 +172,19 @@ export async function deleteSession(token: string): Promise<void> {
   }
 }
 
-export async function getCurrentUser(): Promise<User | null> {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("auth-token")?.value;
+export async function getCurrentUser(request?: {
+  cookies: { get: (name: string) => { value: string } | undefined };
+}): Promise<User | null> {
+  let token: string | undefined;
+
+  if (request) {
+    // For API routes that pass request object
+    token = request.cookies.get("auth-token")?.value;
+  } else {
+    // For server components
+    const cookieStore = await cookies();
+    token = cookieStore.get("auth-token")?.value;
+  }
 
   if (!token) return null;
 

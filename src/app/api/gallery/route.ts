@@ -1,11 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getSession, readUsers } from "@/lib/auth-utils";
 import {
   getAllGalleryItems,
   addGalleryItem,
   saveImageFile,
 } from "@/lib/gallery-storage";
 import { randomBytes } from "crypto";
+
+async function getCurrentUserFromRequest(request: NextRequest) {
+  const token = request.cookies.get("auth-token")?.value;
+  if (!token) return null;
+
+  const session = await getSession(token);
+  if (!session) return null;
+
+  const users = await readUsers();
+  return users[session.userId] || null;
+}
 
 // GET - Fetch all gallery items
 export async function GET() {
@@ -16,7 +27,7 @@ export async function GET() {
 // POST - Add a new gallery item (requires auth)
 export async function POST(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUserFromRequest(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

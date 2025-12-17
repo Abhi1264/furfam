@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyUser, createSession, setAuthCookie } from "@/lib/auth-utils";
+import { verifyUser, createSession } from "@/lib/auth-utils";
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,15 +22,26 @@ export async function POST(request: NextRequest) {
     }
 
     const session = await createSession(user.id);
-    await setAuthCookie(session.token);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       user: {
         id: user.id,
         email: user.email,
       },
     });
+
+    // Set cookie in response
+    response.cookies.set("auth-token", session.token, {
+      httpOnly: true,
+      secure:
+        process.env.NODE_ENV === "production" || process.env.VERCEL === "1",
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+      path: "/",
+    });
+
+    return response;
   } catch (error: unknown) {
     const errorMessage =
       error instanceof Error ? error.message : "Internal server error";

@@ -1,10 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentUser, createUser, readUsers } from "@/lib/auth-utils";
+import { getSession, readUsers, createUser } from "@/lib/auth-utils";
+
+async function getCurrentUserFromRequest(request: NextRequest) {
+  const token = request.cookies.get("auth-token")?.value;
+  if (!token) return null;
+
+  const session = await getSession(token);
+  if (!session) return null;
+
+  const users = await readUsers();
+  return users[session.userId] || null;
+}
 
 // GET - List all users (requires auth)
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const currentUser = await getCurrentUser();
+    const currentUser = await getCurrentUserFromRequest(request);
     if (!currentUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -29,7 +40,7 @@ export async function GET() {
 // POST - Create a new user (requires auth)
 export async function POST(request: NextRequest) {
   try {
-    const currentUser = await getCurrentUser();
+    const currentUser = await getCurrentUserFromRequest(request);
     if (!currentUser) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
