@@ -81,6 +81,7 @@ export default async function BreedTypePage({ params }: Props) {
                     src={breedType.image}
                     alt={breedType.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                     priority
                     draggable={false}
@@ -111,6 +112,7 @@ export default async function BreedTypePage({ params }: Props) {
                         src={breed.image}
                         alt={breed.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         draggable={false}
                       />
@@ -178,6 +180,7 @@ export default async function BreedTypePage({ params }: Props) {
                         src={t.image}
                         alt={t.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover"
                         draggable={false}
                       />

@@ -22,11 +22,12 @@ export function AboutPreviewSection() {
                 src="/about.jpg"
                 alt="Happy family with their new pet"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
                 draggable={false}
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-xl md:block">
+            <div className="absolute -bottom-6 -right-2 sm:-bottom-6 sm:-right-4 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
               <div className="text-4xl font-bold">10+</div>
               <div className="text-sm">Years of Experience</div>
             </div>

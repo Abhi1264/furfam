@@ -120,11 +120,12 @@ export default function AboutPage() {
                     src="/about.jpg"
                     alt="FurFam team with puppies"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                     draggable={false}
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-primary p-6 text-primary-foreground shadow-xl md:block">
+                <div className="absolute -bottom-6 -right-2 sm:-bottom-6 sm:-right-4 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
                   <div className="text-4xl font-bold">10K+</div>
                   <div className="text-sm">Happy Families</div>
                 </div>

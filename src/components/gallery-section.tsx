@@ -2,12 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 import { breeds } from "@/lib/breeds-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type GalleryItem = {
   id: string;
@@ -27,17 +34,9 @@ const BASE_GALLERY: GalleryItem[] = breeds
     temperament: breed.temperament,
   }));
 
-const SLIDES_PER_VIEW = 3;
-const SLIDES_PER_MOBILE = 1;
-const CLONE_FACTOR = 2;
-
 export function GallerySection() {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
 
   // Fetch gallery items from API, fallback to BASE_GALLERY if empty
   useEffect(() => {
@@ -50,138 +49,23 @@ export function GallerySection() {
 
           // Use uploaded items if available, otherwise use fallback
           if (galleryItems.length > 0) {
-            const clonedItems = Array.from(
-              { length: CLONE_FACTOR },
-              () => galleryItems,
-            ).flat();
-            setItems(clonedItems);
+            setItems(galleryItems);
           } else {
-            const clonedItems = Array.from(
-              { length: CLONE_FACTOR },
-              () => BASE_GALLERY,
-            ).flat();
-            setItems(clonedItems);
+            setItems(BASE_GALLERY);
           }
         } else {
           // If API fails, use fallback
-          const clonedItems = Array.from(
-            { length: CLONE_FACTOR },
-            () => BASE_GALLERY,
-          ).flat();
-          setItems(clonedItems);
+          setItems(BASE_GALLERY);
         }
       } catch {
         // On error, use fallback
-        const clonedItems = Array.from(
-          { length: CLONE_FACTOR },
-          () => BASE_GALLERY,
-        ).flat();
-        setItems(clonedItems);
+        setItems(BASE_GALLERY);
       } finally {
         setLoading(false);
       }
     }
     loadGallery();
   }, []);
-
-  const totalSlides = items.length;
-
-  const slidesPerView =
-    typeof window !== "undefined" && window.innerWidth < 768
-      ? SLIDES_PER_MOBILE
-      : SLIDES_PER_VIEW;
-
-  const maxIndex = Math.max(0, totalSlides - slidesPerView);
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (isAnimating || totalSlides === 0) return;
-      setIsAnimating(true);
-
-      let next = index;
-      if (index < 0) {
-        next = maxIndex;
-      } else if (index > maxIndex) {
-        next = 0;
-      }
-
-      setActiveIndex(next);
-
-      window.setTimeout(() => {
-        setIsAnimating(false);
-      }, 350);
-    },
-    [isAnimating, maxIndex, totalSlides],
-  );
-
-  const goNext = useCallback(() => {
-    goTo(activeIndex + 1);
-  }, [activeIndex, goTo]);
-
-  const goPrev = useCallback(() => {
-    goTo(activeIndex - 1);
-  }, [activeIndex, goTo]);
-
-  // Wheel / trackpad scroll support
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheel = (event: WheelEvent) => {
-      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-        event.preventDefault();
-        if (event.deltaX > 0) {
-          goNext();
-        } else if (event.deltaX < 0) {
-          goPrev();
-        }
-      }
-    };
-
-    container.addEventListener("wheel", handleWheel, { passive: false });
-    return () => container.removeEventListener("wheel", handleWheel);
-  }, [goNext, goPrev]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let startX = 0;
-    let isTouching = false;
-
-    const onTouchStart = (e: TouchEvent) => {
-      isTouching = true;
-      startX = e.touches[0]?.clientX ?? 0;
-    };
-
-    const onTouchMove = (e: TouchEvent) => {
-      if (!isTouching) return;
-      const currentX = e.touches[0]?.clientX ?? 0;
-      const diff = startX - currentX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          goNext();
-        } else {
-          goPrev();
-        }
-        isTouching = false;
-      }
-    };
-
-    const onTouchEnd = () => {
-      isTouching = false;
-    };
-
-    container.addEventListener("touchstart", onTouchStart);
-    container.addEventListener("touchmove", onTouchMove);
-    container.addEventListener("touchend", onTouchEnd);
-
-    return () => {
-      container.removeEventListener("touchstart", onTouchStart);
-      container.removeEventListener("touchmove", onTouchMove);
-      container.removeEventListener("touchend", onTouchEnd);
-    };
-  }, [goNext, goPrev]);
 
   // Show loading state
   if (loading) {
@@ -215,57 +99,27 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div
-          ref={containerRef}
-          className="relative"
-          aria-roledescription="carousel"
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
         >
-          <div className="absolute inset-y-0 left-0 flex items-center">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-background/90 shadow-sm hover:shadow-md"
-              onClick={goPrev}
-              aria-label="Previous"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="absolute inset-y-0 right-0 flex items-center justify-end">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-background/90 shadow-sm hover:shadow-md"
-              onClick={goNext}
-              aria-label="Next"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="overflow-hidden px-10 md:px-14">
-            <div
-              ref={trackRef}
-              className="flex gap-6 transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(-${
-                  (activeIndex * 100) / slidesPerView
-                }%)`,
-              }}
-            >
-              {items.map((item, index) => (
-                <article
-                  key={`${item.id}-${index}`}
-                  className="group relative w-full shrink-0 sm:w-1/2 lg:w-1/3"
-                >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {items.map((item, index) => (
+              <CarouselItem
+                key={`${item.id}-${index}`}
+                className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
+                <article className="group relative">
                   <div className="overflow-hidden rounded-2xl bg-card border shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl">
                     <div className="relative h-64 overflow-hidden bg-secondary/40">
                       <Image
                         src={item.image}
                         alt={item.name}
                         fill
-                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 768px) 33vw, 100vw"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         draggable={false}
                         priority={index < 3}
@@ -293,37 +147,12 @@ export function GallerySection() {
                     </div>
                   </div>
                 </article>
-              ))}
-            </div>
-          </div>
-
-          {/* Progress dots */}
-          <div className="mt-6 flex justify-center gap-2">
-            {Array.from({ length: Math.min(8, maxIndex + 1) }).map(
-              (_, dotIndex) => {
-                const isActive =
-                  Math.round(activeIndex / slidesPerView) === dotIndex;
-                return (
-                  <button
-                    key={dotIndex}
-                    type="button"
-                    className="group"
-                    onClick={() => goTo(dotIndex * slidesPerView)}
-                    aria-label={`Go to slide ${dotIndex + 1}`}
-                  >
-                    <span
-                      className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "w-6 bg-primary"
-                          : "bg-muted-foreground/30 group-hover:bg-muted-foreground/60"
-                      }`}
-                    />
-                  </button>
-                );
-              },
-            )}
-          </div>
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="-left-4 lg:-left-2 bg-background/90 shadow-sm hover:shadow-md cursor-pointer" />
+          <CarouselNext className="-right-4 lg:-right-2 bg-background/90 shadow-sm hover:shadow-md cursor-pointer" />
+        </Carousel>
 
         <div className="mt-12 flex justify-center">
           <Link href="/breeds">

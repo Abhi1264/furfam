@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, PawPrint } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -30,7 +30,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           <Link
             href="/"
             className="text-xl font-medium text-background transition-colors hover:text-primary"
@@ -80,15 +80,18 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="hidden md:flex">
-          <Button asChild>
-            <Link href="/contact">Find Your Pup</Link>
+        <div className="hidden lg:flex">
+          <Button asChild className="group">
+            <Link href="/contact">
+              Find Your Pup
+              <PawPrint className="h-4 w-4" />
+            </Link>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -102,7 +105,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`bg-foreground md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`bg-foreground lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen
             ? "max-h-screen opacity-100 translate-y-0"
             : "max-h-0 opacity-0 -translate-y-4"
@@ -160,6 +163,7 @@ export function Header() {
           <Button asChild className="w-full text-lg">
             <Link href="/contact" onClick={() => setIsOpen(false)}>
               Find Your Pup
+              <PawPrint className="h-4 w-4" />
             </Link>
           </Button>
         </nav>
