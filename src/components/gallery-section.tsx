@@ -32,13 +32,58 @@ const SLIDES_PER_MOBILE = 1;
 const CLONE_FACTOR = 2;
 
 export function GallerySection() {
-  const [items] = useState<GalleryItem[]>(() => {
-    return Array.from({ length: CLONE_FACTOR }, () => BASE_GALLERY).flat();
-  });
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  // Fetch gallery items from API, fallback to BASE_GALLERY if empty
+  useEffect(() => {
+    async function loadGallery() {
+      try {
+        const res = await fetch("/api/gallery");
+        if (res.ok) {
+          const data = await res.json();
+          const galleryItems = data.items || [];
+
+          // Use uploaded items if available, otherwise use fallback
+          if (galleryItems.length > 0) {
+            const clonedItems = Array.from(
+              { length: CLONE_FACTOR },
+              () => galleryItems,
+            ).flat();
+            setItems(clonedItems);
+          } else {
+            const clonedItems = Array.from(
+              { length: CLONE_FACTOR },
+              () => BASE_GALLERY,
+            ).flat();
+            setItems(clonedItems);
+          }
+        } else {
+          // If API fails, use fallback
+          const clonedItems = Array.from(
+            { length: CLONE_FACTOR },
+            () => BASE_GALLERY,
+          ).flat();
+          setItems(clonedItems);
+        }
+      } catch (error) {
+        console.error("Error loading gallery:", error);
+        // On error, use fallback
+        const clonedItems = Array.from(
+          { length: CLONE_FACTOR },
+          () => BASE_GALLERY,
+        ).flat();
+        setItems(clonedItems);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadGallery();
+  }, []);
 
   const totalSlides = items.length;
 
@@ -67,7 +112,7 @@ export function GallerySection() {
         setIsAnimating(false);
       }, 350);
     },
-    [isAnimating, maxIndex, totalSlides]
+    [isAnimating, maxIndex, totalSlides],
   );
 
   const goNext = useCallback(() => {
@@ -138,6 +183,19 @@ export function GallerySection() {
       container.removeEventListener("touchend", onTouchEnd);
     };
   }, [goNext, goPrev]);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section className="py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <div className="text-muted-foreground">Loading gallery...</div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
@@ -263,7 +321,7 @@ export function GallerySection() {
                     />
                   </button>
                 );
-              }
+              },
             )}
           </div>
         </div>

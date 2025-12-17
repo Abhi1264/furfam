@@ -25,9 +25,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
@@ -67,9 +65,9 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const relatedPosts = getBlogPostsByCategory(post.category).filter(
-    (p) => p.slug !== post.slug
-  ).slice(0, 3);
+  const relatedPosts = getBlogPostsByCategory(post.category)
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 3);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -262,4 +260,3 @@ export default async function BlogPostPage({ params }: Props) {
     </div>
   );
 }
-

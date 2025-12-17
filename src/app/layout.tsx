@@ -9,7 +9,7 @@ const fredoka = Fredoka({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app",
   ),
   title: "FurFam Pet Shop | Premium Dog Breeds & Pet Care",
   description:

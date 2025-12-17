@@ -24,12 +24,14 @@ Dogs require six essential nutrients for optimal health:
 ### 1. Proteins
 
 **Why It Matters:**
+
 - Builds and repairs tissues
 - Supports immune function
 - Provides energy
 - Essential for growth and development
 
 **Good Sources:**
+
 - High-quality meat (chicken, beef, fish)
 - Eggs
 - Legumes (in balanced diets)
@@ -38,12 +40,14 @@ Dogs require six essential nutrients for optimal health:
 ### 2. Fats
 
 **Why It Matters:**
+
 - Provides concentrated energy
 - Supports healthy skin and coat
 - Aids in vitamin absorption
 - Essential for brain function
 
 **Good Sources:**
+
 - Animal fats
 - Fish oils (omega-3 fatty acids)
 - Flaxseed oil
@@ -52,11 +56,13 @@ Dogs require six essential nutrients for optimal health:
 ### 3. Carbohydrates
 
 **Why It Matters:**
+
 - Provides energy
 - Supports digestive health
 - Source of fiber
 
 **Good Sources:**
+
 - Whole grains (brown rice, oats)
 - Vegetables
 - Sweet potatoes
@@ -65,12 +71,14 @@ Dogs require six essential nutrients for optimal health:
 ### 4. Vitamins
 
 **Why It Matters:**
+
 - Support various body functions
 - Essential for metabolism
 - Promote healthy growth
 - Support immune system
 
 **Key Vitamins:**
+
 - Vitamin A (vision, immune function)
 - B vitamins (energy, metabolism)
 - Vitamin D (bone health)
@@ -79,12 +87,14 @@ Dogs require six essential nutrients for optimal health:
 ### 5. Minerals
 
 **Why It Matters:**
+
 - Build strong bones and teeth
 - Support nerve function
 - Maintain fluid balance
 - Essential for various body processes
 
 **Key Minerals:**
+
 - Calcium and phosphorus (bone health)
 - Iron (oxygen transport)
 - Zinc (immune function)
@@ -93,6 +103,7 @@ Dogs require six essential nutrients for optimal health:
 ### 6. Water
 
 **Why It Matters:**
+
 - Most essential nutrient
 - Regulates body temperature
 - Aids digestion
@@ -106,6 +117,7 @@ Dogs require six essential nutrients for optimal health:
 ### Puppy Nutrition (0-12 months)
 
 **Key Considerations:**
+
 - Higher protein and fat needs
 - More frequent meals (3-4 times daily)
 - Supports rapid growth
@@ -113,6 +125,7 @@ Dogs require six essential nutrients for optimal health:
 - DHA for brain development
 
 **Feeding Guidelines:**
+
 - Feed puppy-specific food
 - Follow package guidelines
 - Monitor growth and adjust
@@ -122,6 +135,7 @@ Dogs require six essential nutrients for optimal health:
 ### Adult Dog Nutrition (1-7 years)
 
 **Key Considerations:**
+
 - Balanced nutrition
 - Maintain healthy weight
 - Support activity level
@@ -129,6 +143,7 @@ Dogs require six essential nutrients for optimal health:
 - Regular feeding schedule
 
 **Feeding Guidelines:**
+
 - Feed 2 times daily
 - Portion control is essential
 - Adjust for activity level
@@ -138,6 +153,7 @@ Dogs require six essential nutrients for optimal health:
 ### Senior Dog Nutrition (7+ years)
 
 **Key Considerations:**
+
 - Lower calorie needs
 - Higher quality protein
 - Joint support nutrients
@@ -145,6 +161,7 @@ Dogs require six essential nutrients for optimal health:
 - May need special diets
 
 **Feeding Guidelines:**
+
 - Senior-specific formulas
 - Smaller, more frequent meals
 - Easy to digest
@@ -156,6 +173,7 @@ Dogs require six essential nutrients for optimal health:
 ### Reading Dog Food Labels
 
 **What to Look For:**
+
 - **Named protein first**: "Chicken" not "meat meal"
 - **AAFCO statement**: Ensures complete nutrition
 - **Life stage appropriate**: Matches your dog's age
@@ -163,6 +181,7 @@ Dogs require six essential nutrients for optimal health:
 - **No fillers**: Avoid excessive corn, wheat, soy
 
 **What to Avoid:**
+
 - Generic "meat" sources
 - Artificial colors and flavors
 - Excessive preservatives
@@ -172,24 +191,28 @@ Dogs require six essential nutrients for optimal health:
 ### Types of Dog Food
 
 **Dry Food (Kibble):**
+
 - Convenient and cost-effective
 - Helps with dental health
 - Long shelf life
 - Easy to store and measure
 
 **Wet Food (Canned):**
+
 - Higher moisture content
 - More palatable
 - Good for picky eaters
 - Can be more expensive
 
 **Raw Food:**
+
 - Natural diet approach
 - Requires careful handling
 - May have health benefits
 - Consult with vet first
 
 **Freeze-Dried/Dehydrated:**
+
 - Convenient raw alternative
 - Retains nutrients
 - Easy to prepare
@@ -200,6 +223,7 @@ Dogs require six essential nutrients for optimal health:
 ### How Much to Feed
 
 **Factors to Consider:**
+
 - Dog's size and weight
 - Activity level
 - Age and life stage
@@ -207,6 +231,7 @@ Dogs require six essential nutrients for optimal health:
 - Health conditions
 
 **General Guidelines:**
+
 - Start with package recommendations
 - Adjust based on body condition
 - Monitor weight regularly
@@ -216,18 +241,21 @@ Dogs require six essential nutrients for optimal health:
 ### Feeding Schedule
 
 **Puppies:**
+
 - 3-4 meals daily until 6 months
 - 2-3 meals daily 6-12 months
 - Regular schedule important
 - Don't free-feed
 
 **Adults:**
+
 - 2 meals daily recommended
 - Consistent schedule
 - 12-hour intervals ideal
 - Avoid feeding before/after exercise
 
 **Seniors:**
+
 - 2-3 smaller meals
 - May need more frequent feeding
 - Easier to digest
@@ -238,6 +266,7 @@ Dogs require six essential nutrients for optimal health:
 ### Weight Management
 
 **Overweight Dogs:**
+
 - Reduce portion sizes gradually
 - Choose weight management formulas
 - Increase exercise
@@ -245,6 +274,7 @@ Dogs require six essential nutrients for optimal health:
 - Regular weigh-ins
 
 **Underweight Dogs:**
+
 - Increase portions gradually
 - High-quality, calorie-dense food
 - Multiple small meals
@@ -254,6 +284,7 @@ Dogs require six essential nutrients for optimal health:
 ### Food Allergies
 
 **Common Allergens:**
+
 - Beef
 - Dairy
 - Chicken
@@ -261,12 +292,14 @@ Dogs require six essential nutrients for optimal health:
 - Eggs
 
 **Signs of Allergies:**
+
 - Itchy skin
 - Digestive issues
 - Ear infections
 - Chronic licking
 
 **Management:**
+
 - Elimination diet
 - Hypoallergenic formulas
 - Limited ingredient diets
@@ -275,6 +308,7 @@ Dogs require six essential nutrients for optimal health:
 ### Health Conditions
 
 **Special Diets May Be Needed For:**
+
 - Kidney disease
 - Diabetes
 - Heart conditions
@@ -315,6 +349,7 @@ Dogs require six essential nutrients for optimal health:
 ## Transitioning Foods
 
 **How to Switch Foods:**
+
 1. Mix old and new food gradually
 2. Start with 25% new, 75% old
 3. Increase new food over 7-10 days
@@ -322,6 +357,7 @@ Dogs require six essential nutrients for optimal health:
 5. Complete transition gradually
 
 **Why Gradual Transition:**
+
 - Prevents digestive upset
 - Allows adjustment period
 - Maintains appetite
@@ -364,5 +400,4 @@ At FurFam, we're committed to helping you provide the best care for your dog. If
 
 ---
 
-*Have questions about your dog's nutrition? [Contact us](/contact) for personalized feeding advice, or [browse our resources](/blogs) for more pet care tips.*
-
+_Have questions about your dog's nutrition? [Contact us](/contact) for personalized feeding advice, or [browse our resources](/blogs) for more pet care tips._

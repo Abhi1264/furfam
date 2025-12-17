@@ -24,6 +24,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 **How We Choose Our Breeders:**
 
 **Initial Screening:**
+
 - Verification of licenses and registrations
 - Review of breeding history and records
 - Facility inspection and evaluation
@@ -31,6 +32,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Reference checks
 
 **Standards We Require:**
+
 - Licensed and registered operations
 - Clean, well-maintained facilities
 - Comprehensive health testing programs
@@ -38,6 +40,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Commitment to animal welfare
 
 **Ongoing Monitoring:**
+
 - Regular facility inspections
 - Health record reviews
 - Care standard assessments
@@ -45,6 +48,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Continuous relationship management
 
 **What This Means for You:**
+
 - Confidence in our partners
 - High standards maintained
 - Ethical practices ensured
@@ -55,12 +59,14 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 **Parent Dog Health Requirements:**
 
 **Genetic Testing:**
+
 - Breed-specific genetic disease screening
 - DNA testing for hereditary conditions
 - Carrier status identification
 - Health certification
 
 **Physical Health Evaluations:**
+
 - Hip and elbow dysplasia screening (OFA/PennHIP)
 - Eye examinations (CERF)
 - Cardiac evaluations
@@ -68,12 +74,14 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Regular veterinary care
 
 **Breeding Readiness:**
+
 - Appropriate age for breeding
 - Health clearance from veterinarians
 - Genetic compatibility assessment
 - Optimal breeding timing
 
 **Documentation:**
+
 - Complete health records
 - Test results and certifications
 - Veterinary documentation
@@ -82,12 +90,14 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 3: Breeding and Pregnancy Care
 
 **During Breeding:**
+
 - Careful selection of breeding pairs
 - Optimal timing for breeding
 - Professional veterinary oversight
 - Health monitoring throughout
 
 **Pregnancy Care:**
+
 - Regular veterinary checkups
 - Proper nutrition and supplements
 - Appropriate exercise
@@ -95,6 +105,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Health monitoring
 
 **What We Ensure:**
+
 - Health of mother throughout pregnancy
 - Proper care and nutrition
 - Veterinary oversight
@@ -104,6 +115,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 4: Whelping and Early Puppy Care
 
 **Whelping Process:**
+
 - Professional veterinary support
 - Clean, safe whelping environment
 - 24/7 monitoring when needed
@@ -111,6 +123,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Health assessment of newborns
 
 **Early Care (0-8 weeks):**
+
 - Regular health checkups
 - Proper nutrition
 - Temperature regulation
@@ -118,6 +131,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Health monitoring
 
 **Socialization Begins:**
+
 - Early handling and interaction
 - Exposure to various stimuli
 - Positive experiences
@@ -129,6 +143,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 **Puppy Health Program:**
 
 **Health Examinations:**
+
 - Regular veterinary checkups
 - Developmental assessments
 - Health monitoring
@@ -136,6 +151,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Comprehensive evaluations
 
 **Vaccination Schedule:**
+
 - Age-appropriate vaccinations
 - Proper timing and intervals
 - Veterinary oversight
@@ -143,6 +159,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Protection against diseases
 
 **Parasite Prevention:**
+
 - Deworming protocols
 - Flea and tick prevention
 - Regular treatments
@@ -150,6 +167,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Preventive care
 
 **Health Certificates:**
+
 - Veterinary health certificates
 - Complete documentation
 - Clearance for adoption
@@ -159,6 +177,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 6: Socialization and Development
 
 **Socialization Program:**
+
 - Exposure to various people
 - Interaction with other dogs
 - Environmental experiences
@@ -166,6 +185,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Confidence building
 
 **Early Training:**
+
 - Basic handling
 - Crate introduction
 - Potty training foundation
@@ -173,6 +193,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Good habits
 
 **Development Support:**
+
 - Proper nutrition
 - Mental stimulation
 - Physical development
@@ -182,6 +203,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 7: Matching and Adoption Preparation
 
 **Getting to Know You:**
+
 - Understanding your lifestyle
 - Learning about your family
 - Assessing your needs
@@ -189,6 +211,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Finding the right fit
 
 **Education and Preparation:**
+
 - Breed education
 - Care instructions
 - Training resources
@@ -196,6 +219,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Preparation materials
 
 **Adoption Planning:**
+
 - Scheduling adoption
 - Preparing documentation
 - Gathering resources
@@ -205,6 +229,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 8: Adoption and Transition
 
 **Adoption Day:**
+
 - Complete documentation
 - Health records provided
 - Care instructions reviewed
@@ -212,6 +237,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Questions answered
 
 **What You Receive:**
+
 - Health certificates
 - Vaccination records
 - Care instructions
@@ -220,6 +246,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Health guarantee
 
 **Transition Support:**
+
 - Guidance for first days
 - Answering questions
 - Providing resources
@@ -229,6 +256,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### Step 9: Lifetime Support
 
 **Ongoing Relationship:**
+
 - Available for questions
 - Support resources
 - Health guidance
@@ -236,6 +264,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Community access
 
 **We're Here For:**
+
 - Health concerns
 - Training questions
 - Behavioral issues
@@ -247,6 +276,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### What Information We Provide
 
 **Health Information:**
+
 - Complete health records
 - Test results
 - Vaccination records
@@ -254,6 +284,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Veterinary documentation
 
 **Breeding Information:**
+
 - Parent health records
 - Breeding history
 - Genetic testing results
@@ -261,6 +292,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Care practices
 
 **Support Resources:**
+
 - Care instructions
 - Training materials
 - Health information
@@ -270,6 +302,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ### What You Can Ask
 
 **We Welcome Questions About:**
+
 - Health testing and records
 - Breeding practices
 - Facility conditions
@@ -278,6 +311,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Anything else you want to know
 
 **We're Committed To:**
+
 - Honest answers
 - Complete information
 - Transparency
@@ -313,6 +347,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 ## Why Transparency Matters
 
 **For You:**
+
 - Confidence in your decision
 - Understanding the process
 - Trust in our practices
@@ -320,6 +355,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Informed choices
 
 **For Us:**
+
 - Building relationships
 - Demonstrating commitment
 - Earning trust
@@ -327,6 +363,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 - Setting standards
 
 **For Dogs:**
+
 - Better outcomes
 - Healthier lives
 - Proper care
@@ -338,6 +375,7 @@ At FurFam, we believe transparency is essential to building trust and ensuring t
 We believe that informed decisions are the best decisions. If you have questions about our process, standards, or practices, we're here to provide honest, complete answers.
 
 **Common Questions:**
+
 - Can I see health records? **Yes, absolutely.**
 - Can I visit facilities? **We can arrange visits when possible.**
 - What health testing is done? **Comprehensive breed-specific testing.**
@@ -352,5 +390,4 @@ Transparency isn't just a word to us—it's a practice. We're committed to being
 
 ---
 
-*Have questions about our process? [Contact us](/contact) for transparent, honest answers, or [learn more about our commitment](/about) to ethical breeding.*
-
+_Have questions about our process? [Contact us](/contact) for transparent, honest answers, or [learn more about our commitment](/about) to ethical breeding._

@@ -114,5 +114,4 @@ If you have questions or need guidance, the FurFam team is here to help. Contact
 
 ---
 
-*Have questions about dog ownership? [Contact us](/contact) or check out our [FAQs](/faqs) page for more information.*
-
+_Have questions about dog ownership? [Contact us](/contact) or check out our [FAQs](/faqs) page for more information._

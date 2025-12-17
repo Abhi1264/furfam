@@ -28,13 +28,13 @@ interface Props {
 export default async function BlogsPage({ searchParams }: Props) {
   const { category } = await searchParams;
   const allPosts = getAllBlogPosts();
-  
+
   const posts = category
     ? allPosts.filter((post) => post.category === category)
     : allPosts;
 
   const categories = Array.from(
-    new Set(allPosts.map((post) => post.category))
+    new Set(allPosts.map((post) => post.category)),
   ).sort();
 
   return (
@@ -90,7 +90,9 @@ export default async function BlogsPage({ searchParams }: Props) {
                         className="rounded-full"
                         asChild
                       >
-                        <Link href={`/blogs?category=${encodeURIComponent(cat)}`}>
+                        <Link
+                          href={`/blogs?category=${encodeURIComponent(cat)}`}
+                        >
                           {cat}
                         </Link>
                       </Button>
@@ -166,7 +168,6 @@ export default async function BlogsPage({ searchParams }: Props) {
                             ))}
                           </div>
                         )}
-
                       </div>
                     </article>
                   ))}
@@ -208,4 +209,3 @@ export default async function BlogsPage({ searchParams }: Props) {
     </div>
   );
 }
-

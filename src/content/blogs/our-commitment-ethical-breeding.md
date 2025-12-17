@@ -24,6 +24,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Health and Genetic Testing
 
 **Our Standards:**
+
 - All breeding dogs undergo comprehensive health screenings
 - Genetic testing for breed-specific conditions
 - Regular veterinary care and checkups
@@ -31,6 +32,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Transparent health records
 
 **Why It Matters:**
+
 - Prevents hereditary diseases
 - Ensures healthy puppies
 - Reduces suffering
@@ -40,6 +42,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Proper Care and Living Conditions
 
 **Our Requirements:**
+
 - Clean, spacious living environments
 - Proper nutrition and feeding schedules
 - Regular exercise and socialization
@@ -47,6 +50,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Comfortable, safe facilities
 
 **Our Commitment:**
+
 - No puppy mills or commercial breeding facilities
 - Regular facility inspections
 - High standards for all partners
@@ -55,6 +59,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Responsible Breeding Practices
 
 **What We Do:**
+
 - Appropriate breeding ages and frequencies
 - Proper rest periods between litters
 - Limited breeding to prevent overbreeding
@@ -62,6 +67,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Lifetime care commitment
 
 **What We Don't Do:**
+
 - Never support puppy mills
 - Never work with irresponsible breeders
 - Never compromise on health standards
@@ -72,6 +78,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### 1. Health First
 
 **Every puppy receives:**
+
 - Comprehensive health examination
 - Age-appropriate vaccinations
 - Deworming and parasite prevention
@@ -79,6 +86,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Health guarantee and documentation
 
 **We ensure:**
+
 - Parents are health tested
 - Puppies are healthy at adoption
 - Ongoing health support
@@ -87,6 +95,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### 2. Ethical Partner Network
 
 **Our Breeder Standards:**
+
 - Licensed and registered breeders
 - Adherence to ethical breeding practices
 - Regular facility inspections
@@ -94,6 +103,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Transparent breeding records
 
 **We Only Work With:**
+
 - Breeders who share our values
 - Facilities that meet our standards
 - People committed to ethical practices
@@ -102,6 +112,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### 3. Transparency and Education
 
 **We Provide:**
+
 - Complete health records
 - Breeder information
 - Breeding history when available
@@ -109,6 +120,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Ongoing support and education
 
 **We Believe:**
+
 - Informed owners make better decisions
 - Transparency builds trust
 - Education prevents problems
@@ -117,6 +129,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### 4. Lifetime Support
 
 **Our Commitment:**
+
 - Support throughout your dog's life
 - Resources and guidance available
 - Help with questions and concerns
@@ -124,6 +137,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Community of support
 
 **We're Here For:**
+
 - Training questions
 - Health concerns
 - Behavioral issues
@@ -133,6 +147,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### 5. Responsible Adoption Process
 
 **Our Process:**
+
 - Thorough screening of potential owners
 - Education about breed characteristics
 - Matching dogs to appropriate homes
@@ -140,6 +155,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Support network
 
 **We Ensure:**
+
 - Dogs go to suitable homes
 - Owners understand responsibilities
 - Proper preparation and education
@@ -150,6 +166,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Facility Requirements
 
 **Living Conditions:**
+
 - Clean, well-maintained facilities
 - Adequate space for all dogs
 - Proper ventilation and lighting
@@ -157,6 +174,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Safe, secure environments
 
 **Health Standards:**
+
 - Regular veterinary care
 - Proper nutrition
 - Exercise and enrichment
@@ -166,6 +184,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Breeding Practices
 
 **Ethical Standards:**
+
 - Appropriate breeding ages
 - Limited breeding frequency
 - Proper rest periods
@@ -173,6 +192,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Retirement planning
 
 **We Monitor:**
+
 - Breeding records
 - Health certifications
 - Facility conditions
@@ -192,6 +212,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Health Testing Requirements
 
 **Required Tests:**
+
 - Hip and elbow evaluations
 - Eye examinations
 - Genetic disease screening
@@ -199,6 +220,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Breed-specific tests
 
 **Documentation:**
+
 - Health certificates
 - Test results
 - Breeding records
@@ -208,6 +230,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 ### Education and Training
 
 **For Breeders:**
+
 - Ethical breeding education
 - Best practices training
 - Health management
@@ -215,6 +238,7 @@ Ethical breeding goes far beyond simply producing puppies. It encompasses:
 - Continuous learning
 
 **For Owners:**
+
 - Breed education
 - Care instructions
 - Training resources
@@ -287,5 +311,4 @@ We believe that responsible breeding and ethical practices create healthier dogs
 
 ---
 
-*Have questions about our ethical breeding practices? [Contact us](/contact) or [learn more about our process](/about).*
-
+_Have questions about our ethical breeding practices? [Contact us](/contact) or [learn more about our process](/about)._

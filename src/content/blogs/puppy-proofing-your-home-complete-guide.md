@@ -32,6 +32,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Living Room
 
 **Hazards to Address:**
+
 - Electrical cords and outlets
 - Small objects that can be swallowed
 - Toxic plants
@@ -39,6 +40,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Fireplaces and heaters
 
 **Safety Measures:**
+
 - Cover or hide electrical cords
 - Use outlet covers
 - Remove or secure small decorative items
@@ -48,6 +50,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Secure window blind cords
 
 **Puppy-Safe Setup:**
+
 - Designate a safe play area
 - Provide appropriate chew toys
 - Use baby gates to limit access
@@ -56,6 +59,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Kitchen
 
 **Hazards to Address:**
+
 - Toxic foods (chocolate, grapes, onions, etc.)
 - Cleaning supplies
 - Sharp objects
@@ -63,6 +67,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Trash cans
 
 **Safety Measures:**
+
 - Store all food securely
 - Keep cleaning supplies in locked cabinets
 - Secure trash cans with lids
@@ -72,6 +77,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Keep dishwasher closed when not in use
 
 **Puppy-Safe Setup:**
+
 - Create a safe feeding area
 - Use non-slip mats under food bowls
 - Keep water bowl accessible
@@ -80,6 +86,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Bedroom
 
 **Hazards to Address:**
+
 - Medications
 - Small objects (jewelry, buttons, etc.)
 - Electrical cords
@@ -87,6 +94,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Clothes and shoes
 
 **Safety Measures:**
+
 - Store medications in secure locations
 - Keep small items in drawers or containers
 - Secure or hide electrical cords
@@ -96,6 +104,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Remove or secure jewelry
 
 **Puppy-Safe Setup:**
+
 - Provide a comfortable bed
 - Create a designated sleeping area
 - Keep favorite toys accessible
@@ -104,6 +113,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Bathroom
 
 **Hazards to Address:**
+
 - Medications and vitamins
 - Cleaning products
 - Toilet bowl cleaners
@@ -111,6 +121,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Small objects
 
 **Safety Measures:**
+
 - Keep toilet lid closed
 - Store all medications securely
 - Lock cleaning supply cabinets
@@ -119,6 +130,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Test water temperature before baths
 
 **Puppy-Safe Setup:**
+
 - Designate a safe bathing area
 - Use non-slip mats in tub
 - Keep grooming supplies organized
@@ -127,6 +139,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Garage and Outdoor Areas
 
 **Hazards to Address:**
+
 - Antifreeze and chemicals
 - Tools and equipment
 - Sharp objects
@@ -134,6 +147,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Pools and water features
 
 **Safety Measures:**
+
 - Store all chemicals securely
 - Keep tools locked away
 - Fence off dangerous areas
@@ -143,6 +157,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Remove small objects
 
 **Puppy-Safe Setup:**
+
 - Create a secure play area
 - Provide shade and water
 - Use puppy-safe fencing
@@ -153,6 +168,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Toxic Foods
 
 **Never give your puppy:**
+
 - Chocolate
 - Grapes and raisins
 - Onions and garlic
@@ -164,6 +180,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Raw dough
 
 **Safe Storage:**
+
 - Keep all human food out of reach
 - Secure trash cans
 - Be careful with countertops
@@ -172,6 +189,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Toxic Plants
 
 **Common toxic plants:**
+
 - Lilies
 - Azaleas
 - Tulips
@@ -180,6 +198,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 - Poinsettias
 
 **Safety Measures:**
+
 - Research all plants before bringing them home
 - Keep toxic plants out of reach
 - Consider artificial plants
@@ -188,6 +207,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Electrical Safety
 
 **Prevent electrical accidents:**
+
 - Cover or hide all cords
 - Use cord protectors
 - Keep cords out of reach
@@ -198,6 +218,7 @@ Puppies are naturally curious and don't understand dangers. They'll chew, explor
 ### Small Objects
 
 **Items to secure:**
+
 - Coins
 - Buttons
 - Jewelry
@@ -214,6 +235,7 @@ If it can fit in your puppy's mouth, it's a potential hazard. Keep all small obj
 Use this checklist to ensure your home is safe:
 
 ### General Safety
+
 - [ ] All electrical cords secured or hidden
 - [ ] Outlet covers installed
 - [ ] Small objects removed from reach
@@ -226,6 +248,7 @@ Use this checklist to ensure your home is safe:
 - [ ] Stairs gated if needed
 
 ### Room-Specific
+
 - [ ] Kitchen: Food and chemicals secured
 - [ ] Bathroom: Toilet closed, medications secured
 - [ ] Bedroom: Small items put away
@@ -234,6 +257,7 @@ Use this checklist to ensure your home is safe:
 - [ ] Outdoor: Fence secure, toxic plants removed
 
 ### Puppy Essentials
+
 - [ ] Safe play area designated
 - [ ] Appropriate toys available
 - [ ] Comfortable bed provided
@@ -246,6 +270,7 @@ Use this checklist to ensure your home is safe:
 ### Designate a Puppy Area
 
 Create a specific area where your puppy can safely play and rest:
+
 - Use baby gates to limit access
 - Provide comfortable bedding
 - Include appropriate toys
@@ -255,6 +280,7 @@ Create a specific area where your puppy can safely play and rest:
 ### Crate Training
 
 A crate provides a safe space when you can't supervise:
+
 - Choose the right size crate
 - Make it comfortable with bedding
 - Use positive reinforcement
@@ -289,5 +315,4 @@ If you have questions about puppy-proofing or need advice on creating a safe env
 
 ---
 
-*Preparing for a new puppy? [Contact us](/contact) for expert guidance on puppy care and safety, or [browse our available puppies](/breeds).*
-
+_Preparing for a new puppy? [Contact us](/contact) for expert guidance on puppy care and safety, or [browse our available puppies](/breeds)._

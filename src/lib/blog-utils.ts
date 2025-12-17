@@ -90,7 +90,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
       content,
       readingTime,
     } as BlogPost;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -102,4 +102,3 @@ export function getBlogPostsByCategory(category: string): BlogPost[] {
 export function getBlogPostsByTag(tag: string): BlogPost[] {
   return getAllBlogPosts().filter((post) => post.tags.includes(tag));
 }
-

@@ -32,6 +32,7 @@ Before we dive into specific breeds, let's understand what qualities make a dog 
 ### 1. French Bulldog
 
 **Why They're Perfect for Apartments:**
+
 - Low energy levels
 - Quiet and rarely barks
 - Small size (under 30 lbs)
@@ -39,6 +40,7 @@ Before we dive into specific breeds, let's understand what qualities make a dog 
 - Great personalities
 
 **Care Needs:**
+
 - Short daily walks
 - Minimal grooming
 - Sensitive to extreme temperatures
@@ -49,6 +51,7 @@ French Bulldogs are one of the most popular apartment dogs. Their calm demeanor 
 ### 2. Cavalier King Charles Spaniel
 
 **Why They're Perfect for Apartments:**
+
 - Gentle and quiet
 - Moderate energy
 - Affectionate and friendly
@@ -56,6 +59,7 @@ French Bulldogs are one of the most popular apartment dogs. Their calm demeanor 
 - Great with people
 
 **Care Needs:**
+
 - Daily brushing
 - Moderate exercise
 - Regular ear cleaning
@@ -66,6 +70,7 @@ These gentle dogs are perfect companions for apartment dwellers who want a lovin
 ### 3. Pug
 
 **Why They're Perfect for Apartments:**
+
 - Very low energy
 - Quiet and calm
 - Small and compact
@@ -73,6 +78,7 @@ These gentle dogs are perfect companions for apartment dwellers who want a lovin
 - Minimal exercise needs
 
 **Care Needs:**
+
 - Short walks
 - Regular cleaning of facial folds
 - Sensitive to heat
@@ -83,6 +89,7 @@ Pugs are known for their laid-back personalities and are perfectly content with 
 ### 4. Shih Tzu
 
 **Why They're Perfect for Apartments:**
+
 - Low energy levels
 - Quiet and calm
 - Small size
@@ -90,6 +97,7 @@ Pugs are known for their laid-back personalities and are perfectly content with 
 - Great lap dogs
 
 **Care Needs:**
+
 - Daily grooming
 - Short walks
 - Regular professional grooming
@@ -100,6 +108,7 @@ Shih Tzus are perfect apartment companions who are happy to spend their days lou
 ### 5. Boston Terrier
 
 **Why They're Perfect for Apartments:**
+
 - Moderate energy
 - Generally quiet
 - Small and compact
@@ -107,6 +116,7 @@ Shih Tzus are perfect apartment companions who are happy to spend their days lou
 - Friendly nature
 
 **Care Needs:**
+
 - Moderate exercise
 - Minimal grooming
 - Regular cleaning
@@ -117,6 +127,7 @@ Boston Terriers are well-suited for apartment living with their manageable size 
 ### 6. Chihuahua
 
 **Why They're Perfect for Apartments:**
+
 - Very small size
 - Low exercise needs
 - Can be trained to be quiet
@@ -124,6 +135,7 @@ Boston Terriers are well-suited for apartment living with their manageable size 
 - Long lifespan
 
 **Care Needs:**
+
 - Short walks
 - Minimal grooming (short-haired variety)
 - Training for barking
@@ -134,6 +146,7 @@ Chihuahuas are the smallest breed and can thrive in even the smallest apartments
 ### 7. Bichon Frise
 
 **Why They're Perfect for Apartments:**
+
 - Low to moderate energy
 - Hypoallergenic
 - Small size
@@ -141,6 +154,7 @@ Chihuahuas are the smallest breed and can thrive in even the smallest apartments
 - Adaptable
 
 **Care Needs:**
+
 - Regular professional grooming
 - Moderate exercise
 - Daily brushing
@@ -151,6 +165,7 @@ Bichon Frises are great for apartment living and perfect for people with allergi
 ### 8. Maltese
 
 **Why They're Perfect for Apartments:**
+
 - Very small size
 - Low energy
 - Hypoallergenic
@@ -158,6 +173,7 @@ Bichon Frises are great for apartment living and perfect for people with allergi
 - Great lap dogs
 
 **Care Needs:**
+
 - Daily grooming
 - Short walks
 - Regular professional grooming
@@ -168,6 +184,7 @@ Maltese dogs are tiny, gentle, and perfect for small apartment spaces.
 ### 9. Yorkshire Terrier
 
 **Why They're Perfect for Apartments:**
+
 - Very small size
 - Low exercise needs
 - Hypoallergenic
@@ -175,6 +192,7 @@ Maltese dogs are tiny, gentle, and perfect for small apartment spaces.
 - Long lifespan
 
 **Care Needs:**
+
 - Daily grooming
 - Short walks
 - Regular professional grooming
@@ -185,6 +203,7 @@ Yorkies are tiny but full of personality, making them great apartment companions
 ### 10. Pomeranian
 
 **Why They're Perfect for Apartments:**
+
 - Very small size
 - Moderate energy
 - Adaptable
@@ -192,6 +211,7 @@ Yorkies are tiny but full of personality, making them great apartment companions
 - Minimal space needs
 
 **Care Needs:**
+
 - Daily brushing
 - Moderate exercise
 - Regular grooming
@@ -204,6 +224,7 @@ Pomeranians are small but spunky, perfect for apartment dwellers who want a live
 ### Exercise and Mental Stimulation
 
 Even small dogs need exercise and mental stimulation:
+
 - **Daily walks**: Even 15-20 minutes helps
 - **Indoor play**: Fetch, tug-of-war, puzzle toys
 - **Training sessions**: Mental exercise is as important as physical
@@ -212,6 +233,7 @@ Even small dogs need exercise and mental stimulation:
 ### Managing Noise
 
 Keep your dog quiet to maintain good relationships with neighbors:
+
 - Train from a young age
 - Use positive reinforcement
 - Address barking immediately
@@ -220,6 +242,7 @@ Keep your dog quiet to maintain good relationships with neighbors:
 ### Potty Training
 
 Essential for apartment living:
+
 - Establish a routine
 - Use potty pads or frequent walks
 - Be consistent with training
@@ -228,6 +251,7 @@ Essential for apartment living:
 ### Space Management
 
 Make the most of your space:
+
 - Designate a dog area
 - Use vertical space (beds, toys)
 - Keep essentials organized
@@ -249,5 +273,4 @@ At FurFam, we can help you find the perfect apartment-friendly companion. [Brows
 
 ---
 
-*Looking for the perfect apartment companion? [Explore our small dog breeds](/breeds) or [get in touch](/contact) with our team.*
-
+_Looking for the perfect apartment companion? [Explore our small dog breeds](/breeds) or [get in touch](/contact) with our team._

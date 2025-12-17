@@ -18,7 +18,13 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="Logo" width={175} height={56} draggable={false}/>
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                width={175}
+                height={56}
+                draggable={false}
+              />
             </Link>
             <p className="text-sm text-background/80 leading-relaxed">
               Your trusted partner in finding the perfect furry companion. We

@@ -24,16 +24,19 @@ Before selecting a breed, honestly assess your daily routine:
 ### Activity Level
 
 **High Energy Breeds** (Border Collies, Australian Shepherds, Jack Russell Terriers):
+
 - Require 2+ hours of exercise daily
 - Best for active individuals or families
 - Need mental stimulation and training
 
 **Moderate Energy Breeds** (Labrador Retrievers, Golden Retrievers, Beagles):
+
 - Need 1-2 hours of exercise daily
 - Great for families with children
 - Adaptable to various living situations
 
 **Low Energy Breeds** (Basset Hounds, Bulldogs, Great Danes):
+
 - Require 30-60 minutes of exercise daily
 - Perfect for apartment living
 - Ideal for seniors or less active owners
@@ -43,6 +46,7 @@ Before selecting a breed, honestly assess your daily routine:
 ### Apartment Living
 
 If you live in an apartment, consider:
+
 - **Size**: Smaller to medium breeds often adapt better
 - **Barking**: Some breeds are quieter than others
 - **Exercise needs**: Breeds that require less space
@@ -51,6 +55,7 @@ If you live in an apartment, consider:
 ### House with Yard
 
 With a yard, you have more options:
+
 - Larger breeds can thrive
 - High-energy breeds have space to play
 - Guard dog breeds can fulfill their protective instincts
@@ -61,6 +66,7 @@ With a yard, you have more options:
 ### Families with Children
 
 Look for breeds known for being:
+
 - Patient and gentle
 - Tolerant of handling
 - Eager to please
@@ -69,6 +75,7 @@ Look for breeds known for being:
 ### Seniors or Singles
 
 Consider breeds that are:
+
 - Lower maintenance
 - Calmer temperament
 - Smaller size (easier to manage)
@@ -106,6 +113,7 @@ Consider breeds that are:
 ## Health Considerations
 
 Research breed-specific health issues:
+
 - Some breeds are prone to certain conditions
 - Consider insurance and vet costs
 - Look for reputable breeders who health test
@@ -113,6 +121,7 @@ Research breed-specific health issues:
 ## Allergies
 
 If you or family members have allergies:
+
 - Consider hypoallergenic breeds
 - Poodles, Bichon Frises, Portuguese Water Dogs
 - No dog is 100% hypoallergenic, but some produce fewer allergens
@@ -144,5 +153,4 @@ At FurFam, we're here to help you find your perfect match. [Browse our breeds](/
 
 ---
 
-*Ready to find your perfect companion? [Explore our available breeds](/breeds) or [get in touch](/contact) with our team for expert guidance.*
-
+_Ready to find your perfect companion? [Explore our available breeds](/breeds) or [get in touch](/contact) with our team for expert guidance._
