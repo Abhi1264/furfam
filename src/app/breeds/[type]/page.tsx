@@ -78,7 +78,7 @@ export default async function BreedTypePage({ params }: Props) {
               <div className="relative flex justify-center lg:justify-end">
                 <div className="relative h-64 w-64 overflow-hidden rounded-2xl shadow-xl lg:h-80 lg:w-80">
                   <Image
-                    src={breedType.image || "/placeholder.svg"}
+                    src={breedType.image}
                     alt={breedType.name}
                     fill
                     className="object-cover"
@@ -108,7 +108,7 @@ export default async function BreedTypePage({ params }: Props) {
                   >
                     <div className="relative h-56 overflow-hidden">
                       <Image
-                        src={breed.image || "/placeholder.svg"}
+                        src={breed.image}
                         alt={breed.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -175,7 +175,7 @@ export default async function BreedTypePage({ params }: Props) {
                   >
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg">
                       <Image
-                        src={t.image || "/placeholder.svg"}
+                        src={t.image}
                         alt={t.name}
                         fill
                         className="object-cover"

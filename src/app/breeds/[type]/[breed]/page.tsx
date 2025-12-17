@@ -95,7 +95,7 @@ export default async function BreedDetailPage({ params }: Props) {
               {/* Image */}
               <div className="relative aspect-square overflow-hidden rounded-2xl shadow-xl">
                 <Image
-                  src={breed.image || "/placeholder.svg"}
+                  src={breed.image}
                   alt={breed.name}
                   fill
                   className="object-cover"
@@ -326,7 +326,7 @@ export default async function BreedDetailPage({ params }: Props) {
                   >
                     <div className="relative h-48 overflow-hidden">
                       <Image
-                        src={relatedBreed.image || "/placeholder.svg"}
+                        src={relatedBreed.image}
                         alt={relatedBreed.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"

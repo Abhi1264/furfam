@@ -26,7 +26,7 @@ export function BreedTypesSection() {
             >
               <div className="relative h-56 overflow-hidden">
                 <Image
-                  src={type.image || "/placeholder.svg"}
+                  src={type.image}
                   alt={type.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"

@@ -23,8 +23,8 @@ export function Header() {
           <Image
             src="/logo.svg"
             alt="Logo"
-            width={175}
-            height={56}
+            width={130}
+            height={40}
             draggable={false}
           />
         </Link>
@@ -38,13 +38,18 @@ export function Header() {
             Home
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-xl font-medium text-background transition-colors hover:text-primary">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-xl font-medium text-background transition-colors hover:text-primary cursor-pointer">
               Breeds <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48">
               {breedTypes.map((type) => (
                 <DropdownMenuItem key={type.id} asChild>
-                  <Link href={`/breeds/${type.slug}`}>{type.name}</Link>
+                  <Link
+                    href={`/breeds/${type.slug}`}
+                    className="cursor-pointer"
+                  >
+                    {type.name}
+                  </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -96,65 +101,69 @@ export function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="border-t border-border bg-background md:hidden">
-          <nav className="container mx-auto flex flex-col gap-4 px-4 py-4">
-            <Link
-              href="/"
-              className="font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <div className="flex flex-col gap-2">
-              <span className="font-medium text-muted-foreground">Breeds</span>
-              {breedTypes.map((type) => (
-                <Link
-                  key={type.id}
-                  href={`/breeds/${type.slug}`}
-                  className="pl-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {type.name}
-                </Link>
-              ))}
-            </div>
-            <Link
-              href="/about"
-              className="font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/blogs"
-              className="font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Blogs
-            </Link>
-            <Link
-              href="/contact"
-              className="font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
-            <Button asChild className="w-full text-lg">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Find Your Pup
+      <div
+        className={`bg-foreground md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "max-h-screen opacity-100 translate-y-0"
+            : "max-h-0 opacity-0 -translate-y-4"
+        }`}
+      >
+        <nav className="container text-background mx-auto flex flex-col gap-4 px-4 py-4">
+          <Link
+            href="/"
+            className="font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <div className="flex flex-col gap-2">
+            <span className="font-medium text-muted-foreground">Breeds</span>
+            {breedTypes.map((type) => (
+              <Link
+                key={type.id}
+                href={`/breeds/${type.slug}`}
+                className="pl-4"
+                onClick={() => setIsOpen(false)}
+              >
+                {type.name}
               </Link>
-            </Button>
-          </nav>
-        </div>
-      )}
+            ))}
+          </div>
+          <Link
+            href="/about"
+            className="font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            About Us
+          </Link>
+          <Link
+            href="/services"
+            className="font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Services
+          </Link>
+          <Link
+            href="/blogs"
+            className="font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Blogs
+          </Link>
+          <Link
+            href="/contact"
+            className="font-medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </Link>
+          <Button asChild className="w-full text-lg">
+            <Link href="/contact" onClick={() => setIsOpen(false)}>
+              Find Your Pup
+            </Link>
+          </Button>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -258,7 +258,7 @@ export default function AboutPage() {
                 >
                   <div className="relative h-64">
                     <Image
-                      src={member.image || "/placeholder.svg"}
+                      src={member.image}
                       alt={member.name}
                       fill
                       className="object-cover"

@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Dog Mom",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "/placeholder.jpg",
     content:
       "FurFam made our puppy adoption experience absolutely wonderful! The team was so helpful in matching us with the perfect Golden Retriever. Max has been the best addition to our family.",
     rating: 5,
@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Michael Chen",
     role: "Pet Parent",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "/placeholder.jpg",
     content:
       "The level of care and attention FurFam puts into their process is amazing. Our Beagle came healthy, well-socialized, and already trained on the basics. Highly recommend!",
     rating: 5,
@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: "Emily Rodriguez",
     role: "First-time Owner",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "/placeholder.jpg",
     content:
       "As a first-time dog owner, I was nervous about the process. FurFam&apos;s team guided me every step of the way and their ongoing support has been invaluable. Love my Corgi!",
     rating: 5,
@@ -56,7 +56,7 @@ export function TestimonialsSection() {
               <div className="flex items-center gap-4">
                 {/* <div className="relative h-12 w-12 overflow-hidden rounded-full">
                   <Image
-                    src={testimonial.image || "/placeholder.svg"}
+                    src={testimonial.image}
                     alt={testimonial.name}
                     fill
                     className="object-cover"

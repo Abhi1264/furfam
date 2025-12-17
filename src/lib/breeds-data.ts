@@ -132,7 +132,7 @@ export const breeds: Breed[] = [
       training:
         "Highly trainable and eager to please. Start socialization and basic obedience early for best results.",
     },
-    price: "$1,500 - $3,000",
+    price: "₹15,000 - ₹30,000",
   },
   {
     id: "labrador-retriever",
@@ -170,7 +170,7 @@ export const breeds: Breed[] = [
       training:
         "Extremely trainable and eager to please. They excel in obedience, agility, and service work.",
     },
-    price: "$1,000 - $2,500",
+    price: "₹10,000 - ₹25,000",
   },
   {
     id: "cocker-spaniel",
@@ -208,7 +208,7 @@ export const breeds: Breed[] = [
       training:
         "Responds well to positive reinforcement. Can be sensitive, so gentle training methods work best.",
     },
-    price: "$1,000 - $2,000",
+    price: "₹10,000 - ₹20,000",
   },
   // Working Dogs
   {
@@ -247,7 +247,7 @@ export const breeds: Breed[] = [
       training:
         "Highly trainable and eager to work. Early socialization is crucial for well-rounded adults.",
     },
-    price: "$1,500 - $4,000",
+    price: "₹15,000 - ₹40,000",
   },
   {
     id: "siberian-husky",
@@ -285,7 +285,7 @@ export const breeds: Breed[] = [
       training:
         "Independent and can be stubborn. Requires patient, consistent training from an experienced owner.",
     },
-    price: "$1,000 - $3,000",
+    price: "₹10,000 - ₹30,000",
   },
   {
     id: "rottweiler",
@@ -323,7 +323,7 @@ export const breeds: Breed[] = [
       training:
         "Intelligent and trainable, but requires firm, consistent leadership. Early socialization is essential.",
     },
-    price: "$1,500 - $4,000",
+    price: "₹15,000 - ₹40,000",
   },
   // Herding Dogs
   {
@@ -362,7 +362,7 @@ export const breeds: Breed[] = [
       training:
         "The most trainable of all breeds. They need mental challenges to stay happy.",
     },
-    price: "$800 - $2,500",
+    price: "₹8,000 - ₹25,000",
   },
   {
     id: "australian-shepherd",
@@ -399,7 +399,7 @@ export const breeds: Breed[] = [
       training:
         "Highly trainable and eager to please. Excels in obedience, agility, and herding trials.",
     },
-    price: "$1,000 - $2,500",
+    price: "₹10,000 - ₹25,000",
   },
   {
     id: "pembroke-welsh-corgi",
@@ -437,7 +437,7 @@ export const breeds: Breed[] = [
       training:
         "Smart and trainable but can be independent. Use positive reinforcement methods.",
     },
-    price: "$1,000 - $2,500",
+    price: "₹10,000 - ₹25,000",
   },
   // Toy Dogs
   {
@@ -474,7 +474,7 @@ export const breeds: Breed[] = [
       training:
         "Smart and trainable but can be stubborn. Consistent training is key.",
     },
-    price: "$1,000 - $3,000",
+    price: "₹10,000 - ₹30,000",
   },
   {
     id: "chihuahua",
@@ -512,7 +512,7 @@ export const breeds: Breed[] = [
       training:
         "Can be challenging due to stubbornness. Early socialization is very important.",
     },
-    price: "$500 - $2,000",
+    price: "₹5,000 - ₹20,000",
   },
   {
     id: "french-bulldog",
@@ -550,7 +550,7 @@ export const breeds: Breed[] = [
       training:
         "Eager to please and trainable. Responds well to positive reinforcement.",
     },
-    price: "$2,000 - $5,000",
+    price: "₹20,000 - ₹50,000",
   },
   // Terrier Dogs
   {
@@ -589,7 +589,7 @@ export const breeds: Breed[] = [
       training:
         "Intelligent but independent. Requires firm, consistent training and lots of mental stimulation.",
     },
-    price: "$800 - $2,500",
+    price: "₹8,000 - ₹25,000",
   },
   {
     id: "yorkshire-terrier",
@@ -626,7 +626,7 @@ export const breeds: Breed[] = [
       training:
         "Smart and trainable. Can be stubborn, so patience and consistency are key.",
     },
-    price: "$1,200 - $3,000",
+    price: "₹12,000 - ₹30,000",
   },
   // Hound Dogs
   {
@@ -665,7 +665,7 @@ export const breeds: Breed[] = [
       training:
         "Can be stubborn due to their scent-driven nature. Food rewards work well.",
     },
-    price: "$800 - $2,000",
+    price: "₹8,000 - ₹20,000",
   },
   {
     id: "dachshund",
@@ -703,7 +703,7 @@ export const breeds: Breed[] = [
       training:
         "Intelligent but stubborn. Consistent, patient training with positive reinforcement works best.",
     },
-    price: "$800 - $2,500",
+    price: "₹8,000 - ₹25,000",
   },
   {
     id: "basset-hound",
@@ -740,7 +740,7 @@ export const breeds: Breed[] = [
       training:
         "Can be stubborn. Use patience and food rewards for best results.",
     },
-    price: "$800 - $2,000",
+    price: "₹8,000 - ₹20,000",
   },
 ];
 

@@ -21,7 +21,7 @@ export function PartnersSection() {
               className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             >
               <Image
-                src={partner.logo || "/placeholder.svg"}
+                src={partner.logo}
                 alt={partner.name}
                 width={120}
                 height={48}

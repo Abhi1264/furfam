@@ -10,7 +10,7 @@ const popularBreeds = [
     type: "sporting",
     slug: "golden-retriever",
     image: "/golden-retriever.jpg",
-    price: "$1,500 - $3,000",
+    price: "₹15,000 - ₹30,000",
     traits: ["Friendly", "Intelligent", "Devoted"],
   },
   {
@@ -18,7 +18,7 @@ const popularBreeds = [
     type: "toy",
     slug: "french-bulldog",
     image: "/french-bulldog.jpg",
-    price: "$2,000 - $4,000",
+    price: "₹20,000 - ₹40,000",
     traits: ["Playful", "Adaptable", "Smart"],
   },
   {
@@ -26,7 +26,7 @@ const popularBreeds = [
     type: "herding",
     slug: "german-shepherd",
     image: "/german-shepherd.jpg",
-    price: "$1,500 - $3,500",
+    price: "₹15,000 - ₹35,000",
     traits: ["Loyal", "Confident", "Courageous"],
   },
   {
@@ -34,7 +34,7 @@ const popularBreeds = [
     type: "sporting",
     slug: "labrador-retriever",
     image: "/labrador-retriever.jpg",
-    price: "$1,200 - $2,500",
+    price: "₹12,000 - ₹25,000",
     traits: ["Outgoing", "Active", "Friendly"],
   },
 ];
@@ -74,7 +74,7 @@ export function PopularBreedsSection() {
               <div className="bg-card rounded-2xl overflow-hidden border shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
                 <div className="relative aspect-square overflow-hidden bg-secondary/50">
                   <Image
-                    src={breed.image || "/placeholder.svg"}
+                    src={breed.image}
                     alt={breed.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
