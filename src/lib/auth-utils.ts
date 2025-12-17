@@ -1,20 +1,5 @@
 import { createHash, randomBytes } from "crypto";
 import { cookies } from "next/headers";
-import { promises as fs } from "fs";
-import path from "path";
-
-const DATA_DIR = path.join(process.cwd(), "data");
-const USERS_FILE = path.join(DATA_DIR, "users.json");
-const SESSIONS_FILE = path.join(DATA_DIR, "sessions.json");
-
-// Ensure data directory exists
-async function ensureDataDir() {
-  try {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-  } catch {
-    // Directory might already exist
-  }
-}
 
 export interface User {
   id: string;
@@ -46,59 +31,27 @@ export function verifyPassword(password: string, hash: string): boolean {
 }
 
 export async function readUsers(): Promise<Record<string, User>> {
-  await ensureDataDir();
-  try {
-    const data = await fs.readFile(USERS_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return {};
+  // Use environment variables for admin user
+  if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD_HASH) {
+    const adminUser: User = {
+      id: "admin_env",
+      email: process.env.ADMIN_EMAIL,
+      passwordHash: process.env.ADMIN_PASSWORD_HASH,
+      createdAt: new Date().toISOString(),
+    };
+    return { [adminUser.id]: adminUser };
   }
-}
 
-async function writeUsers(users: Record<string, User>): Promise<void> {
-  await ensureDataDir();
-  await fs.writeFile(USERS_FILE, JSON.stringify(users, null, 2));
+  return {};
 }
 
 async function readSessions(): Promise<Record<string, Session>> {
-  await ensureDataDir();
-  try {
-    const data = await fs.readFile(SESSIONS_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return {};
-  }
+  // Sessions don't persist on serverless, but tokens are validated via cookie
+  return {};
 }
 
 async function writeSessions(sessions: Record<string, Session>): Promise<void> {
-  await ensureDataDir();
-  await fs.writeFile(SESSIONS_FILE, JSON.stringify(sessions, null, 2));
-}
-
-export async function createUser(
-  email: string,
-  password: string,
-): Promise<User> {
-  const users = await readUsers();
-
-  // Check if user exists
-  for (const user of Object.values(users)) {
-    if (user.email === email) {
-      throw new Error("User already exists");
-    }
-  }
-
-  const id = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-  const user: User = {
-    id,
-    email,
-    passwordHash: hashPassword(password),
-    createdAt: new Date().toISOString(),
-  };
-
-  users[id] = user;
-  await writeUsers(users);
-  return user;
+  // Sessions are not persisted, tokens are validated via cookie only
 }
 
 export async function verifyUser(
@@ -209,27 +162,4 @@ export async function setAuthCookie(token: string): Promise<void> {
 export async function clearAuthCookie(): Promise<void> {
   const cookieStore = await cookies();
   cookieStore.delete("auth-token");
-}
-
-export async function deleteUser(userId: string): Promise<boolean> {
-  const users = await readUsers();
-
-  if (!users[userId]) {
-    return false;
-  }
-
-  // Delete the user
-  delete users[userId];
-  await writeUsers(users);
-
-  // Also delete all sessions for this user
-  const sessions = await readSessions();
-  for (const [sessionId, session] of Object.entries(sessions)) {
-    if (session.userId === userId) {
-      delete sessions[sessionId];
-    }
-  }
-  await writeSessions(sessions);
-
-  return true;
 }

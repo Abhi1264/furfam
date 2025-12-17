@@ -97,8 +97,7 @@ export async function deleteGalleryItem(id: string): Promise<boolean> {
         await cloudinary.uploader.destroy(publicId);
       }
     }
-  } catch (error) {
-    console.error("Error deleting image from Cloudinary:", error);
+  } catch {
     // Continue with deletion even if Cloudinary deletion fails
   }
 
@@ -125,7 +124,6 @@ export async function saveImageFile(
       },
       (error, result) => {
         if (error) {
-          console.error("Cloudinary upload error:", error);
           reject(error);
         } else if (result) {
           resolve(result.secure_url);

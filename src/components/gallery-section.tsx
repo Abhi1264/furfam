@@ -70,8 +70,7 @@ export function GallerySection() {
           ).flat();
           setItems(clonedItems);
         }
-      } catch (error) {
-        console.error("Error loading gallery:", error);
+      } catch {
         // On error, use fallback
         const clonedItems = Array.from(
           { length: CLONE_FACTOR },

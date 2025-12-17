@@ -63,8 +63,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ item }, { status: 201 });
-  } catch (error) {
-    console.error("Error adding gallery item:", error);
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

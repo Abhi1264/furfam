@@ -3,16 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import {
-  Upload,
-  Trash2,
-  LogOut,
-  Loader2,
-  Lock,
-  Sparkles,
-  UserPlus,
-  Users,
-} from "lucide-react";
+import { Upload, Trash2, LogOut, Loader2, Lock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -41,12 +32,6 @@ interface User {
   email: string;
 }
 
-interface AdminUser {
-  id: string;
-  email: string;
-  createdAt: string;
-}
-
 export default function AdminGalleryPage() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
@@ -64,38 +49,11 @@ export default function AdminGalleryPage() {
     temperament: "",
     image: null as File | null,
   });
-  const [userFormData, setUserFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [creatingUser, setCreatingUser] = useState(false);
-  const [userError, setUserError] = useState("");
-  const [userSuccess, setUserSuccess] = useState("");
-  const [adminUsers, setAdminUsers] = useState<AdminUser[]>([]);
-  const [deletingUserId, setDeletingUserId] = useState<string | null>(null);
 
   useEffect(() => {
     checkAuth();
     loadGallery();
   }, []);
-
-  useEffect(() => {
-    if (authenticated) {
-      loadUsers();
-    }
-  }, [authenticated]);
-
-  const loadUsers = async () => {
-    try {
-      const res = await fetch("/api/auth/users");
-      if (res.ok) {
-        const data = await res.json();
-        setAdminUsers(data.users || []);
-      }
-    } catch (error) {
-      console.error("Error loading users:", error);
-    }
-  };
 
   const checkAuth = async () => {
     try {
@@ -105,8 +63,8 @@ export default function AdminGalleryPage() {
         setUser(data.user);
         setAuthenticated(true);
       }
-    } catch (error) {
-      console.error("Auth check error:", error);
+    } catch {
+      // Not authenticated
     } finally {
       setLoading(false);
     }
@@ -119,8 +77,8 @@ export default function AdminGalleryPage() {
         const data = await res.json();
         setItems(data.items || []);
       }
-    } catch (error) {
-      console.error("Error loading gallery:", error);
+    } catch {
+      // Error loading gallery
     }
   };
 
@@ -159,8 +117,8 @@ export default function AdminGalleryPage() {
       setUser(null);
       setAuthenticated(false);
       router.push("/admin/gallery");
-    } catch (error) {
-      console.error("Logout error:", error);
+    } catch {
+      // Logout error
     }
   };
 
@@ -224,62 +182,6 @@ export default function AdminGalleryPage() {
       }
     } catch {
       alert("An error occurred while deleting");
-    }
-  };
-
-  const handleCreateUser = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setCreatingUser(true);
-    setUserError("");
-    setUserSuccess("");
-
-    try {
-      const res = await fetch("/api/auth/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userFormData),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setUserSuccess(`User ${data.user.email} created successfully!`);
-        setUserFormData({ email: "", password: "" });
-        await loadUsers(); // Refresh user list
-      } else {
-        setUserError(data.error || "Failed to create user");
-      }
-    } catch {
-      setUserError("An error occurred while creating user");
-    } finally {
-      setCreatingUser(false);
-    }
-  };
-
-  const handleDeleteUser = async (userId: string) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
-
-    setDeletingUserId(userId);
-
-    try {
-      const res = await fetch(`/api/auth/users/${userId}`, {
-        method: "DELETE",
-      });
-
-      if (res.ok) {
-        await loadUsers(); // Refresh user list
-        setUserSuccess("User deleted successfully!");
-        setTimeout(() => setUserSuccess(""), 3000);
-      } else {
-        const data = await res.json();
-        setUserError(data.error || "Failed to delete user");
-        setTimeout(() => setUserError(""), 3000);
-      }
-    } catch {
-      setUserError("An error occurred while deleting user");
-      setTimeout(() => setUserError(""), 3000);
-    } finally {
-      setDeletingUserId(null);
     }
   };
 
@@ -477,141 +379,6 @@ export default function AdminGalleryPage() {
               </form>
             </CardContent>
           </Card>
-
-          <Card className="mb-8">
-            <CardHeader>
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <CardTitle>User Management</CardTitle>
-              </div>
-              <CardDescription>
-                Add new admin users to manage the gallery
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleCreateUser} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="user-email">Email *</Label>
-                    <Input
-                      id="user-email"
-                      type="email"
-                      value={userFormData.email}
-                      onChange={(e) =>
-                        setUserFormData({
-                          ...userFormData,
-                          email: e.target.value,
-                        })
-                      }
-                      placeholder="user@example.com"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="user-password">Password *</Label>
-                    <Input
-                      id="user-password"
-                      type="password"
-                      value={userFormData.password}
-                      onChange={(e) =>
-                        setUserFormData({
-                          ...userFormData,
-                          password: e.target.value,
-                        })
-                      }
-                      placeholder="Minimum 8 characters"
-                      required
-                      minLength={8}
-                    />
-                  </div>
-                </div>
-                {userError && (
-                  <div className="text-sm text-destructive">{userError}</div>
-                )}
-                {userSuccess && (
-                  <div className="text-sm text-green-600 dark:text-green-400">
-                    {userSuccess}
-                  </div>
-                )}
-                <Button
-                  type="submit"
-                  disabled={creatingUser}
-                  className="cursor-pointer"
-                >
-                  {creatingUser ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Creating...
-                    </>
-                  ) : (
-                    <>
-                      <UserPlus className="mr-2 h-4 w-4" />
-                      Create User
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {adminUsers.length > 0 && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle>Existing Users ({adminUsers.length})</CardTitle>
-                <CardDescription>
-                  Manage admin users. You cannot delete your own account.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {adminUsers.map((adminUser) => (
-                    <div
-                      key={adminUser.id}
-                      className="flex items-center justify-between p-3 border rounded-lg"
-                    >
-                      <div className="flex flex-col">
-                        <span className="font-medium text-foreground">
-                          {adminUser.email}
-                          {adminUser.id === user?.id && (
-                            <span className="ml-2 text-xs text-muted-foreground">
-                              (You)
-                            </span>
-                          )}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          Created:{" "}
-                          {new Date(adminUser.createdAt).toLocaleDateString()}
-                        </span>
-                      </div>
-                      <Button
-                        variant="destructive"
-                        size="sm"
-                        onClick={() => handleDeleteUser(adminUser.id)}
-                        disabled={
-                          deletingUserId === adminUser.id ||
-                          adminUser.id === user?.id ||
-                          adminUsers.length <= 1
-                        }
-                        className="cursor-pointer"
-                      >
-                        {deletingUserId === adminUser.id ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Deleting...
-                          </>
-                        ) : (
-                          <>
-                            <Trash2 className="mr-2 h-4 w-4" />
-                            Delete
-                          </>
-                        )}
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
 
           <div>
             <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
