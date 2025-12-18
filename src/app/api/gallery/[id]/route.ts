@@ -1,17 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSession, readUsers } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/auth-utils";
 import { deleteGalleryItem } from "@/lib/gallery-storage";
-
-async function getCurrentUserFromRequest(request: NextRequest) {
-  const token = request.cookies.get("auth-token")?.value;
-  if (!token) return null;
-
-  const session = await getSession(token);
-  if (!session) return null;
-
-  const users = await readUsers();
-  return users[session.userId] || null;
-}
 
 // DELETE - Delete a gallery item (requires auth)
 export async function DELETE(
@@ -19,7 +8,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const user = await getCurrentUserFromRequest(request);
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
