@@ -23,7 +23,7 @@ const testimonials = [
     role: "First-time Owner",
     image: "/placeholder.jpg",
     content:
-      "As a first-time dog owner, I was nervous about the process. FurFam&apos;s team guided me every step of the way and their ongoing support has been invaluable. Love my Corgi!",
+      "As a first-time dog owner, I was nervous about the process. FurFam's team guided me every step of the way and their ongoing support has been invaluable. Love my Corgi!",
     rating: 5,
   },
 ];

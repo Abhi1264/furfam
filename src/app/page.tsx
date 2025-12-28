@@ -12,7 +12,7 @@ import { FAQSection } from "@/components/faq-section";
 import { GallerySection } from "@/components/gallery-section";
 import { CTABanner } from "@/components/cta-banner";
 import { StatsSection } from "@/components/stats-section";
-import { ProcessSection } from "@/components/process-section";
+// import { ProcessSection } from "@/components/process-section";
 
 export default function HomePage() {
   return (
@@ -25,7 +25,7 @@ export default function HomePage() {
         <BreedTypesSection />
         <PopularBreedsSection />
         <GallerySection />
-        <ProcessSection />
+        {/* <ProcessSection /> */}
         <AboutPreviewSection />
         <StatsSection />
         <TestimonialsSection />
