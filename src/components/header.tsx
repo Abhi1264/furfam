@@ -112,18 +112,27 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? (
-            <X className="h-6 w-6 text-background" />
-          ) : (
-            <Menu className="h-6 w-6 text-background" />
-          )}
-        </button>
+        {/* Mobile Search & Menu Buttons */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <button
+            onClick={openSearch}
+            aria-label="Search"
+            className="text-background hover:text-primary transition-colors"
+          >
+            <Search className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            className="text-background"
+          >
+            {isOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -135,20 +144,6 @@ export function Header() {
         }`}
       >
         <nav className="container text-background mx-auto flex flex-col gap-4 px-4 py-4">
-          <button
-            onClick={() => {
-              openSearch();
-              setIsOpen(false);
-            }}
-            className="flex items-center gap-2 rounded-md border border-background/20 bg-background/10 px-3 py-2 text-sm font-medium text-background transition-colors hover:bg-background/20"
-          >
-            <Search className="h-4 w-4" />
-            <span>Search</span>
-            <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-background/20 bg-background/10 px-1.5 text-[10px] font-medium">
-              ⌘K
-            </kbd>
-          </button>
-
           <Link
             href="/"
             className="font-medium"

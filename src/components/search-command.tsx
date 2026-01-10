@@ -86,7 +86,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="overflow-hidden p-0 shadow-2xl max-w-3xl w-full"
+        className="overflow-hidden p-0 shadow-2xl max-w-3xl w-[calc(100%-2rem)] sm:w-full top-[15%] sm:top-[50%] translate-y-0 sm:-translate-y-1/2"
         showCloseButton={false}
       >
         <DialogTitle className="sr-only">Search</DialogTitle>
