@@ -1,4 +1,4 @@
-import { Search, ClipboardCheck, Truck, Heart } from "lucide-react";
+import { Search, Syringe, Truck, Heart } from "lucide-react";
 
 const steps = [
   {
@@ -9,18 +9,18 @@ const steps = [
       "Explore our collection of healthy, happy puppies. Filter by breed, size, and temperament to find your perfect match.",
   },
   {
-    icon: ClipboardCheck,
+    icon: Syringe,
     step: "02",
-    title: "Application & Approval",
+    title: "Health Check",
     description:
-      "Complete our simple adoption application. Our team reviews it to ensure a great fit for both you and the puppy.",
+      "Each puppy is health-checked and ready for their forever home. We ensure they are healthy and happy before they are adopted.",
   },
   {
     icon: Truck,
     step: "03",
     title: "Meet & Pickup",
     description:
-      "Visit our facility for a meet-and-greet or schedule a delivery. We'll prepare everything for your puppy's homecoming.",
+      "Visit our facility for a meet-and-greet or schedule a delivery. We offer safe, comfortable transport options to bring your new family member home nationwide.",
   },
   {
     icon: Heart,

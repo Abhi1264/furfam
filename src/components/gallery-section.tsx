@@ -22,6 +22,7 @@ type GalleryItem = {
   image: string;
   type: string;
   temperament: string[];
+  price?: string;
 };
 
 const BASE_GALLERY: GalleryItem[] = breeds
@@ -32,6 +33,7 @@ const BASE_GALLERY: GalleryItem[] = breeds
     image: breed.image,
     type: breed.type,
     temperament: breed.temperament,
+    price: breed.price, // add price property if available
   }));
 
 export function GallerySection() {
@@ -87,14 +89,13 @@ export function GallerySection() {
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider">
               <Sparkles className="h-4 w-4" />
-              Gallery
+              Most Loved
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2">
-              Moments from Our Furfam Community
+              Popular Dog Breeds
             </h2>
             <p className="text-muted-foreground mt-3 text-pretty">
-              Explore a flowing wall of happy pups. Scroll freely to discover
-              different breeds, temperaments, and personalities brought to life.
+              Discover our most sought-after breeds that families love. Each puppy is health-checked and ready for their forever home.
             </p>
           </div>
         </div>
@@ -140,6 +141,11 @@ export function GallerySection() {
                       <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                         {item.name}
                       </h3>
+                      {item.price && (
+                        <p className="text-primary font-semibold mt-1">
+                          {item.price}
+                        </p>
+                      )}
                       <p className="text-sm text-muted-foreground line-clamp-2">
                         {item.temperament.slice(3, 6).join(" · ") ||
                           "Loving, loyal, and ready for cuddles."}

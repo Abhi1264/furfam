@@ -26,7 +26,6 @@ function SearchShortcutButton({ openSearch }: { openSearch: () => void }) {
       className="flex items-center gap-2 rounded-md border border-border bg-background/90 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground cursor-pointer"
     >
       <Search className="h-4 w-4" />
-      <span className="hidden xl:inline">Search</span>
       <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-medium opacity-100 xl:inline-flex">
         <span className="text-xs">{shortcut}</span>
       </kbd>
