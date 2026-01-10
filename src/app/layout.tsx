@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Nunito, Fredoka } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SearchProviderWithContext } from "@/components/search-provider";
 import "./globals.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
@@ -29,7 +30,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" />
       </head>
       <body className={`${nunito.className} ${fredoka.className} antialiased`}>
-        {children}
+        <SearchProviderWithContext>
+          {children}
+        </SearchProviderWithContext>
         <Analytics />
       </body>
     </html>

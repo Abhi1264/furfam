@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { Menu, X, ChevronDown, PawPrint } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Menu, X, ChevronDown, PawPrint, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,9 +12,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { breedTypes } from "@/lib/breeds-data";
+import { useSearchContext } from "./search-provider";
+
+function SearchShortcutButton({ openSearch }: { openSearch: () => void }) {
+  const shortcut = useMemo(() => {
+    if (typeof window === "undefined") return "⌘K";
+    const isMac = navigator.userAgent.toUpperCase().includes("MAC");
+    return isMac ? "⌘K" : "Ctrl K";
+  }, []);
+  return (
+    <button
+      onClick={openSearch}
+      className="flex items-center gap-2 rounded-md border border-border bg-background/90 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground cursor-pointer"
+    >
+      <Search className="h-4 w-4" />
+      <span className="hidden xl:inline">Search</span>
+      <kbd className="pointer-events-none hidden h-5 select-none items-center gap-1 rounded bg-muted px-1.5 font-medium opacity-100 xl:inline-flex">
+        <span className="text-xs">{shortcut}</span>
+      </kbd>
+    </button>
+  );
+}
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { openSearch } = useSearchContext();
 
   return (
     <header className="sticky top-0 z-50 w-full bg-foreground">
@@ -80,7 +102,8 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex items-center gap-3">
+          <SearchShortcutButton openSearch={openSearch} />
           <Button asChild className="group">
             <Link href="/contact">
               Find Your Pup
@@ -112,6 +135,20 @@ export function Header() {
         }`}
       >
         <nav className="container text-background mx-auto flex flex-col gap-4 px-4 py-4">
+          <button
+            onClick={() => {
+              openSearch();
+              setIsOpen(false);
+            }}
+            className="flex items-center gap-2 rounded-md border border-background/20 bg-background/10 px-3 py-2 text-sm font-medium text-background transition-colors hover:bg-background/20"
+          >
+            <Search className="h-4 w-4" />
+            <span>Search</span>
+            <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-background/20 bg-background/10 px-1.5 text-[10px] font-medium">
+              ⌘K
+            </kbd>
+          </button>
+
           <Link
             href="/"
             className="font-medium"
