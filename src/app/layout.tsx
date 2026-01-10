@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app",
   ),
-  title: "FurFam Pet Shop | Premium Dog Breeds & Pet Care",
+  title: "FurFam Pet Shop | Premium Dog Breeds & Pet Care all over India",
   description:
-    "Discover your perfect furry companion at FurFam. We offer premium dog breeds, expert pet care advice, and quality pet products. Find your new family member today!",
+    "Discover your perfect furry companion at FurFam. We offer premium dog breeds, expert pet care advice, and quality pet products. Find your new family member today! All over India.",
   keywords:
-    "pet shop, dog breeds, puppies for sale, pet care, dog adoption, pet store, premium dogs",
+    "pet shop, dog breeds, puppies for sale, pet care, dog adoption, pet store, premium dogs, all over India",
 };
 
 export default function RootLayout({
