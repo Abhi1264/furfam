@@ -1256,6 +1256,72 @@ export const breeds: Breed[] = [
       training: "Can be domineering. Needs a firm but fair leader."
     },
     price: "₹20,000 - ₹45,000"
+  },
+  {
+    id: "goldendoodle",
+    name: "Goldendoodle",
+    type: "Hybrid Dogs",
+    typeSlug: "hybrid",
+    image: "/golden-doodle.jpg",
+    size: "Medium to Large",
+    temperament: ["Friendly", "Intelligent", "Social", "Gentle"],
+    lifespan: "10-15 years",
+    weight: "50-90 lbs",
+    height: "20-24 inches",
+    origin: "USA",
+    description: "The Goldendoodle is a crossbreed between a Golden Retriever and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 4,
+      trainability: 5,
+      groomingNeeds: 3,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They were originally bred as guide dogs for the blind",
+      "Goldendoodles come in three coat types: curly, wavy, and straight",
+      "They are known for their hypoallergenic coats"
+    ],
+    careInfo: {
+      exercise: "Requires regular exercise, including walks, runs, and playtime.",
+      grooming: "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
+      nutrition: "Feed a high-quality diet appropriate for their size and activity level.",
+      training: "Highly trainable and eager to please. Early socialization and obedience training are essential."
+    },
+    price: "₹30,000 - ₹60,000"
+  },
+  {
+    id: "maltipoo",
+    name: "Maltipoo",
+    type: "Hybrid Dogs",
+    typeSlug: "hybrid",
+    image: "/maltipoo.jpg",
+    size: "Small",
+    temperament: ["Friendly", "Intelligent", "Social", "Gentle"],
+    lifespan: "10-15 years",
+    weight: "5-20 lbs",
+    height: "8-14 inches",
+    origin: "USA",
+    description: "The Maltipoo is a crossbreed between a Maltese and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 4,
+      trainability: 5,
+      groomingNeeds: 3,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They were originally bred as guide dogs for the blind",
+      "Maltipoos come in three coat types: curly, wavy, and straight",
+      "They are known for their hypoallergenic coats"
+    ],
+    careInfo: {
+      exercise: "Requires regular exercise, including walks, runs, and playtime.",
+      grooming: "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
+      nutrition: "Feed a high-quality diet appropriate for their size and activity level.",
+      training: "Highly trainable and eager to please. Early socialization and obedience training are essential."
+    },
+    price: "₹30,000 - ₹60,000"
   }
 ];
 

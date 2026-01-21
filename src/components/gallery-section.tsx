@@ -21,19 +21,34 @@ type GalleryItem = {
   name: string;
   image: string;
   type: string;
+  typeSlug: string;
   temperament: string[];
   price?: string;
 };
 
+// Specific breeds to show in the gallery
+const FEATURED_BREED_IDS = [
+  "golden-retriever",
+  "labrador-retriever",
+  "poodle",
+  "maltese",
+  "maltipoo",
+  "goldendoodle",
+  "german-shepherd",
+  "shih-tzu",
+  "siberian-husky",
+];
+
 const BASE_GALLERY: GalleryItem[] = breeds
-  .filter((breed) => Boolean(breed.image))
+  .filter((breed) => FEATURED_BREED_IDS.includes(breed.id))
   .map((breed) => ({
     id: breed.id,
     name: breed.name,
     image: breed.image,
     type: breed.type,
+    typeSlug: breed.typeSlug,
     temperament: breed.temperament,
-    price: breed.price, // add price property if available
+    price: breed.price,
   }));
 
 export function GallerySection() {
@@ -114,46 +129,48 @@ export function GallerySection() {
                 key={`${item.id}-${index}`}
                 className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <article className="group relative">
-                  <div className="overflow-hidden rounded-2xl bg-card border shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl">
-                    <div className="relative h-64 overflow-hidden bg-secondary/40">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        draggable={false}
-                        priority={index < 3}
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-
-                    <div className="p-4 flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Badge variant="secondary" className="capitalize">
-                          {item.type}
-                        </Badge>
-                        <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
-                        <span className="line-clamp-1">
-                          {item.temperament.slice(0, 3).join(" · ")}
-                        </span>
+                <Link href={`/breeds/${item.typeSlug}/${item.id}`}>
+                  <article className="group relative cursor-pointer">
+                    <div className="overflow-hidden rounded-2xl bg-card border shadow-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-xl">
+                      <div className="relative h-64 overflow-hidden bg-secondary/40">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          sizes="(min-width: 768px) 33vw, 100vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          draggable={false}
+                          priority={index < 3}
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
-                      <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {item.name}
-                      </h3>
-                      {item.price && (
-                        <p className="text-primary font-semibold mt-1">
-                          {item.price}
+
+                      <div className="p-4 flex flex-col gap-2">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Badge variant="secondary" className="capitalize">
+                            {item.type}
+                          </Badge>
+                          <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60" />
+                          <span className="line-clamp-1">
+                            {item.temperament.slice(0, 3).join(" · ")}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          {item.name}
+                        </h3>
+                        {item.price && (
+                          <p className="text-primary font-semibold mt-1">
+                            {item.price}
+                          </p>
+                        )}
+                        <p className="text-sm text-muted-foreground line-clamp-2">
+                          {item.temperament.slice(3, 6).join(" · ") ||
+                            "Loving, loyal, and ready for cuddles."}
                         </p>
-                      )}
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {item.temperament.slice(3, 6).join(" · ") ||
-                          "Loving, loyal, and ready for cuddles."}
-                      </p>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               </CarouselItem>
             ))}
           </CarouselContent>

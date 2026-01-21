@@ -59,7 +59,7 @@ export function Header() {
             Home
           </Link>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-xl font-medium text-background transition-colors hover:text-primary cursor-pointer">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-xl font-medium text-background transition-colors hover:text-primary cursor-pointer outline-none">
               Breeds <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48">
@@ -73,6 +73,11 @@ export function Header() {
                   </Link>
                 </DropdownMenuItem>
               ))}
+              <DropdownMenuItem asChild className="border-t mt-1">
+                <Link href="/breeds" className="cursor-pointer font-semibold">
+                  All Breeds
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Link
