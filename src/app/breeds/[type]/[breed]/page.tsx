@@ -23,6 +23,12 @@ import {
   Scissors,
   Apple,
   GraduationCap,
+  ShieldCheck,
+  Truck,
+  HeartHandshake,
+  PawPrint,
+  Gift,
+  CalendarRange,
 } from "lucide-react";
 
 interface Props {
@@ -131,6 +137,55 @@ export default async function BreedDetailPage({ params }: Props) {
                   {breed.description}
                 </p>
 
+                {/* Highlights */}
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
+                    <ShieldCheck className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Perfect Home Fit
+                      </p>
+                      <p className="font-semibold text-card-foreground">
+                        {breed.size} size • {breed.temperament[0]} &amp;{" "}
+                        {breed.temperament[1]}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
+                    <HeartHandshake className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Family Friendly
+                      </p>
+                      <p className="font-semibold text-card-foreground">
+                        Great with kids &amp; other pets
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
+                    <Truck className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Delivery Options
+                      </p>
+                      <p className="font-semibold text-card-foreground">
+                        Home drop-off or kennel pickup
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
+                    <PawPrint className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                        Starter Kit Included
+                      </p>
+                      <p className="font-semibold text-card-foreground">
+                        Toys, starter food &amp; crate guide
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Quick Stats */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
@@ -191,6 +246,101 @@ export default async function BreedDetailPage({ params }: Props) {
                   </div>
                   <Button size="lg" asChild>
                     <Link href="/contact">Inquire Now</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Purchase Experience */}
+        <section className="border-t border-border bg-background py-12 lg:py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-8 lg:grid-cols-3">
+              <div className="rounded-2xl bg-card p-6 shadow-sm lg:col-span-2">
+                <div className="mb-4 flex items-center gap-2">
+                  <CalendarRange className="h-5 w-5 text-primary" />
+                  <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+                    Adoption & Delivery Experience
+                  </h2>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <div className="rounded-xl border border-border/70 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Reserve
+                    </p>
+                    <p className="mt-1 font-semibold text-card-foreground">
+                      Secure with 20% deposit
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Lock your puppy while we prep health checks and starter
+                      pack.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-border/70 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Prepare
+                    </p>
+                    <p className="mt-1 font-semibold text-card-foreground">
+                      Vet-cleared, microchipped
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                      Vaccination booklet, deworming records, temperament notes
+                      tailored to {breed.name}.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-border/70 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Meet &amp; Deliver
+                    </p>
+                    <p className="mt-1 font-semibold text-card-foreground">
+                      Pickup or assisted delivery
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Schedule a video meet, then choose home delivery or kennel
+                      handoff.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4 rounded-2xl bg-primary/5 p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">Price Range</p>
+                    <p className="text-2xl font-bold text-foreground">
+                      {breed.price}
+                    </p>
+                  </div>
+                  <Gift className="h-8 w-8 text-primary" />
+                </div>
+                <div className="space-y-3 text-sm text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <ShieldCheck className="mt-1 h-4 w-4 text-primary" />
+                    <span>
+                      Health guarantee &amp; vaccination booklet included.
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Truck className="mt-1 h-4 w-4 text-primary" />
+                    <span>
+                      Doorstep delivery in major cities; climate-controlled
+                      transit.
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <HeartHandshake className="mt-1 h-4 w-4 text-primary" />
+                    <span>
+                      Post-adoption support and training check-ins for 30 days.
+                    </span>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <Button className="flex-1" asChild>
+                    <Link href="/contact">Book a call</Link>
+                  </Button>
+                  <Button variant="outline" className="flex-1" asChild>
+                    <Link href="/contact">Reserve now</Link>
                   </Button>
                 </div>
               </div>
@@ -298,6 +448,87 @@ export default async function BreedDetailPage({ params }: Props) {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {breed.careInfo.training}
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Included with every puppy */}
+        <section className="py-12 lg:py-16">
+          <div className="container mx-auto px-4">
+            <div className="mb-8 flex items-center gap-2">
+              <PawPrint className="h-5 w-5 text-primary" />
+              <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+                Included with every {breed.name}
+              </h2>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-3">
+              <div className="rounded-2xl bg-card p-6 shadow-sm">
+                <h3 className="mb-2 font-semibold text-card-foreground">
+                  Health &amp; Safety
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>Full vaccination &amp; deworming records</li>
+                  <li>Microchip registration assistance</li>
+                  <li>Vet health certificate</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-card p-6 shadow-sm">
+                <h3 className="mb-2 font-semibold text-card-foreground">
+                  Starter Essentials
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>Premium starter food for 7 days</li>
+                  <li>Crate &amp; potty training guide</li>
+                  <li>Comfort toy with litter scent</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-card p-6 shadow-sm">
+                <h3 className="mb-2 font-semibold text-card-foreground">
+                  Support &amp; Training
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>30-day new-family support line</li>
+                  <li>Virtual training starter session</li>
+                  <li>Socialization checklist</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Lifestyle fit */}
+        <section className="bg-secondary py-12 lg:py-16">
+          <div className="container mx-auto px-4">
+            <div className="mb-8 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary" />
+              <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+                Is the {breed.name} right for you?
+              </h2>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl bg-card p-6 shadow-sm">
+                <h3 className="mb-3 font-semibold text-card-foreground">
+                  Best for
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>Active families seeking a loyal companion</li>
+                  <li>
+                    Homes that can provide{" "}
+                    {breed.careInfo.exercise.toLowerCase()}
+                  </li>
+                  <li>Owners who enjoy training and engagement</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-card p-6 shadow-sm">
+                <h3 className="mb-3 font-semibold text-card-foreground">
+                  Keep in mind
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>Regular grooming: {breed.careInfo.grooming}</li>
+                  <li>Consistent nutrition: {breed.careInfo.nutrition}</li>
+                  <li>Training focus: {breed.careInfo.training}</li>
+                </ul>
               </div>
             </div>
           </div>

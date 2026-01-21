@@ -95,7 +95,8 @@ export function GallerySection() {
               Popular Dog Breeds
             </h2>
             <p className="text-muted-foreground mt-3 text-pretty">
-              Discover our most sought-after breeds that families love. Each puppy is health-checked and ready for their forever home.
+              Discover our most sought-after breeds that families love. Each
+              puppy is health-checked and ready for their forever home.
             </p>
           </div>
         </div>

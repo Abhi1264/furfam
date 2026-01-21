@@ -108,7 +108,7 @@ export async function GET() {
     console.error("Error fetching search data:", error);
     return NextResponse.json(
       { error: "Failed to fetch search data" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

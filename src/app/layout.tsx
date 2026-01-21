@@ -30,9 +30,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" />
       </head>
       <body className={`${nunito.className} ${fredoka.className} antialiased`}>
-        <SearchProviderWithContext>
-          {children}
-        </SearchProviderWithContext>
+        <SearchProviderWithContext>{children}</SearchProviderWithContext>
         <Analytics />
       </body>
     </html>

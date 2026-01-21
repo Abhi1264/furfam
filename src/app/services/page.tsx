@@ -118,7 +118,7 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "$299",
+    price: "₹10,000",
     description: "Enhanced care for a perfect start",
     features: [
       "Everything in Essential",
@@ -132,7 +132,7 @@ const packages = [
   },
   {
     name: "Complete",
-    price: "$499",
+    price: "₹20,000",
     description: "The ultimate puppy package",
     features: [
       "Everything in Premium",

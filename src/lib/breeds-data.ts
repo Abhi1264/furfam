@@ -95,7 +95,7 @@ export const breedTypes: BreedType[] = [
 ];
 
 export const breeds: Breed[] = [
-  // Sporting Dogs
+  // --- Sporting Dogs ---
   {
     id: "golden-retriever",
     name: "Golden Retriever",
@@ -210,7 +210,76 @@ export const breeds: Breed[] = [
     },
     price: "₹10,000 - ₹20,000",
   },
-  // Working Dogs
+  {
+    id: "irish-setter",
+    name: "Irish Setter",
+    type: "Sporting Dogs",
+    typeSlug: "sporting",
+    image: "/irish-setter.jpg",
+    size: "Large",
+    temperament: ["Affectionate", "Energetic", "Lively", "Independent"],
+    lifespan: "12-15 years",
+    weight: "60-70 lbs",
+    height: "25-27 inches",
+    origin: "Ireland",
+    description:
+      "The Irish Setter is a high-spirited gundog known for grace, swiftness, and a flashy red mahogany coat. They are famously good-tempered and make great family dogs for active households, though their energy levels are very high.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 5,
+      trainability: 3,
+      groomingNeeds: 4,
+      healthIssues: 3,
+    },
+    funFacts: [
+      "They mature slowly and often keep their puppy enthusiasm for years",
+      "Known as 'Red Setters' in their native Ireland",
+      "They were originally bred to 'set' (crouch) when they found birds",
+    ],
+    careInfo: {
+      exercise: "Very high energy. Needs substantial running room and daily rigorous play.",
+      grooming: "Brush 2-3 times a week to keep the long coat tangle-free.",
+      nutrition: "High-quality protein diet to support their active lifestyle.",
+      training: "Consistent, positive training is needed to manage their high spirits."
+    },
+    price: "₹20,000 - ₹45,000"
+  },
+  {
+    id: "german-shorthaired-pointer",
+    name: "German Shorthaired Pointer",
+    type: "Sporting Dogs",
+    typeSlug: "sporting",
+    image: "/german-shorthaired-pointer.jpg",
+    size: "Large",
+    temperament: ["Friendly", "Smart", "Willing to Please", "Active"],
+    lifespan: "10-12 years",
+    weight: "45-70 lbs",
+    height: "21-25 inches",
+    origin: "Germany",
+    description:
+      "The German Shorthaired Pointer is a versatile hunter and an all-purpose gun dog. They thrive on vigorous exercise, positive training, and a lot of love. They are 'velcro dogs' who love being with their family.",
+    characteristics: {
+      friendliness: 4,
+      energyLevel: 5,
+      trainability: 5,
+      groomingNeeds: 2,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They have webbed feet for swimming",
+      "One of the most versatile sporting breeds, capable of hunting, pointing, and retrieving",
+      "Their coat is water-resistant"
+    ],
+    careInfo: {
+      exercise: "Needs immense amounts of exercise. Running partners are ideal.",
+      grooming: "Minimal. A weekly brush with a grooming glove is usually enough.",
+      nutrition: "Performance-formula food if they are very active.",
+      training: "Highly intelligent and learns quickly. Needs a job to do."
+    },
+    price: "₹15,000 - ₹35,000"
+  },
+
+  // --- Working Dogs ---
   {
     id: "german-shepherd",
     name: "German Shepherd",
@@ -325,7 +394,110 @@ export const breeds: Breed[] = [
     },
     price: "₹15,000 - ₹40,000",
   },
-  // Herding Dogs
+  {
+    id: "boxer",
+    name: "Boxer",
+    type: "Working Dogs",
+    typeSlug: "working",
+    image: "/boxer.jpg",
+    size: "Large",
+    temperament: ["Bright", "Fun-Loving", "Active", "Loyal"],
+    lifespan: "10-12 years",
+    weight: "50-80 lbs",
+    height: "21-25 inches",
+    origin: "Germany",
+    description:
+      "Patient and spirited with children, but also protective, the Boxer is a popular family choice. They are high-energy dogs that stay 'puppy-like' for several years. Their expressive faces and clownish behavior make them endlessly entertaining.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 5,
+      trainability: 4,
+      groomingNeeds: 1,
+      healthIssues: 4,
+    },
+    funFacts: [
+      "They are named for their habit of standing on hind legs and 'boxing' with front paws",
+      "They have one of the longest puppyhoods of any breed",
+      "Boxers were one of the first breeds employed as police dogs in Germany"
+    ],
+    careInfo: {
+      exercise: "Needs plenty of exercise, but be careful in hot weather due to their short snouts.",
+      grooming: "Very low maintenance. An occasional wipe-down and weekly brush is fine.",
+      nutrition: "High calorie diet for their high energy, but watch for bloating.",
+      training: "Intelligent but can be bored by repetition. Keep training fun."
+    },
+    price: "₹15,000 - ₹35,000"
+  },
+  {
+    id: "great-dane",
+    name: "Great Dane",
+    type: "Working Dogs",
+    typeSlug: "working",
+    image: "/great-dane.jpg",
+    size: "Giant",
+    temperament: ["Friendly", "Patient", "Dependable", "Gentle"],
+    lifespan: "7-10 years",
+    weight: "110-175 lbs",
+    height: "28-32 inches",
+    origin: "Germany",
+    description:
+      "The 'Apollo of Dogs,' the Great Dane is a giant breed with a gentle soul. Despite their imposing size, they are one of the best-natured dogs around. They are patient with kids and friendly with other animals.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 3,
+      trainability: 3,
+      groomingNeeds: 2,
+      healthIssues: 4,
+    },
+    funFacts: [
+      "Scooby-Doo is the most famous Great Dane",
+      "They are actually German, not Danish",
+      "Zeus, a Great Dane, holds the record for tallest dog ever (44 inches)"
+    ],
+    careInfo: {
+      exercise: "Moderate exercise. Too much running is bad for their joints, especially as puppies.",
+      grooming: "Sheds quite a bit despite short hair. Weekly brushing helps.",
+      nutrition: "Requires huge amounts of food. Raise food bowls to prevent bloat.",
+      training: "Must be trained early before they become too large to handle physically."
+    },
+    price: "₹25,000 - ₹60,000"
+  },
+  {
+    id: "doberman-pinscher",
+    name: "Doberman Pinscher",
+    type: "Working Dogs",
+    typeSlug: "working",
+    image: "/doberman-pinscher.jpg",
+    size: "Large",
+    temperament: ["Loyal", "Fearless", "Alert", "Intelligent"],
+    lifespan: "10-12 years",
+    weight: "60-100 lbs",
+    height: "24-28 inches",
+    origin: "Germany",
+    description:
+      "Sleek and powerful, the Doberman Pinscher is a magnificent physique and keen intelligence. They are incomparably fearless guardians, but also sensitive and affectionate with their families.",
+    characteristics: {
+      friendliness: 3,
+      energyLevel: 5,
+      trainability: 5,
+      groomingNeeds: 1,
+      healthIssues: 3,
+    },
+    funFacts: [
+      "Created by a tax collector named Louis Dobermann for protection",
+      "They served as war dogs in the US Marine Corps during WWII",
+      "They are often called 'Velcro dogs' because they stick close to owners"
+    ],
+    careInfo: {
+      exercise: "Needs vigorous daily exercise and mental challenges.",
+      grooming: "Wash-and-wear coat. Very easy to groom.",
+      nutrition: "High quality food. Some are prone to Hypothyroidism.",
+      training: "Requires a firm, confident leader. Highly trainable."
+    },
+    price: "₹15,000 - ₹40,000"
+  },
+
+  // --- Herding Dogs ---
   {
     id: "border-collie",
     name: "Border Collie",
@@ -439,7 +611,76 @@ export const breeds: Breed[] = [
     },
     price: "₹10,000 - ₹25,000",
   },
-  // Toy Dogs
+  {
+    id: "shetland-sheepdog",
+    name: "Shetland Sheepdog",
+    type: "Herding Dogs",
+    typeSlug: "herding",
+    image: "/shetland-sheepdog.jpg",
+    size: "Small",
+    temperament: ["Playful", "Energetic", "Bright", "Loyal"],
+    lifespan: "12-14 years",
+    weight: "15-25 lbs",
+    height: "13-16 inches",
+    origin: "Scotland",
+    description:
+      "The 'Sheltie' looks like a miniature Collie, but they are a distinct breed. They are extremely bright, sensitive, and willing to please. They are excellent watchdogs and love to bark.",
+    characteristics: {
+      friendliness: 4,
+      energyLevel: 4,
+      trainability: 5,
+      groomingNeeds: 5,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They originate from the rugged Shetland Islands",
+      "They are one of the most successful breeds in obedience competitions",
+      "They are intensely loyal to their family but reserved with strangers"
+    ],
+    careInfo: {
+      exercise: "Moderate to active. They love to run and fetch.",
+      grooming: "Requires regular brushing (2-3 times a week) to prevent matting behind ears.",
+      nutrition: "Prone to weight gain, so measure food carefully.",
+      training: "Very sensitive. Harsh correction does not work; positive reinforcement is magic."
+    },
+    price: "₹15,000 - ₹30,000"
+  },
+  {
+    id: "australian-cattle-dog",
+    name: "Australian Cattle Dog",
+    type: "Herding Dogs",
+    typeSlug: "herding",
+    image: "/australian-cattle-dog.jpg",
+    size: "Medium",
+    temperament: ["Cautious", "Energetic", "Loyal", "Protective"],
+    lifespan: "12-16 years",
+    weight: "35-50 lbs",
+    height: "17-20 inches",
+    origin: "Australia",
+    description:
+      "Also known as the Blue Heeler, this is a sturdy, hard-muscled herder of immense stamina. They are absolutely tireless and need a job to do, or they will find one you might not like (like redecorating your sofa).",
+    characteristics: {
+      friendliness: 3,
+      energyLevel: 5,
+      trainability: 4,
+      groomingNeeds: 2,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They have Dingo blood in their ancestry",
+      "Puppies are born white and get their color later",
+      "Bluey, the oldest dog ever recorded (29 years), was an Australian Cattle Dog"
+    ],
+    careInfo: {
+      exercise: "Needs extreme amounts of exercise. A simple walk is not enough.",
+      grooming: "Minimal. Occasional brushing.",
+      nutrition: "High energy food for working dogs.",
+      training: "Must be socialized early to prevent over-protectiveness."
+    },
+    price: "₹10,000 - ₹25,000"
+  },
+
+  // --- Toy Dogs ---
   {
     id: "pomeranian",
     name: "Pomeranian",
@@ -552,7 +793,110 @@ export const breeds: Breed[] = [
     },
     price: "₹20,000 - ₹50,000",
   },
-  // Terrier Dogs
+  {
+    id: "pug",
+    name: "Pug",
+    type: "Toy Dogs",
+    typeSlug: "toy",
+    image: "/pug.jpg",
+    size: "Small",
+    temperament: ["Charming", "Mischievous", "Loving", "Calm"],
+    lifespan: "13-15 years",
+    weight: "14-18 lbs",
+    height: "10-13 inches",
+    origin: "China",
+    description:
+      "The Pug has lived in the lap of luxury since the Han Dynasty. With their wrinkled brows and gleaming eyes, they are the clowns of the canine world. They live to love and be loved.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 2,
+      trainability: 3,
+      groomingNeeds: 3,
+      healthIssues: 4,
+    },
+    funFacts: [
+      "A group of Pugs is called a 'Grumble'",
+      "They are one of the oldest dog breeds, dating back to 400 BC",
+      "Josephine Bonaparte's Pug bit Napoleon on their wedding night"
+    ],
+    careInfo: {
+      exercise: "Low. They are prone to overheating, so avoid exercise in hot weather.",
+      grooming: "Weekly brushing to control shedding. Clean facial wrinkles daily.",
+      nutrition: "They love to eat and get fat easily. Strict portion control needed.",
+      training: "Can be stubborn but motivated by food."
+    },
+    price: "₹15,000 - ₹30,000"
+  },
+  {
+    id: "shih-tzu",
+    name: "Shih Tzu",
+    type: "Toy Dogs",
+    typeSlug: "toy",
+    image: "/shih-tzu.jpg",
+    size: "Toy",
+    temperament: ["Affectionate", "Playful", "Outgoing", "Friendly"],
+    lifespan: "10-18 years",
+    weight: "9-16 lbs",
+    height: "9-10.5 inches",
+    origin: "China",
+    description:
+      "The 'Lion Dog' is strictly a companion animal. They are affectionate, happy, and outgoing house dogs who love nothing more than following their people from room to room.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 3,
+      trainability: 3,
+      groomingNeeds: 5,
+      healthIssues: 3,
+    },
+    funFacts: [
+      "The name means 'Lion Dog'",
+      "They were kept by the Chinese royal families of the Ming Dynasty",
+      "They are closely related to wolves despite their appearance"
+    ],
+    careInfo: {
+      exercise: "Low. Short daily walks and indoor play.",
+      grooming: "High maintenance. Daily brushing or keep in a short 'puppy cut'.",
+      nutrition: "Standard small breed diet.",
+      training: "Can be difficult to housebreak. Patience is required."
+    },
+    price: "₹15,000 - ₹35,000"
+  },
+  {
+    id: "cavalier-king-charles-spaniel",
+    name: "Cavalier King Charles Spaniel",
+    type: "Toy Dogs",
+    typeSlug: "toy",
+    image: "/cavalier-king-charles-spaniel.jpg",
+    size: "Toy",
+    temperament: ["Affectionate", "Gentle", "Graceful", "Sociable"],
+    lifespan: "12-15 years",
+    weight: "13-18 lbs",
+    height: "12-13 inches",
+    origin: "United Kingdom",
+    description:
+      "The Cavalier is a beautiful small dog with a noble history. They combine the gentle attentiveness of a toy breed with the verve and athleticism of a sporting spaniel.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 3,
+      trainability: 4,
+      groomingNeeds: 3,
+      healthIssues: 4,
+    },
+    funFacts: [
+      "Named after King Charles II of Britain",
+      "They come in four distinct color patterns",
+      "They are often used as therapy dogs due to their gentle nature"
+    ],
+    careInfo: {
+      exercise: "Moderate. They adapt well to the owner's lifestyle.",
+      grooming: "Regular brushing to prevent tangles in their silky coat.",
+      nutrition: "High quality small breed food.",
+      training: "Very eager to please and easy to train."
+    },
+    price: "₹25,000 - ₹60,000"
+  },
+
+  // --- Terrier Dogs ---
   {
     id: "jack-russell-terrier",
     name: "Jack Russell Terrier",
@@ -628,7 +972,110 @@ export const breeds: Breed[] = [
     },
     price: "₹12,000 - ₹30,000",
   },
-  // Hound Dogs
+  {
+    id: "bull-terrier",
+    name: "Bull Terrier",
+    type: "Terrier Dogs",
+    typeSlug: "terrier",
+    image: "/bull-terrier.jpg",
+    size: "Medium",
+    temperament: ["Playful", "Charming", "Mischievous", "Keen"],
+    lifespan: "12-13 years",
+    weight: "50-70 lbs",
+    height: "21-22 inches",
+    origin: "England",
+    description:
+      "Among the most comical and mischievous of citizens, Bull Terriers are playful and endearing. They are known for their 'egg-shaped' head and muscular build. They are lovers, not fighters, despite their history.",
+    characteristics: {
+      friendliness: 4,
+      energyLevel: 5,
+      trainability: 3,
+      groomingNeeds: 1,
+      healthIssues: 3,
+    },
+    funFacts: [
+      "The Target mascot 'Bullseye' is a Bull Terrier",
+      "They are the only registered breed with triangle-shaped eyes",
+      "General Patton owned a Bull Terrier named Willie"
+    ],
+    careInfo: {
+      exercise: "Needs moderate to vigorous daily exercise.",
+      grooming: "Weekly brushing. Their coat is short and harsh.",
+      nutrition: "Prone to allergies, so a limited ingredient diet might be needed.",
+      training: "They are free thinkers. Training must be fun and reward-based."
+    },
+    price: "₹20,000 - ₹45,000"
+  },
+  {
+    id: "miniature-schnauzer",
+    name: "Miniature Schnauzer",
+    type: "Terrier Dogs",
+    typeSlug: "terrier",
+    image: "/miniature-schnauzer.jpg",
+    size: "Small",
+    temperament: ["Friendly", "Smart", "Obedient", "Alert"],
+    lifespan: "12-15 years",
+    weight: "11-20 lbs",
+    height: "12-14 inches",
+    origin: "Germany",
+    description:
+      "The Miniature Schnauzer is a bright, friendly, trainable companion, small enough for an apartment but tireless enough to patrol acres of farmland. They get along well with other animals and kids.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 4,
+      trainability: 5,
+      groomingNeeds: 4,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They have a beard and eyebrows to protect them from vermin bites",
+      "They are the most popular of the three Schnauzer breeds",
+      "Originally bred as ratters on farms"
+    ],
+    careInfo: {
+      exercise: "Moderate. A long daily walk and some playtime.",
+      grooming: "Requires clipping every 5-8 weeks and regular brushing.",
+      nutrition: "Prone to pancreatitis, so avoid fatty foods and table scraps.",
+      training: "Highly intelligent and eager to please. Learns tricks fast."
+    },
+    price: "₹15,000 - ₹30,000"
+  },
+  {
+    id: "west-highland-white-terrier",
+    name: "West Highland White Terrier",
+    type: "Terrier Dogs",
+    typeSlug: "terrier",
+    image: "/west-highland-white-terrier.jpg",
+    size: "Small",
+    temperament: ["Happy", "Loyal", "Entertaining", "Active"],
+    lifespan: "13-15 years",
+    weight: "15-20 lbs",
+    height: "10-11 inches",
+    origin: "Scotland",
+    description:
+      "Known as the 'Westie', these dogs are confident and possess a high self-esteem. They are friendly and happy, always ready for a game or a walk. They were bred to hunt fox and badger.",
+    characteristics: {
+      friendliness: 5,
+      energyLevel: 4,
+      trainability: 3,
+      groomingNeeds: 4,
+      healthIssues: 3,
+    },
+    funFacts: [
+      "Their white coat made them visible to hunters during shoots",
+      "They are the mascot for Cesar dog food",
+      "Their tail is strong enough to be used to pull them out of burrows"
+    ],
+    careInfo: {
+      exercise: "Moderate. They love to chase balls.",
+      grooming: "Regular brushing and stripping/clipping every few months.",
+      nutrition: "Prone to skin allergies, hypo-allergenic diets often help.",
+      training: "Independent. Keep training sessions short and positive."
+    },
+    price: "₹15,000 - ₹30,000"
+  },
+
+  // --- Hound Dogs ---
   {
     id: "beagle",
     name: "Beagle",
@@ -742,6 +1189,74 @@ export const breeds: Breed[] = [
     },
     price: "₹8,000 - ₹20,000",
   },
+  {
+    id: "greyhound",
+    name: "Greyhound",
+    type: "Hound Dogs",
+    typeSlug: "hound",
+    image: "/greyhound.jpg",
+    size: "Large",
+    temperament: ["Gentle", "Independent", "Noble", "Sweet-Tempered"],
+    lifespan: "10-13 years",
+    weight: "60-70 lbs",
+    height: "27-30 inches",
+    origin: "Ancient Egypt / UK",
+    description:
+      "The champion sprinter of dogdom, the Greyhound is a gentle, noble dog. Despite their racing fame, they are essentially 45mph couch potatoes who love to lounge around the house.",
+    characteristics: {
+      friendliness: 4,
+      energyLevel: 3,
+      trainability: 3,
+      groomingNeeds: 1,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "They are the fastest dog breed, reaching speeds of 45 mph",
+      "They have higher red blood cell counts than other dogs",
+      "They are 'sight hounds' and hunt using vision rather than scent"
+    ],
+    careInfo: {
+      exercise: "Sprints are good, but they are happy with a few daily walks.",
+      grooming: "Very low. Their short coat is easy to maintain.",
+      nutrition: "High quality protein. Feed raised bowls to prevent bloat.",
+      training: "Sensitive. They freeze up if treated harshly."
+    },
+    price: "₹10,000 - ₹30,000"
+  },
+  {
+    id: "rhodesian-ridgeback",
+    name: "Rhodesian Ridgeback",
+    type: "Hound Dogs",
+    typeSlug: "hound",
+    image: "/rhodesian-ridgeback.jpg",
+    size: "Large",
+    temperament: ["Dignified", "Intelligent", "Strong Willed", "Loyal"],
+    lifespan: "10-12 years",
+    weight: "70-85 lbs",
+    height: "24-27 inches",
+    origin: "Zimbabwe (Rhodesia)",
+    description:
+      "Famous for the ridge of hair running backwards along its spine, this breed was developed to hunt lions in Africa. They are excellent family protectors and versatile athletes.",
+    characteristics: {
+      friendliness: 3,
+      energyLevel: 4,
+      trainability: 3,
+      groomingNeeds: 2,
+      healthIssues: 2,
+    },
+    funFacts: [
+      "Originally known as the African Lion Hound",
+      "The ridge on their back is their trademark feature",
+      "They can go 24 hours without water (though you shouldn't test this!)"
+    ],
+    careInfo: {
+      exercise: "Needs vigorous exercise. Great running partners.",
+      grooming: "Minimal. Weekly brushing.",
+      nutrition: "They have iron stomachs and will eat anything - watch their weight.",
+      training: "Can be domineering. Needs a firm but fair leader."
+    },
+    price: "₹20,000 - ₹45,000"
+  }
 ];
 
 export function getBreedsByType(typeSlug: string): Breed[] {

@@ -69,7 +69,10 @@ export function createToken(userId: string): string {
 
 export function verifyToken(token: string): { userId: string } | null {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; type: string };
+    const decoded = jwt.verify(token, JWT_SECRET) as {
+      userId: string;
+      type: string;
+    };
     if (decoded.type === "auth" && decoded.userId) {
       return { userId: decoded.userId };
     }

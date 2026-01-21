@@ -15,7 +15,7 @@ export interface SearchCategory {
 // Perform search across content
 export function searchContent(
   query: string,
-  allContent: SearchResult[]
+  allContent: SearchResult[],
 ): SearchCategory[] {
   if (!query || query.trim().length === 0) {
     return [];
@@ -97,7 +97,7 @@ export function searchContent(
 
 // Get suggested/popular content (shown when search is empty)
 export function getSuggestedContent(
-  allContent: SearchResult[]
+  allContent: SearchResult[],
 ): SearchCategory[] {
   // Popular breeds
   const popularBreeds = allContent
@@ -109,7 +109,7 @@ export function getSuggestedContent(
         "german-shepherd",
         "french-bulldog",
         "beagle",
-      ].includes(item.id)
+      ].includes(item.id),
     )
     .slice(0, 5);
 
@@ -122,7 +122,7 @@ export function getSuggestedContent(
   const mainPages = allContent
     .filter((item) => item.category === "page")
     .filter((item) =>
-      ["breeds", "blogs", "services", "about"].includes(item.id)
+      ["breeds", "blogs", "services", "about"].includes(item.id),
     )
     .slice(0, 4);
 

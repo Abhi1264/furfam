@@ -44,7 +44,10 @@ export function TestimonialsSection() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="rounded-2xl bg-card p-6 shadow-sm flex flex-col items-center">
+            <div
+              key={index}
+              className="rounded-2xl bg-card p-6 shadow-sm flex flex-col items-center"
+            >
               <div className="w-full flex justify-center mb-6">
                 <div className="relative w-90 h-44 rounded-lg overflow-hidden shadow">
                   <Image

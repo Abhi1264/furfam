@@ -67,7 +67,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
       onOpenChange(false);
       router.push(url);
     },
-    [onOpenChange, router]
+    [onOpenChange, router],
   );
 
   const getCategoryIcon = (category: "breed" | "blog" | "page") => {
@@ -130,7 +130,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
                           "relative flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none",
                           "aria-selected:bg-muted aria-selected:text-foreground",
                           "data-disabled:pointer-events-none data-disabled:opacity-50",
-                          "hover:bg-muted/50"
+                          "hover:bg-muted/50",
                         )}
                       >
                         <div className="flex items-center gap-3 flex-1 min-w-0">
