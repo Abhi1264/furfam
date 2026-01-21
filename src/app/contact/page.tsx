@@ -21,17 +21,17 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Paw Street", "Pet City, PC 12345"],
+    details: ["Main Road, Ranchi, Jharkhand", "Pincode: 834001"],
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["(555) 123-4567", "(555) 987-6543"],
+    details: ["+91 99343 46312"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["hello@furfam.com", "support@furfam.com"],
+    details: ["hello@furfam.com"],
   },
   {
     icon: Clock,
