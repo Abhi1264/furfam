@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { breeds } from "@/lib/breeds-data";
 
 const contactInfo = [
   {
@@ -56,6 +57,11 @@ export default function ContactPage() {
     email: "",
     phone: "",
     inquiryType: "",
+    breedName: "",
+    gender: "",
+    colour: "",
+    coat: "",
+    size: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -64,13 +70,22 @@ export default function ContactPage() {
     e.preventDefault();
 
     const whatsappNumber = "919934346312";
-    const message =
-      `*New Contact Form Submission*\n\n` +
+    let message = `*New Contact Form Submission*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Email:* ${formData.email}\n` +
       `*Phone:* ${formData.phone || "Not provided"}\n` +
-      `*Inquiry Type:* ${formData.inquiryType}\n\n` +
-      `*Message:*\n${formData.message}`;
+      `*Inquiry Type:* ${formData.inquiryType}\n`;
+
+    // Add breed information if "Breed Information" is selected
+    if (formData.inquiryType === "Breed Information") {
+      message += `*Interested in Breed:* ${formData.breedName || "Not specified"}\n`;
+      message += `*Preferred Gender:* ${formData.gender || "Not specified"}\n`;
+      message += `*Preferred Colour:* ${formData.colour || "Not specified"}\n`;
+      message += `*Preferred Coat:* ${formData.coat || "Not specified"}\n`;
+      message += `*Preferred Size:* ${formData.size || "Not specified"}\n`;
+    }
+
+    message += `\n*Message:*\n${formData.message}`;
 
     const encodedMessage = encodeURIComponent(message);
 
@@ -201,8 +216,110 @@ export default function ContactPage() {
                         </div>
                       </div>
 
+                      {/* Conditional Breed Information Fields */}
+                      {formData.inquiryType === "Breed Information" && (
+                        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                          <div className="space-y-2">
+                            <Label htmlFor="breedName">Breed Name *</Label>
+                            <Select
+                              value={formData.breedName}
+                              onValueChange={(value) =>
+                                setFormData({ ...formData, breedName: value })
+                              }
+                              required
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select breed" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {breeds.map((breed) => (
+                                  <SelectItem key={breed.id} value={breed.name}>
+                                    {breed.name}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="gender">Preferred Gender *</Label>
+                            <Select
+                              value={formData.gender}
+                              onValueChange={(value) =>
+                                setFormData({ ...formData, gender: value })
+                              }
+                              required
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select gender" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="Male">Male</SelectItem>
+                                <SelectItem value="Female">Female</SelectItem>
+                                <SelectItem value="No Preference">
+                                  No Preference
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="colour">Preferred Colour</Label>
+                            <Input
+                              id="colour"
+                              name="colour"
+                              placeholder="e.g., Golden, Black, White"
+                              value={formData.colour}
+                              onChange={handleChange}
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="coat">Preferred Coat Type</Label>
+                            <Select
+                              value={formData.coat}
+                              onValueChange={(value) =>
+                                setFormData({ ...formData, coat: value })
+                              }
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select coat type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="Short">Short</SelectItem>
+                                <SelectItem value="Medium">Medium</SelectItem>
+                                <SelectItem value="Long">Long</SelectItem>
+                                <SelectItem value="No Preference">
+                                  No Preference
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="size">Preferred Size</Label>
+                            <Select
+                              value={formData.size}
+                              onValueChange={(value) =>
+                                setFormData({ ...formData, size: value })
+                              }
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select size" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="Toy">Toy</SelectItem>
+                                <SelectItem value="Small">Small</SelectItem>
+                                <SelectItem value="Medium">Medium</SelectItem>
+                                <SelectItem value="Large">Large</SelectItem>
+                                <SelectItem value="Giant">Giant</SelectItem>
+                                <SelectItem value="No Preference">
+                                  No Preference
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      )}
+
                       <div className="space-y-2">
-                        <Label htmlFor="message">Your Message *</Label>
+                        <Label htmlFor="message">Description *</Label>
                         <Textarea
                           id="message"
                           name="message"
@@ -281,13 +398,13 @@ export default function ContactPage() {
                 </p>
               </div>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/#faq">View FAQs</Link>
+                <Link href="/faqs">View FAQs</Link>
               </Button>
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>
+    </div >
   );
 }
