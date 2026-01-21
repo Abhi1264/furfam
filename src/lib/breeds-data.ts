@@ -237,12 +237,14 @@ export const breeds: Breed[] = [
       "They were originally bred to 'set' (crouch) when they found birds",
     ],
     careInfo: {
-      exercise: "Very high energy. Needs substantial running room and daily rigorous play.",
+      exercise:
+        "Very high energy. Needs substantial running room and daily rigorous play.",
       grooming: "Brush 2-3 times a week to keep the long coat tangle-free.",
       nutrition: "High-quality protein diet to support their active lifestyle.",
-      training: "Consistent, positive training is needed to manage their high spirits."
+      training:
+        "Consistent, positive training is needed to manage their high spirits.",
     },
-    price: "₹20,000 - ₹45,000"
+    price: "₹20,000 - ₹45,000",
   },
   {
     id: "german-shorthaired-pointer",
@@ -268,15 +270,17 @@ export const breeds: Breed[] = [
     funFacts: [
       "They have webbed feet for swimming",
       "One of the most versatile sporting breeds, capable of hunting, pointing, and retrieving",
-      "Their coat is water-resistant"
+      "Their coat is water-resistant",
     ],
     careInfo: {
-      exercise: "Needs immense amounts of exercise. Running partners are ideal.",
-      grooming: "Minimal. A weekly brush with a grooming glove is usually enough.",
+      exercise:
+        "Needs immense amounts of exercise. Running partners are ideal.",
+      grooming:
+        "Minimal. A weekly brush with a grooming glove is usually enough.",
       nutrition: "Performance-formula food if they are very active.",
-      training: "Highly intelligent and learns quickly. Needs a job to do."
+      training: "Highly intelligent and learns quickly. Needs a job to do.",
     },
-    price: "₹15,000 - ₹35,000"
+    price: "₹15,000 - ₹35,000",
   },
 
   // --- Working Dogs ---
@@ -418,15 +422,19 @@ export const breeds: Breed[] = [
     funFacts: [
       "They are named for their habit of standing on hind legs and 'boxing' with front paws",
       "They have one of the longest puppyhoods of any breed",
-      "Boxers were one of the first breeds employed as police dogs in Germany"
+      "Boxers were one of the first breeds employed as police dogs in Germany",
     ],
     careInfo: {
-      exercise: "Needs plenty of exercise, but be careful in hot weather due to their short snouts.",
-      grooming: "Very low maintenance. An occasional wipe-down and weekly brush is fine.",
-      nutrition: "High calorie diet for their high energy, but watch for bloating.",
-      training: "Intelligent but can be bored by repetition. Keep training fun."
+      exercise:
+        "Needs plenty of exercise, but be careful in hot weather due to their short snouts.",
+      grooming:
+        "Very low maintenance. An occasional wipe-down and weekly brush is fine.",
+      nutrition:
+        "High calorie diet for their high energy, but watch for bloating.",
+      training:
+        "Intelligent but can be bored by repetition. Keep training fun.",
     },
-    price: "₹15,000 - ₹35,000"
+    price: "₹15,000 - ₹35,000",
   },
   {
     id: "great-dane",
@@ -452,15 +460,18 @@ export const breeds: Breed[] = [
     funFacts: [
       "Scooby-Doo is the most famous Great Dane",
       "They are actually German, not Danish",
-      "Zeus, a Great Dane, holds the record for tallest dog ever (44 inches)"
+      "Zeus, a Great Dane, holds the record for tallest dog ever (44 inches)",
     ],
     careInfo: {
-      exercise: "Moderate exercise. Too much running is bad for their joints, especially as puppies.",
+      exercise:
+        "Moderate exercise. Too much running is bad for their joints, especially as puppies.",
       grooming: "Sheds quite a bit despite short hair. Weekly brushing helps.",
-      nutrition: "Requires huge amounts of food. Raise food bowls to prevent bloat.",
-      training: "Must be trained early before they become too large to handle physically."
+      nutrition:
+        "Requires huge amounts of food. Raise food bowls to prevent bloat.",
+      training:
+        "Must be trained early before they become too large to handle physically.",
     },
-    price: "₹25,000 - ₹60,000"
+    price: "₹25,000 - ₹60,000",
   },
   {
     id: "doberman-pinscher",
@@ -486,15 +497,15 @@ export const breeds: Breed[] = [
     funFacts: [
       "Created by a tax collector named Louis Dobermann for protection",
       "They served as war dogs in the US Marine Corps during WWII",
-      "They are often called 'Velcro dogs' because they stick close to owners"
+      "They are often called 'Velcro dogs' because they stick close to owners",
     ],
     careInfo: {
       exercise: "Needs vigorous daily exercise and mental challenges.",
       grooming: "Wash-and-wear coat. Very easy to groom.",
       nutrition: "High quality food. Some are prone to Hypothyroidism.",
-      training: "Requires a firm, confident leader. Highly trainable."
+      training: "Requires a firm, confident leader. Highly trainable.",
     },
-    price: "₹15,000 - ₹40,000"
+    price: "₹15,000 - ₹40,000",
   },
 
   // --- Herding Dogs ---
@@ -635,15 +646,17 @@ export const breeds: Breed[] = [
     funFacts: [
       "They originate from the rugged Shetland Islands",
       "They are one of the most successful breeds in obedience competitions",
-      "They are intensely loyal to their family but reserved with strangers"
+      "They are intensely loyal to their family but reserved with strangers",
     ],
     careInfo: {
       exercise: "Moderate to active. They love to run and fetch.",
-      grooming: "Requires regular brushing (2-3 times a week) to prevent matting behind ears.",
+      grooming:
+        "Requires regular brushing (2-3 times a week) to prevent matting behind ears.",
       nutrition: "Prone to weight gain, so measure food carefully.",
-      training: "Very sensitive. Harsh correction does not work; positive reinforcement is magic."
+      training:
+        "Very sensitive. Harsh correction does not work; positive reinforcement is magic.",
     },
-    price: "₹15,000 - ₹30,000"
+    price: "₹15,000 - ₹30,000",
   },
   {
     id: "australian-cattle-dog",
@@ -669,15 +682,16 @@ export const breeds: Breed[] = [
     funFacts: [
       "They have Dingo blood in their ancestry",
       "Puppies are born white and get their color later",
-      "Bluey, the oldest dog ever recorded (29 years), was an Australian Cattle Dog"
+      "Bluey, the oldest dog ever recorded (29 years), was an Australian Cattle Dog",
     ],
     careInfo: {
-      exercise: "Needs extreme amounts of exercise. A simple walk is not enough.",
+      exercise:
+        "Needs extreme amounts of exercise. A simple walk is not enough.",
       grooming: "Minimal. Occasional brushing.",
       nutrition: "High energy food for working dogs.",
-      training: "Must be socialized early to prevent over-protectiveness."
+      training: "Must be socialized early to prevent over-protectiveness.",
     },
-    price: "₹10,000 - ₹25,000"
+    price: "₹10,000 - ₹25,000",
   },
 
   // --- Toy Dogs ---
@@ -817,15 +831,18 @@ export const breeds: Breed[] = [
     funFacts: [
       "A group of Pugs is called a 'Grumble'",
       "They are one of the oldest dog breeds, dating back to 400 BC",
-      "Josephine Bonaparte's Pug bit Napoleon on their wedding night"
+      "Josephine Bonaparte's Pug bit Napoleon on their wedding night",
     ],
     careInfo: {
-      exercise: "Low. They are prone to overheating, so avoid exercise in hot weather.",
-      grooming: "Weekly brushing to control shedding. Clean facial wrinkles daily.",
-      nutrition: "They love to eat and get fat easily. Strict portion control needed.",
-      training: "Can be stubborn but motivated by food."
+      exercise:
+        "Low. They are prone to overheating, so avoid exercise in hot weather.",
+      grooming:
+        "Weekly brushing to control shedding. Clean facial wrinkles daily.",
+      nutrition:
+        "They love to eat and get fat easily. Strict portion control needed.",
+      training: "Can be stubborn but motivated by food.",
     },
-    price: "₹15,000 - ₹30,000"
+    price: "₹15,000 - ₹30,000",
   },
   {
     id: "shih-tzu",
@@ -851,15 +868,16 @@ export const breeds: Breed[] = [
     funFacts: [
       "The name means 'Lion Dog'",
       "They were kept by the Chinese royal families of the Ming Dynasty",
-      "They are closely related to wolves despite their appearance"
+      "They are closely related to wolves despite their appearance",
     ],
     careInfo: {
       exercise: "Low. Short daily walks and indoor play.",
-      grooming: "High maintenance. Daily brushing or keep in a short 'puppy cut'.",
+      grooming:
+        "High maintenance. Daily brushing or keep in a short 'puppy cut'.",
       nutrition: "Standard small breed diet.",
-      training: "Can be difficult to housebreak. Patience is required."
+      training: "Can be difficult to housebreak. Patience is required.",
     },
-    price: "₹15,000 - ₹35,000"
+    price: "₹15,000 - ₹35,000",
   },
   {
     id: "cavalier-king-charles-spaniel",
@@ -885,15 +903,15 @@ export const breeds: Breed[] = [
     funFacts: [
       "Named after King Charles II of Britain",
       "They come in four distinct color patterns",
-      "They are often used as therapy dogs due to their gentle nature"
+      "They are often used as therapy dogs due to their gentle nature",
     ],
     careInfo: {
       exercise: "Moderate. They adapt well to the owner's lifestyle.",
       grooming: "Regular brushing to prevent tangles in their silky coat.",
       nutrition: "High quality small breed food.",
-      training: "Very eager to please and easy to train."
+      training: "Very eager to please and easy to train.",
     },
-    price: "₹25,000 - ₹60,000"
+    price: "₹25,000 - ₹60,000",
   },
 
   // --- Terrier Dogs ---
@@ -996,15 +1014,17 @@ export const breeds: Breed[] = [
     funFacts: [
       "The Target mascot 'Bullseye' is a Bull Terrier",
       "They are the only registered breed with triangle-shaped eyes",
-      "General Patton owned a Bull Terrier named Willie"
+      "General Patton owned a Bull Terrier named Willie",
     ],
     careInfo: {
       exercise: "Needs moderate to vigorous daily exercise.",
       grooming: "Weekly brushing. Their coat is short and harsh.",
-      nutrition: "Prone to allergies, so a limited ingredient diet might be needed.",
-      training: "They are free thinkers. Training must be fun and reward-based."
+      nutrition:
+        "Prone to allergies, so a limited ingredient diet might be needed.",
+      training:
+        "They are free thinkers. Training must be fun and reward-based.",
     },
-    price: "₹20,000 - ₹45,000"
+    price: "₹20,000 - ₹45,000",
   },
   {
     id: "miniature-schnauzer",
@@ -1030,15 +1050,16 @@ export const breeds: Breed[] = [
     funFacts: [
       "They have a beard and eyebrows to protect them from vermin bites",
       "They are the most popular of the three Schnauzer breeds",
-      "Originally bred as ratters on farms"
+      "Originally bred as ratters on farms",
     ],
     careInfo: {
       exercise: "Moderate. A long daily walk and some playtime.",
       grooming: "Requires clipping every 5-8 weeks and regular brushing.",
-      nutrition: "Prone to pancreatitis, so avoid fatty foods and table scraps.",
-      training: "Highly intelligent and eager to please. Learns tricks fast."
+      nutrition:
+        "Prone to pancreatitis, so avoid fatty foods and table scraps.",
+      training: "Highly intelligent and eager to please. Learns tricks fast.",
     },
-    price: "₹15,000 - ₹30,000"
+    price: "₹15,000 - ₹30,000",
   },
   {
     id: "west-highland-white-terrier",
@@ -1064,15 +1085,15 @@ export const breeds: Breed[] = [
     funFacts: [
       "Their white coat made them visible to hunters during shoots",
       "They are the mascot for Cesar dog food",
-      "Their tail is strong enough to be used to pull them out of burrows"
+      "Their tail is strong enough to be used to pull them out of burrows",
     ],
     careInfo: {
       exercise: "Moderate. They love to chase balls.",
       grooming: "Regular brushing and stripping/clipping every few months.",
       nutrition: "Prone to skin allergies, hypo-allergenic diets often help.",
-      training: "Independent. Keep training sessions short and positive."
+      training: "Independent. Keep training sessions short and positive.",
     },
-    price: "₹15,000 - ₹30,000"
+    price: "₹15,000 - ₹30,000",
   },
 
   // --- Hound Dogs ---
@@ -1213,15 +1234,15 @@ export const breeds: Breed[] = [
     funFacts: [
       "They are the fastest dog breed, reaching speeds of 45 mph",
       "They have higher red blood cell counts than other dogs",
-      "They are 'sight hounds' and hunt using vision rather than scent"
+      "They are 'sight hounds' and hunt using vision rather than scent",
     ],
     careInfo: {
       exercise: "Sprints are good, but they are happy with a few daily walks.",
       grooming: "Very low. Their short coat is easy to maintain.",
       nutrition: "High quality protein. Feed raised bowls to prevent bloat.",
-      training: "Sensitive. They freeze up if treated harshly."
+      training: "Sensitive. They freeze up if treated harshly.",
     },
-    price: "₹10,000 - ₹30,000"
+    price: "₹10,000 - ₹30,000",
   },
   {
     id: "rhodesian-ridgeback",
@@ -1247,15 +1268,16 @@ export const breeds: Breed[] = [
     funFacts: [
       "Originally known as the African Lion Hound",
       "The ridge on their back is their trademark feature",
-      "They can go 24 hours without water (though you shouldn't test this!)"
+      "They can go 24 hours without water (though you shouldn't test this!)",
     ],
     careInfo: {
       exercise: "Needs vigorous exercise. Great running partners.",
       grooming: "Minimal. Weekly brushing.",
-      nutrition: "They have iron stomachs and will eat anything - watch their weight.",
-      training: "Can be domineering. Needs a firm but fair leader."
+      nutrition:
+        "They have iron stomachs and will eat anything - watch their weight.",
+      training: "Can be domineering. Needs a firm but fair leader.",
     },
-    price: "₹20,000 - ₹45,000"
+    price: "₹20,000 - ₹45,000",
   },
   {
     id: "goldendoodle",
@@ -1269,7 +1291,8 @@ export const breeds: Breed[] = [
     weight: "50-90 lbs",
     height: "20-24 inches",
     origin: "USA",
-    description: "The Goldendoodle is a crossbreed between a Golden Retriever and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
+    description:
+      "The Goldendoodle is a crossbreed between a Golden Retriever and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
     characteristics: {
       friendliness: 5,
       energyLevel: 4,
@@ -1280,15 +1303,19 @@ export const breeds: Breed[] = [
     funFacts: [
       "They were originally bred as guide dogs for the blind",
       "Goldendoodles come in three coat types: curly, wavy, and straight",
-      "They are known for their hypoallergenic coats"
+      "They are known for their hypoallergenic coats",
     ],
     careInfo: {
-      exercise: "Requires regular exercise, including walks, runs, and playtime.",
-      grooming: "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
-      nutrition: "Feed a high-quality diet appropriate for their size and activity level.",
-      training: "Highly trainable and eager to please. Early socialization and obedience training are essential."
+      exercise:
+        "Requires regular exercise, including walks, runs, and playtime.",
+      grooming:
+        "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
+      nutrition:
+        "Feed a high-quality diet appropriate for their size and activity level.",
+      training:
+        "Highly trainable and eager to please. Early socialization and obedience training are essential.",
     },
-    price: "₹30,000 - ₹60,000"
+    price: "₹30,000 - ₹60,000",
   },
   {
     id: "maltipoo",
@@ -1302,7 +1329,8 @@ export const breeds: Breed[] = [
     weight: "5-20 lbs",
     height: "8-14 inches",
     origin: "USA",
-    description: "The Maltipoo is a crossbreed between a Maltese and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
+    description:
+      "The Maltipoo is a crossbreed between a Maltese and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
     characteristics: {
       friendliness: 5,
       energyLevel: 4,
@@ -1313,16 +1341,20 @@ export const breeds: Breed[] = [
     funFacts: [
       "They were originally bred as guide dogs for the blind",
       "Maltipoos come in three coat types: curly, wavy, and straight",
-      "They are known for their hypoallergenic coats"
+      "They are known for their hypoallergenic coats",
     ],
     careInfo: {
-      exercise: "Requires regular exercise, including walks, runs, and playtime.",
-      grooming: "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
-      nutrition: "Feed a high-quality diet appropriate for their size and activity level.",
-      training: "Highly trainable and eager to please. Early socialization and obedience training are essential."
+      exercise:
+        "Requires regular exercise, including walks, runs, and playtime.",
+      grooming:
+        "Requires regular brushing (2-3 times per week) to prevent matting. Professional grooming every 4-6 weeks is recommended.",
+      nutrition:
+        "Feed a high-quality diet appropriate for their size and activity level.",
+      training:
+        "Highly trainable and eager to please. Early socialization and obedience training are essential.",
     },
-    price: "₹30,000 - ₹60,000"
-  }
+    price: "₹30,000 - ₹60,000",
+  },
 ];
 
 export function getBreedsByType(typeSlug: string): Breed[] {

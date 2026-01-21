@@ -62,7 +62,22 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
+
+    const whatsappNumber = "919934346312";
+    const message =
+      `*New Contact Form Submission*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Phone:* ${formData.phone || "Not provided"}\n` +
+      `*Inquiry Type:* ${formData.inquiryType}\n\n` +
+      `*Message:*\n${formData.message}`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+
     setSubmitted(true);
   };
 
