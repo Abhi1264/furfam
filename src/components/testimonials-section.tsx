@@ -49,13 +49,13 @@ export function TestimonialsSection() {
               className="rounded-2xl bg-card p-6 shadow-sm flex flex-col items-center"
             >
               <div className="w-full flex justify-center mb-6">
-                <div className="relative w-90 h-44 rounded-lg overflow-hidden shadow">
+                <div className="relative w-full max-w-md h-44 rounded-lg overflow-hidden shadow">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
                     className="object-cover"
-                    sizes="440px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     priority={index === 0}
                   />
                 </div>
