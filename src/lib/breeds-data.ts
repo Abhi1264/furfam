@@ -1259,7 +1259,7 @@ export const breeds: Breed[] = [
   },
   {
     id: "goldendoodle",
-    name: "Goldendoodle",
+    name: "Golden Doodle",
     type: "Hybrid Dogs",
     typeSlug: "hybrid",
     image: "/golden-doodle.jpg",
