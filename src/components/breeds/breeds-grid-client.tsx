@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { type Breed } from "@/lib/breeds-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,23 +23,51 @@ interface BreedsGridClientProps {
   breeds: Breed[];
   uniqueSizes: string[];
   uniqueTemperaments: string[];
+  uniqueCoatTypes: string[];
+  uniqueRunClimate: string[];
 }
 
 export function BreedsGridClient({
   breeds,
   uniqueSizes,
   uniqueTemperaments,
+  uniqueCoatTypes,
+  uniqueRunClimate,
 }: BreedsGridClientProps) {
+  const searchParams = useSearchParams();
+
   // Filter states
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [selectedSizes, setSelectedSizes] = useState<string[]>(
+    searchParams.get("size") ? [searchParams.get("size")!] : [],
+  );
   const [selectedTemperaments, setSelectedTemperaments] = useState<string[]>(
     [],
   );
+  const [selectedCoatTypes, setSelectedCoatTypes] = useState<string[]>(
+    searchParams.get("coat") ? [searchParams.get("coat")!] : [],
+  );
+  const [selectedClimates, setSelectedClimates] = useState<string[]>(
+    searchParams.get("climate") ? [searchParams.get("climate")!] : [],
+  );
+  const [showHypoallergenic, setShowHypoallergenic] = useState(false);
+
   const [minPrice, setMinPrice] = useState<string>("");
   const [maxPrice, setMaxPrice] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortOption>("name-asc");
   const [showFilters, setShowFilters] = useState(false);
+
+  // Sync with URL params if they change
+  useEffect(() => {
+    const sizeParam = searchParams.get("size");
+    if (sizeParam) setSelectedSizes([sizeParam]);
+
+    const coatParam = searchParams.get("coat");
+    if (coatParam) setSelectedCoatTypes([coatParam]);
+
+    const climateParam = searchParams.get("climate");
+    if (climateParam) setSelectedClimates([climateParam]);
+  }, [searchParams]);
 
   // Helper function to extract numeric price from price string
   const extractPrice = (priceStr: string): number => {
@@ -62,7 +91,28 @@ export function BreedsGridClient({
 
     // Apply size filter
     if (selectedSizes.length > 0) {
-      filtered = filtered.filter((breed) => selectedSizes.includes(breed.size));
+      filtered = filtered.filter((breed) =>
+        selectedSizes.includes(breed.sizeCategory),
+      ); // Updated to sizeCategory
+    }
+
+    // Apply coat filter
+    if (selectedCoatTypes.length > 0) {
+      filtered = filtered.filter((breed) =>
+        selectedCoatTypes.includes(breed.coatType),
+      );
+    }
+
+    // Apply climate filter
+    if (selectedClimates.length > 0) {
+      filtered = filtered.filter((breed) =>
+        breed.climateSuitability.some((c) => selectedClimates.includes(c)),
+      );
+    }
+
+    // Apply hypoallergenic filter
+    if (showHypoallergenic) {
+      filtered = filtered.filter((breed) => breed.hypoallergenic);
     }
 
     // Apply temperament filter
@@ -112,6 +162,9 @@ export function BreedsGridClient({
     selectedTypes,
     selectedSizes,
     selectedTemperaments,
+    selectedCoatTypes,
+    selectedClimates,
+    showHypoallergenic,
     minPrice,
     maxPrice,
     sortBy,
@@ -123,6 +176,9 @@ export function BreedsGridClient({
     setSelectedTypes([]);
     setSelectedSizes([]);
     setSelectedTemperaments([]);
+    setSelectedCoatTypes([]);
+    setSelectedClimates([]);
+    setShowHypoallergenic(false);
     setMinPrice("");
     setMaxPrice("");
     setSortBy("name-asc");
@@ -132,6 +188,9 @@ export function BreedsGridClient({
     selectedTypes.length +
     selectedSizes.length +
     selectedTemperaments.length +
+    selectedCoatTypes.length +
+    selectedClimates.length +
+    (showHypoallergenic ? 1 : 0) +
     (minPrice ? 1 : 0) +
     (maxPrice ? 1 : 0);
 
@@ -147,6 +206,20 @@ export function BreedsGridClient({
   const toggleSize = (size: string) => {
     setSelectedSizes((prev) =>
       prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size],
+    );
+  };
+
+  const toggleCoatType = (coat: string) => {
+    setSelectedCoatTypes((prev) =>
+      prev.includes(coat) ? prev.filter((c) => c !== coat) : [...prev, coat],
+    );
+  };
+
+  const toggleClimate = (climate: string) => {
+    setSelectedClimates((prev) =>
+      prev.includes(climate)
+        ? prev.filter((c) => c !== climate)
+        : [...prev, climate],
     );
   };
 
@@ -195,14 +268,22 @@ export function BreedsGridClient({
               selectedTypes={selectedTypes}
               selectedSizes={selectedSizes}
               selectedTemperaments={selectedTemperaments}
+              selectedCoatTypes={selectedCoatTypes}
+              selectedClimates={selectedClimates}
+              showHypoallergenic={showHypoallergenic}
               minPrice={minPrice}
               maxPrice={maxPrice}
               activeFiltersCount={activeFiltersCount}
               uniqueSizes={uniqueSizes}
               uniqueTemperaments={uniqueTemperaments}
+              uniqueCoatTypes={uniqueCoatTypes}
+              uniqueRunClimate={uniqueRunClimate}
               toggleType={toggleType}
               toggleSize={toggleSize}
               toggleTemperament={toggleTemperament}
+              toggleCoatType={toggleCoatType}
+              toggleClimate={toggleClimate}
+              setShowHypoallergenic={setShowHypoallergenic}
               setMinPrice={setMinPrice}
               setMaxPrice={setMaxPrice}
               clearFilters={clearFilters}
@@ -222,14 +303,22 @@ export function BreedsGridClient({
                   selectedTypes={selectedTypes}
                   selectedSizes={selectedSizes}
                   selectedTemperaments={selectedTemperaments}
+                  selectedCoatTypes={selectedCoatTypes}
+                  selectedClimates={selectedClimates}
+                  showHypoallergenic={showHypoallergenic}
                   minPrice={minPrice}
                   maxPrice={maxPrice}
                   activeFiltersCount={activeFiltersCount}
                   uniqueSizes={uniqueSizes}
                   uniqueTemperaments={uniqueTemperaments}
+                  uniqueCoatTypes={uniqueCoatTypes}
+                  uniqueRunClimate={uniqueRunClimate}
                   toggleType={toggleType}
                   toggleSize={toggleSize}
                   toggleTemperament={toggleTemperament}
+                  toggleCoatType={toggleCoatType}
+                  toggleClimate={toggleClimate}
+                  setShowHypoallergenic={setShowHypoallergenic}
                   setMinPrice={setMinPrice}
                   setMaxPrice={setMaxPrice}
                   clearFilters={clearFilters}
@@ -287,7 +376,7 @@ export function BreedsGridClient({
                           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           draggable={false}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute right-3 top-3 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-foreground backdrop-blur">
                           {breed.size}
                         </div>

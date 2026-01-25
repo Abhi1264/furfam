@@ -70,7 +70,8 @@ export default function ContactPage() {
     e.preventDefault();
 
     const whatsappNumber = "919934346312";
-    let message = `*New Contact Form Submission*\n\n` +
+    let message =
+      `*New Contact Form Submission*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Email:* ${formData.email}\n` +
       `*Phone:* ${formData.phone || "Not provided"}\n` +
@@ -405,6 +406,6 @@ export default function ContactPage() {
         </section>
       </main>
       <Footer />
-    </div >
+    </div>
   );
 }

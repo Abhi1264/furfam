@@ -12,6 +12,7 @@ import {
   getBreedsByType,
 } from "@/lib/breeds-data";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   ArrowLeft,
   Clock,
@@ -29,6 +30,8 @@ import {
   PawPrint,
   Gift,
   CalendarRange,
+  Thermometer,
+  Wind,
 } from "lucide-react";
 
 interface Props {
@@ -57,10 +60,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Learn about ${breed.name}: ${breed.description.slice(
       0,
       150,
-    )}...`,
+    )}... Size: ${breed.sizeCategory}, Coat: ${breed.coatType}.`,
     keywords: `${breed.name}, ${
       breed.type
-    }, dog breed, puppy, ${breed.temperament.join(", ")}, pet shop`,
+    }, dog breed, puppy, ${breed.temperament.join(", ")}, ${breed.sizeCategory} dog, ${breed.coatType} coat, pet shop`,
   };
 }
 
@@ -73,9 +76,33 @@ export default async function BreedDetailPage({ params }: Props) {
     notFound();
   }
 
-  const relatedBreeds = getBreedsByType(type)
+  // Calculate similar breeds based on multi-dimensional matching
+  const similarBreeds = breeds
     .filter((b) => b.id !== breedId)
-    .slice(0, 3);
+    .map((b) => {
+      let score = 0;
+      // Weight: Type (highest affinity)
+      if (b.typeSlug === breed.typeSlug) score += 3;
+      // Weight: Size Category
+      if (b.sizeCategory === breed.sizeCategory) score += 2;
+      // Weight: Temperament overlap
+      const sharedTraits = b.temperament.filter((t) =>
+        breed.temperament.includes(t),
+      ).length;
+      score += sharedTraits;
+      // Weight: Coat Type
+      if (b.coatType === breed.coatType) score += 1;
+      // Weight: Climate
+      if (
+        b.climateSuitability.some((c) => breed.climateSuitability.includes(c))
+      )
+        score += 1;
+
+      return { breed: b, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((item) => item.breed);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -114,10 +141,25 @@ export default async function BreedDetailPage({ params }: Props) {
               {/* Basic Info */}
               <div className="space-y-6">
                 <div>
-                  <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                    {breed.type}
-                  </span>
-                  <h1 className="mt-3 font-serif text-4xl font-bold text-foreground md:text-5xl">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    <Badge
+                      variant="outline"
+                      className="text-primary border-primary/30"
+                    >
+                      {breed.type}
+                    </Badge>
+                    <Badge variant="secondary">{breed.sizeCategory} Size</Badge>
+                    <Badge variant="secondary">{breed.coatType} Coat</Badge>
+                    {breed.hypoallergenic && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-green-100 text-green-800 hover:bg-green-200 border-transparent"
+                      >
+                        Hypoallergenic
+                      </Badge>
+                    )}
+                  </div>
+                  <h1 className="font-serif text-4xl font-bold text-foreground md:text-5xl">
                     {breed.name}
                   </h1>
                 </div>
@@ -140,14 +182,13 @@ export default async function BreedDetailPage({ params }: Props) {
                 {/* Highlights */}
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="flex items-center gap-3 rounded-xl bg-card p-4 shadow-sm">
-                    <ShieldCheck className="h-5 w-5 text-primary" />
+                    <Thermometer className="h-5 w-5 text-primary" />
                     <div>
                       <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                        Perfect Home Fit
+                        Climate Fit
                       </p>
                       <p className="font-semibold text-card-foreground">
-                        {breed.size} size • {breed.temperament[0]} &amp;{" "}
-                        {breed.temperament[1]}
+                        {breed.climateSuitability.join(", ")}
                       </p>
                     </div>
                   </div>
@@ -534,26 +575,26 @@ export default async function BreedDetailPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Related Breeds */}
-        {relatedBreeds.length > 0 && (
+        {/* Similar Breeds */}
+        {similarBreeds.length > 0 && (
           <section className="py-12 lg:py-16">
             <div className="container mx-auto px-4">
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
-                  Other {breedType.name}
+                  Similar Breeds You Might Like
                 </h2>
                 <Button variant="outline" asChild>
                   <Link href={`/breeds/${type}`}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    View All
+                    Back to {breedType.name}
                   </Link>
                 </Button>
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {relatedBreeds.map((relatedBreed) => (
+                {similarBreeds.map((relatedBreed) => (
                   <Link
                     key={relatedBreed.id}
-                    href={`/breeds/${type}/${relatedBreed.id}`}
+                    href={`/breeds/${relatedBreed.typeSlug}/${relatedBreed.id}`}
                     className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:border-primary hover:shadow-lg"
                   >
                     <div className="relative h-48 overflow-hidden">
@@ -567,11 +608,25 @@ export default async function BreedDetailPage({ params }: Props) {
                       />
                     </div>
                     <div className="p-4">
+                      <div className="mb-2 flex flex-wrap gap-1">
+                        <Badge
+                          variant="secondary"
+                          className="text-[10px] px-1.5 h-5"
+                        >
+                          {relatedBreed.sizeCategory}
+                        </Badge>
+                        <Badge
+                          variant="secondary"
+                          className="text-[10px] px-1.5 h-5"
+                        >
+                          {relatedBreed.type}
+                        </Badge>
+                      </div>
                       <h3 className="font-serif text-lg font-bold text-card-foreground group-hover:text-primary">
                         {relatedBreed.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {relatedBreed.lifespan}
+                      <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
+                        {relatedBreed.description}
                       </p>
                     </div>
                   </Link>
