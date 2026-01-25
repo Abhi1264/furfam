@@ -1,6 +1,36 @@
 import { ClassificationBrowser } from "@/components/classification-browser";
+import {
+  breeds,
+  breedTypes,
+  sizeClassifications,
+  climateClassifications,
+  coatClassifications,
+  getBreedsCount
+} from "@/lib/breeds-data";
 
 export function BreedTypesSection() {
+  // Prepare data with counts on the server
+  const groups = breedTypes.map(item => ({
+    ...item,
+    dimension: "group" as const,
+    breedCount: item.breedCount || getBreedsCount(breeds, 'group', item.slug)
+  }));
+
+  const sizes = sizeClassifications.map(item => ({
+    ...item,
+    breedCount: getBreedsCount(breeds, 'size', item.slug)
+  }));
+
+  const climates = climateClassifications.map(item => ({
+    ...item,
+    breedCount: getBreedsCount(breeds, 'climate', item.slug)
+  }));
+
+  const coats = coatClassifications.map(item => ({
+    ...item,
+    breedCount: getBreedsCount(breeds, 'coat', item.slug)
+  }));
+
   return (
     <section id="breeds" className="bg-secondary py-16 lg:py-24">
       <div className="container mx-auto px-4">
@@ -15,7 +45,12 @@ export function BreedTypesSection() {
           </p>
         </div>
 
-        <ClassificationBrowser />
+        <ClassificationBrowser
+          groups={groups}
+          sizes={sizes}
+          climates={climates}
+          coats={coats}
+        />
       </div>
     </section>
   );

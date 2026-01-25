@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { type Breed } from "@/lib/breeds-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,40 +34,62 @@ export function BreedsGridClient({
   uniqueCoatTypes,
   uniqueRunClimate,
 }: BreedsGridClientProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Filter states
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>(
-    searchParams.get("size") ? [searchParams.get("size")!] : [],
-  );
-  const [selectedTemperaments, setSelectedTemperaments] = useState<string[]>(
-    [],
-  );
-  const [selectedCoatTypes, setSelectedCoatTypes] = useState<string[]>(
-    searchParams.get("coat") ? [searchParams.get("coat")!] : [],
-  );
-  const [selectedClimates, setSelectedClimates] = useState<string[]>(
-    searchParams.get("climate") ? [searchParams.get("climate")!] : [],
-  );
-  const [showHypoallergenic, setShowHypoallergenic] = useState(false);
+  // Derive state directly from URL search params
+  const selectedTypes = searchParams.getAll("type");
+  const selectedSizes = searchParams.getAll("size");
+  const selectedTemperaments = searchParams.getAll("temperament");
+  const selectedCoatTypes = searchParams.getAll("coat");
+  const selectedClimates = searchParams.getAll("climate");
+  const showHypoallergenic = searchParams.get("hypoallergenic") === "true";
 
-  const [minPrice, setMinPrice] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<string>("");
-  const [sortBy, setSortBy] = useState<SortOption>("name-asc");
+  const minPrice = searchParams.get("minPrice") || "";
+  const maxPrice = searchParams.get("maxPrice") || "";
+  const sortBy = (searchParams.get("sort") as SortOption) || "name-asc";
+
   const [showFilters, setShowFilters] = useState(false);
 
-  // Sync with URL params if they change
-  useEffect(() => {
-    const sizeParam = searchParams.get("size");
-    if (sizeParam) setSelectedSizes([sizeParam]);
+  // Helper to update URL params
+  const updateFilters = (key: string, value: string | null, action: "add" | "remove" | "set" | "toggle") => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
 
-    const coatParam = searchParams.get("coat");
-    if (coatParam) setSelectedCoatTypes([coatParam]);
+    if (action === "toggle") {
+      const values = current.getAll(key);
+      if (values.includes(value!)) {
+        current.delete(key);
+        values.filter(v => v !== value).forEach(v => current.append(key, v));
+      } else {
+        current.append(key, value!);
+      }
+    } else if (action === "set") {
+      if (value) current.set(key, value);
+      else current.delete(key);
+    }
 
-    const climateParam = searchParams.get("climate");
-    if (climateParam) setSelectedClimates([climateParam]);
-  }, [searchParams]);
+    const search = current.toString();
+    const query = search ? `?${search}` : "";
+    router.push(`${pathname}${query}`, { scroll: false });
+  };
+
+  // Toggle functions using URL updates
+  const toggleType = (typeSlug: string) => updateFilters("type", typeSlug, "toggle");
+  const toggleSize = (size: string) => updateFilters("size", size, "toggle");
+  const toggleCoatType = (coat: string) => updateFilters("coat", coat, "toggle");
+  const toggleClimate = (climate: string) => updateFilters("climate", climate, "toggle");
+  const toggleTemperament = (temp: string) => updateFilters("temperament", temp, "toggle");
+
+  const setShowHypoallergenic = (show: boolean) =>
+    updateFilters("hypoallergenic", show ? "true" : null, "set");
+
+  const setSortBy = (sort: SortOption) => updateFilters("sort", sort, "set");
+
+  const setMinPrice = (price: string) => updateFilters("minPrice", price, "set");
+  const setMaxPrice = (price: string) => updateFilters("maxPrice", price, "set");
+
+  const clearFilters = () => router.push(pathname, { scroll: false });
 
   // Helper function to extract numeric price from price string
   const extractPrice = (priceStr: string): number => {
@@ -79,50 +101,31 @@ export function BreedsGridClient({
   };
 
   // Filter and sort breeds
-  const filteredBreeds = useMemo(() => {
+  const filteredBreeds = (() => {
     let filtered = breeds;
 
-    // Apply type filter
     if (selectedTypes.length > 0) {
-      filtered = filtered.filter((breed) =>
-        selectedTypes.includes(breed.typeSlug),
-      );
+      filtered = filtered.filter((breed) => selectedTypes.includes(breed.typeSlug));
     }
-
-    // Apply size filter
     if (selectedSizes.length > 0) {
-      filtered = filtered.filter((breed) =>
-        selectedSizes.includes(breed.sizeCategory),
-      ); // Updated to sizeCategory
+      filtered = filtered.filter((breed) => selectedSizes.includes(breed.sizeCategory));
     }
-
-    // Apply coat filter
     if (selectedCoatTypes.length > 0) {
-      filtered = filtered.filter((breed) =>
-        selectedCoatTypes.includes(breed.coatType),
-      );
+      filtered = filtered.filter((breed) => selectedCoatTypes.includes(breed.coatType));
     }
-
-    // Apply climate filter
     if (selectedClimates.length > 0) {
       filtered = filtered.filter((breed) =>
-        breed.climateSuitability.some((c) => selectedClimates.includes(c)),
+        breed.climateSuitability.some((c) => selectedClimates.includes(c))
       );
     }
-
-    // Apply hypoallergenic filter
     if (showHypoallergenic) {
       filtered = filtered.filter((breed) => breed.hypoallergenic);
     }
-
-    // Apply temperament filter
     if (selectedTemperaments.length > 0) {
       filtered = filtered.filter((breed) =>
-        breed.temperament.some((t) => selectedTemperaments.includes(t)),
+        breed.temperament.some((t) => selectedTemperaments.includes(t))
       );
     }
-
-    // Apply price filter
     if (minPrice || maxPrice) {
       filtered = filtered.filter((breed) => {
         const breedPrice = extractPrice(breed.price);
@@ -132,7 +135,6 @@ export function BreedsGridClient({
       });
     }
 
-    // Sort breeds
     const sorted = [...filtered];
     switch (sortBy) {
       case "name-asc":
@@ -158,78 +160,16 @@ export function BreedsGridClient({
     }
 
     return sorted;
-  }, [
-    selectedTypes,
-    selectedSizes,
-    selectedTemperaments,
-    selectedCoatTypes,
-    selectedClimates,
-    showHypoallergenic,
-    minPrice,
-    maxPrice,
-    sortBy,
-    breeds,
-  ]);
-
-  // Clear all filters
-  const clearFilters = () => {
-    setSelectedTypes([]);
-    setSelectedSizes([]);
-    setSelectedTemperaments([]);
-    setSelectedCoatTypes([]);
-    setSelectedClimates([]);
-    setShowHypoallergenic(false);
-    setMinPrice("");
-    setMaxPrice("");
-    setSortBy("name-asc");
-  };
+  })();
 
   const activeFiltersCount =
     selectedTypes.length +
     selectedSizes.length +
     selectedTemperaments.length +
     selectedCoatTypes.length +
-    selectedClimates.length +
     (showHypoallergenic ? 1 : 0) +
     (minPrice ? 1 : 0) +
     (maxPrice ? 1 : 0);
-
-  // Toggle filter functions
-  const toggleType = (typeSlug: string) => {
-    setSelectedTypes((prev) =>
-      prev.includes(typeSlug)
-        ? prev.filter((t) => t !== typeSlug)
-        : [...prev, typeSlug],
-    );
-  };
-
-  const toggleSize = (size: string) => {
-    setSelectedSizes((prev) =>
-      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size],
-    );
-  };
-
-  const toggleCoatType = (coat: string) => {
-    setSelectedCoatTypes((prev) =>
-      prev.includes(coat) ? prev.filter((c) => c !== coat) : [...prev, coat],
-    );
-  };
-
-  const toggleClimate = (climate: string) => {
-    setSelectedClimates((prev) =>
-      prev.includes(climate)
-        ? prev.filter((c) => c !== climate)
-        : [...prev, climate],
-    );
-  };
-
-  const toggleTemperament = (temperament: string) => {
-    setSelectedTemperaments((prev) =>
-      prev.includes(temperament)
-        ? prev.filter((t) => t !== temperament)
-        : [...prev, temperament],
-    );
-  };
 
   return (
     <>

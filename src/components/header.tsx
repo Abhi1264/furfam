@@ -109,7 +109,7 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <SearchShortcutButton openSearch={openSearch} />
           <Button asChild className="group">
-            <Link href="/contact">
+            <Link href="/breeds">
               Find Your Pup
               <PawPrint className="h-4 w-4" />
             </Link>
@@ -193,7 +193,7 @@ export function Header() {
             Contact
           </Link>
           <Button asChild className="w-full text-lg">
-            <Link href="/contact" onClick={() => setIsOpen(false)}>
+            <Link href="/breeds" onClick={() => setIsOpen(false)}>
               Find Your Pup
               <PawPrint className="h-4 w-4" />
             </Link>

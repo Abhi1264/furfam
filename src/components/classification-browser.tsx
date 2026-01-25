@@ -4,19 +4,26 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, PawPrint, Ruler, Sun, Scissors } from "lucide-react";
-import {
-  breeds,
-  breedTypes,
-  sizeClassifications,
-  climateClassifications,
-  coatClassifications,
-  getBreedsCount,
-  type Classification,
-} from "@/lib/breeds-data";
-// import { cn } from "@/lib/utils";
+import { type Classification } from "@/lib/breeds-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export function ClassificationBrowser() {
+interface ClassificationItem extends Classification {
+  breedCount?: number;
+}
+
+interface ClassificationBrowserProps {
+  groups: ClassificationItem[];
+  sizes: ClassificationItem[];
+  climates: ClassificationItem[];
+  coats: ClassificationItem[];
+}
+
+export function ClassificationBrowser({
+  groups,
+  sizes,
+  climates,
+  coats
+}: ClassificationBrowserProps) {
   const [activeTab, setActiveTab] = useState("group");
 
   const getIcon = (dimension: string) => {
@@ -34,15 +41,13 @@ export function ClassificationBrowser() {
     }
   };
 
-  const renderGrid = (items: (Classification | any)[], dimension: string) => (
+  const renderGrid = (items: ClassificationItem[], dimension: string) => (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => {
-        const count =
-          item.breedCount || getBreedsCount(breeds, dimension, item.slug);
         const href =
           dimension === "group"
             ? `/breeds/${item.slug}`
-            : `/breeds?${dimension}=${item.slug}`; // Simplified link, ideally handled by filter params
+            : `/breeds?${dimension}=${item.slug}`;
 
         return (
           <Link
@@ -52,7 +57,7 @@ export function ClassificationBrowser() {
           >
             <div className="relative h-56 overflow-hidden">
               <Image
-                src={item.image || "/placeholder-dog.jpg"} // Fallback image needed? Most have images.
+                src={item.image || "/placeholder-dog.jpg"}
                 alt={item.name}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -68,7 +73,7 @@ export function ClassificationBrowser() {
                     {item.name}
                   </h3>
                   <p className="text-sm text-background/80">
-                    {count} breeds available
+                    {item.breedCount} breeds available
                   </p>
                   <p className="mt-1 text-xs text-background/60 line-clamp-1">
                     {item.description}
@@ -96,7 +101,7 @@ export function ClassificationBrowser() {
         <TabsList className="inline-flex h-auto flex-wrap justify-center gap-2 bg-transparent p-0">
           <TabsTrigger
             value="group"
-            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
           >
             <span className="flex items-center gap-2">
               {getIcon("group")} Breed Groups
@@ -104,7 +109,7 @@ export function ClassificationBrowser() {
           </TabsTrigger>
           <TabsTrigger
             value="size"
-            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
           >
             <span className="flex items-center gap-2">
               {getIcon("size")} By Size
@@ -112,7 +117,7 @@ export function ClassificationBrowser() {
           </TabsTrigger>
           <TabsTrigger
             value="climate"
-            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
           >
             <span className="flex items-center gap-2">
               {getIcon("climate")} Climate
@@ -120,7 +125,7 @@ export function ClassificationBrowser() {
           </TabsTrigger>
           <TabsTrigger
             value="coat"
-            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
           >
             <span className="flex items-center gap-2">
               {getIcon("coat")} Coat Type
@@ -133,25 +138,25 @@ export function ClassificationBrowser() {
             value="group"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"
           >
-            {renderGrid(breedTypes, "group")}
+            {renderGrid(groups, "group")}
           </TabsContent>
           <TabsContent
             value="size"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"
           >
-            {renderGrid(sizeClassifications, "size")}
+            {renderGrid(sizes, "size")}
           </TabsContent>
           <TabsContent
             value="climate"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"
           >
-            {renderGrid(climateClassifications, "climate")}
+            {renderGrid(climates, "climate")}
           </TabsContent>
           <TabsContent
             value="coat"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"
           >
-            {renderGrid(coatClassifications, "coat")}
+            {renderGrid(coats, "coat")}
           </TabsContent>
         </div>
       </Tabs>
