@@ -211,7 +211,7 @@ export function FiltersContent({
                     (
                     {
                       breeds.filter((b) =>
-                        b.climateSuitability.includes(climate as any),
+                        b.climateSuitability.includes(climate as "Hot" | "Cold" | "Moderate" | "Adaptable"),
                       ).length
                     }
                     )

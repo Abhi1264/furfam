@@ -9,7 +9,6 @@ import {
   breeds,
   getBreedById,
   getBreedTypeBySlug,
-  getBreedsByType,
 } from "@/lib/breeds-data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +30,6 @@ import {
   Gift,
   CalendarRange,
   Thermometer,
-  Wind,
 } from "lucide-react";
 
 interface Props {
@@ -71,6 +69,8 @@ export default async function BreedDetailPage({ params }: Props) {
   const { type, breed: breedId } = await params;
   const breed = getBreedById(breedId);
   const breedType = getBreedTypeBySlug(type);
+  const priceDisclaimer =
+    "Price may vary based on size, coat, color, bloodline, availability, and location.";
 
   if (!breed || !breedType) {
     notFound();
@@ -284,6 +284,9 @@ export default async function BreedDetailPage({ params }: Props) {
                     <div className="text-2xl font-bold text-foreground">
                       {breed.price}
                     </div>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      {priceDisclaimer}
+                    </p>
                   </div>
                   <Button size="lg" asChild>
                     <Link href="/contact">Inquire Now</Link>
@@ -351,6 +354,9 @@ export default async function BreedDetailPage({ params }: Props) {
                     <p className="text-sm text-muted-foreground">Price Range</p>
                     <p className="text-2xl font-bold text-foreground">
                       {breed.price}
+                    </p>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      {priceDisclaimer}
                     </p>
                   </div>
                   <Gift className="h-8 w-8 text-primary" />

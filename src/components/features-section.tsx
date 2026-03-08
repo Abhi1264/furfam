@@ -43,7 +43,7 @@ export function FeaturesSection() {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-secondary/30 -z-10" />
+      <div className="absolute inset-0 bg-linear-to-b from-secondary/50 via-background to-secondary/30 -z-10" />
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
 
@@ -58,7 +58,7 @@ export function FeaturesSection() {
             Why Choose FurFam?
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We're committed to connecting you with your perfect companion while
+            We&apos;re committed to connecting you with your perfect companion while
             ensuring the highest standards of care and ethics.
           </p>
         </div>
@@ -72,14 +72,14 @@ export function FeaturesSection() {
             >
               {/* Gradient background on hover */}
               <div
-                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
+                className={`absolute inset-0 rounded-2xl bg-linear-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
               />
 
               {/* Icon container with animation */}
               <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center">
                 {/* Outer ring */}
                 <div
-                  className={`absolute inset-0 rounded-full bg-gradient-to-br ${feature.gradient} opacity-100 group-hover:scale-110 transition-transform duration-500`}
+                  className={`absolute inset-0 rounded-full bg-linear-to-br ${feature.gradient} opacity-100 group-hover:scale-110 transition-transform duration-500`}
                 />
                 {/* Inner circle */}
                 <div className="absolute inset-1 rounded-full bg-card" />
@@ -99,7 +99,7 @@ export function FeaturesSection() {
               </p>
 
               {/* Decorative line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl" />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl" />
             </div>
           ))}
         </div>
