@@ -7604,7 +7604,7 @@ export const breeds: Breed[] = [
     name: "AÏdi (Chien de Montagne de L'Atlas)",
     type: "Non-Sporting Dogs",
     typeSlug: "non-sporting",
-    image: "/aidi-chien-de-montagne-de-l-atlas.jpg",
+    image: "/aidi.jpg",
     size: "Medium",
     temperament: ["Balanced", "Loyal", "Alert", "Intelligent"],
     lifespan: "10-14 years",

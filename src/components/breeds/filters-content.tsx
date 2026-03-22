@@ -12,9 +12,12 @@ import {
 } from "@/components/ui/accordion";
 import { breeds, breedTypes } from "@/lib/breeds-data";
 
+const alphabetLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
 interface FiltersContentProps {
   selectedTypes: string[];
   selectedSizes: string[];
+  selectedLetters: string[];
   selectedTemperaments: string[];
   selectedCoatTypes: string[];
   selectedClimates: string[];
@@ -28,6 +31,7 @@ interface FiltersContentProps {
   uniqueRunClimate: string[];
   toggleType: (slug: string) => void;
   toggleSize: (size: string) => void;
+  toggleLetter: (letter: string) => void;
   toggleTemperament: (temperament: string) => void;
   toggleCoatType: (coat: string) => void;
   toggleClimate: (climate: string) => void;
@@ -40,6 +44,7 @@ interface FiltersContentProps {
 export function FiltersContent({
   selectedTypes,
   selectedSizes,
+  selectedLetters,
   selectedTemperaments,
   selectedCoatTypes,
   selectedClimates,
@@ -53,6 +58,7 @@ export function FiltersContent({
   uniqueRunClimate,
   toggleType,
   toggleSize,
+  toggleLetter,
   toggleTemperament,
   toggleCoatType,
   toggleClimate,
@@ -156,6 +162,40 @@ export function FiltersContent({
                   </span>
                 </label>
               ))}
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Alphabet Filter */}
+        <AccordionItem value="alphabet">
+          <AccordionTrigger className="text-foreground hover:no-underline font-semibold">
+            Name Starts With
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="grid grid-cols-6 gap-2 pt-1">
+              {alphabetLetters.map((letter) => {
+                const breedCount = breeds.filter(
+                  (breed) => breed.name.trim().charAt(0).toUpperCase() === letter,
+                ).length;
+
+                return (
+                  <button
+                    key={letter}
+                    type="button"
+                    disabled={breedCount === 0}
+                    onClick={() => toggleLetter(letter)}
+                    className={`flex h-9 items-center justify-center rounded-md border text-sm font-medium transition-colors ${
+                      selectedLetters.includes(letter)
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : breedCount === 0
+                          ? "cursor-not-allowed border-border bg-muted text-muted-foreground/60"
+                          : "border-border bg-background text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                );
+              })}
             </div>
           </AccordionContent>
         </AccordionItem>

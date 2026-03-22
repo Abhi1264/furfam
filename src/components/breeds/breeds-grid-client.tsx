@@ -44,6 +44,7 @@ export function BreedsGridClient({
   const selectedTemperaments = searchParams.getAll("temperament");
   const selectedCoatTypes = searchParams.getAll("coat");
   const selectedClimates = searchParams.getAll("climate");
+  const selectedLetters = searchParams.getAll("letter");
   const showHypoallergenic = searchParams.get("hypoallergenic") === "true";
 
   const minPrice = searchParams.get("minPrice") || "";
@@ -80,6 +81,7 @@ export function BreedsGridClient({
   const toggleCoatType = (coat: string) => updateFilters("coat", coat, "toggle");
   const toggleClimate = (climate: string) => updateFilters("climate", climate, "toggle");
   const toggleTemperament = (temp: string) => updateFilters("temperament", temp, "toggle");
+  const toggleLetter = (letter: string) => updateFilters("letter", letter, "toggle");
 
   const setShowHypoallergenic = (show: boolean) =>
     updateFilters("hypoallergenic", show ? "true" : null, "set");
@@ -106,6 +108,11 @@ export function BreedsGridClient({
 
     if (selectedTypes.length > 0) {
       filtered = filtered.filter((breed) => selectedTypes.includes(breed.typeSlug));
+    }
+    if (selectedLetters.length > 0) {
+      filtered = filtered.filter((breed) =>
+        selectedLetters.includes(breed.name.trim().charAt(0).toUpperCase())
+      );
     }
     if (selectedSizes.length > 0) {
       filtered = filtered.filter((breed) => selectedSizes.includes(breed.sizeCategory));
@@ -164,6 +171,7 @@ export function BreedsGridClient({
 
   const activeFiltersCount =
     selectedTypes.length +
+    selectedLetters.length +
     selectedSizes.length +
     selectedTemperaments.length +
     selectedCoatTypes.length +
@@ -207,6 +215,7 @@ export function BreedsGridClient({
             <FiltersContent
               selectedTypes={selectedTypes}
               selectedSizes={selectedSizes}
+              selectedLetters={selectedLetters}
               selectedTemperaments={selectedTemperaments}
               selectedCoatTypes={selectedCoatTypes}
               selectedClimates={selectedClimates}
@@ -220,6 +229,7 @@ export function BreedsGridClient({
               uniqueRunClimate={uniqueRunClimate}
               toggleType={toggleType}
               toggleSize={toggleSize}
+              toggleLetter={toggleLetter}
               toggleTemperament={toggleTemperament}
               toggleCoatType={toggleCoatType}
               toggleClimate={toggleClimate}
@@ -242,6 +252,7 @@ export function BreedsGridClient({
                 <FiltersContent
                   selectedTypes={selectedTypes}
                   selectedSizes={selectedSizes}
+                  selectedLetters={selectedLetters}
                   selectedTemperaments={selectedTemperaments}
                   selectedCoatTypes={selectedCoatTypes}
                   selectedClimates={selectedClimates}
@@ -255,6 +266,7 @@ export function BreedsGridClient({
                   uniqueRunClimate={uniqueRunClimate}
                   toggleType={toggleType}
                   toggleSize={toggleSize}
+                  toggleLetter={toggleLetter}
                   toggleTemperament={toggleTemperament}
                   toggleCoatType={toggleCoatType}
                   toggleClimate={toggleClimate}

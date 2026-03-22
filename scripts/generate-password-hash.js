@@ -7,7 +7,7 @@
  * Note: You need to install bcryptjs first: npm install bcryptjs
  */
 
-const bcrypt = require("bcryptjs");
+import { hashSync } from "bcryptjs";
 
 const password = process.argv[2];
 
@@ -16,7 +16,7 @@ if (!password) {
   process.exit(1);
 }
 
-const hash = bcrypt.hashSync(password, 10);
+const hash = hashSync(password, 10);
 
 console.log("\nPassword hash generated (bcrypt):");
 console.log(hash);
