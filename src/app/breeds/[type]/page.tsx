@@ -9,6 +9,7 @@ import {
   getBreedsByType,
   getBreedTypeBySlug,
 } from "@/lib/breeds-data";
+import { getSiteUrl } from "@/lib/site-url";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -32,10 +33,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const siteUrl = getSiteUrl();
+  const canonical = `${siteUrl}/breeds/${type}`;
+  const desc = `Explore ${breedType.name.toLowerCase()} dog breeds on FurFam—profiles, traits, and climate notes for families across India. ${breedType.description}`;
+
   return {
-    title: `${breedType.name} | FurFam Pet Shop`,
-    description: `Explore our ${breedType.name.toLowerCase()} collection. ${breedType.description}`,
-    keywords: `${breedType.name}, dog breeds, puppies, pet shop, ${breedType.name.toLowerCase()} for sale`,
+    title: `${breedType.name} Dog Breeds in India | FurFam`,
+    description: desc.slice(0, 160),
+    keywords: `${breedType.name}, dog breeds India, ${breedType.name.toLowerCase()} puppies India, pet breeds India, FurFam`,
+    alternates: { canonical },
+    openGraph: {
+      title: `${breedType.name} Dog Breeds | FurFam India`,
+      description: desc.slice(0, 160),
+      url: canonical,
+      locale: "en_IN",
+      type: "website",
+    },
   };
 }
 

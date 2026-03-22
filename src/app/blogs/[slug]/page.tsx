@@ -11,6 +11,7 @@ import {
   getAllBlogPosts,
   getBlogPostsByCategory,
 } from "@/lib/blog-utils";
+import { getSiteUrl } from "@/lib/site-url";
 import { Calendar, Clock, User, ArrowLeft, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,6 +29,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
+  const siteUrl = getSiteUrl();
 
   if (!post) {
     return {
@@ -35,24 +37,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const canonical = `${siteUrl}/blogs/${slug}`;
+  const defaultOg = `${siteUrl}/home-hero.jpg`;
+  const ogImageUrl = post.image
+    ? new URL(
+        post.image.startsWith("/") ? post.image : `/${post.image}`,
+        siteUrl,
+      ).toString()
+    : defaultOg;
+  const ogImages = [{ url: ogImageUrl, alt: post.title }];
+
   return {
     title: `${post.title} | FurFam Pet Shop Blog`,
     description: post.description,
     keywords: post.keywords || "",
     authors: [{ name: post.author }],
+    alternates: { canonical },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
+      locale: "en_IN",
+      url: canonical,
       publishedTime: post.date,
       authors: [post.author],
-      images: post.image ? [post.image] : [],
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.image ? [post.image] : [],
+      images: [ogImageUrl],
     },
   };
 }
@@ -65,12 +80,67 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const siteUrl = getSiteUrl();
+  const articleUrl = `${siteUrl}/blogs/${slug}`;
   const relatedPosts = getBlogPostsByCategory(post.category)
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
+  const faqJsonLd =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: f.answer,
+            },
+          })),
+        }
+      : null;
+
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "FurFam",
+      url: siteUrl,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    image: post.image
+      ? `${siteUrl}${post.image.startsWith("/") ? post.image : `/${post.image}`}`
+      : `${siteUrl}/home-hero.jpg`,
+    url: articleUrl,
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostingJsonLd),
+        }}
+      />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
       <Header />
       <main className="flex-1">
         {/* Hero Section with Image */}
@@ -156,6 +226,32 @@ export default async function BlogPostPage({ params }: Props) {
                 </ReactMarkdown>
               </div>
 
+              {post.faqs && post.faqs.length > 0 ? (
+                <section
+                  className="mt-12 rounded-2xl border border-border bg-secondary/40 p-6 md:p-8"
+                  aria-labelledby="blog-faq-heading"
+                >
+                  <h2
+                    id="blog-faq-heading"
+                    className="font-serif text-2xl font-bold text-foreground"
+                  >
+                    Frequently asked questions
+                  </h2>
+                  <dl className="mt-6 space-y-6">
+                    {post.faqs.map((f) => (
+                      <div key={f.question}>
+                        <dt className="font-semibold text-foreground">
+                          {f.question}
+                        </dt>
+                        <dd className="mt-2 text-muted-foreground leading-relaxed">
+                          {f.answer}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              ) : null}
+
               {/* Share Section */}
               <div className="mt-12 border-t border-border pt-8">
                 <h3 className="mb-4 font-semibold text-foreground">
@@ -164,7 +260,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="flex gap-4">
                   <Button variant="outline" size="sm" asChild>
                     <a
-                      href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app"}/blogs/${post.slug}`)}`}
+                      href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(articleUrl)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -173,7 +269,7 @@ export default async function BlogPostPage({ params }: Props) {
                   </Button>
                   <Button variant="outline" size="sm" asChild>
                     <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${process.env.NEXT_PUBLIC_SITE_URL || "https://furfam.vercel.app"}/blogs/${post.slug}`)}`}
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -2,6 +2,29 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+export interface BlogFaqEntry {
+  question: string;
+  answer: string;
+}
+
+function parseFaqsFromMatter(data: Record<string, unknown>): BlogFaqEntry[] | undefined {
+  const raw = data.faqs;
+  if (!Array.isArray(raw) || raw.length === 0) {
+    return undefined;
+  }
+  const out: BlogFaqEntry[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const rec = item as Record<string, unknown>;
+    const q = typeof rec.question === "string" ? rec.question.trim() : "";
+    const a = typeof rec.answer === "string" ? rec.answer.trim() : "";
+    if (q.length > 0 && a.length > 0) {
+      out.push({ question: q, answer: a });
+    }
+  }
+  return out.length > 0 ? out : undefined;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -14,6 +37,7 @@ export interface BlogPost {
   image?: string;
   content: string;
   readingTime?: number;
+  faqs?: BlogFaqEntry[];
 }
 
 const blogsDirectory = path.join(process.cwd(), "src/content/blogs");
@@ -37,6 +61,7 @@ export function getAllBlogPosts(): BlogPost[] {
       const wordCount = content.split(/\s+/).length;
       const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
+      const matterData = data as Record<string, unknown>;
       return {
         slug,
         title: data.title || "",
@@ -49,6 +74,7 @@ export function getAllBlogPosts(): BlogPost[] {
         image: data.image,
         content,
         readingTime,
+        faqs: parseFaqsFromMatter(matterData),
       } as BlogPost;
     });
 
@@ -77,6 +103,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     const wordCount = content.split(/\s+/).length;
     const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
+    const matterData = data as Record<string, unknown>;
     return {
       slug,
       title: data.title || "",
@@ -89,6 +116,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
       image: data.image,
       content,
       readingTime,
+      faqs: parseFaqsFromMatter(matterData),
     } as BlogPost;
   } catch {
     return null;

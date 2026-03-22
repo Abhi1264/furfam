@@ -6,17 +6,21 @@ import { Footer } from "@/components/footer";
 import { getAllBlogPosts } from "@/lib/blog-utils";
 import { Calendar, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Pet Care Blog | FurFam Pet Shop",
+  title: "Dog Care Blog India | Training, Nutrition & Breed Guides | FurFam",
   description:
-    "Expert pet care advice, breed guides, training tips, and helpful resources for dog owners. Stay informed with the latest from FurFam's pet care blog.",
+    "Practical dog care articles for Indian pet parents: breeds, training, food, grooming, monsoon and summer safety, and first-time owner tips from FurFam.",
   keywords:
-    "pet care blog, dog care tips, breed guides, puppy training, pet advice, dog health, pet nutrition, dog behavior",
+    "dog blog India, pet care India, puppy training India, dog food India, dog grooming India, FurFam blog, dog health tips India",
+  alternates: { canonical: `${getSiteUrl()}/blogs` },
   openGraph: {
-    title: "Pet Care Blog | FurFam Pet Shop",
+    title: "Dog Care Blog for India | FurFam",
     description:
-      "Expert pet care advice, breed guides, training tips, and helpful resources for dog owners.",
+      "Expert-backed guides for feeding, training, grooming, and choosing breeds in Indian climates and homes.",
+    url: `${getSiteUrl()}/blogs`,
+    locale: "en_IN",
     type: "website",
   },
 };

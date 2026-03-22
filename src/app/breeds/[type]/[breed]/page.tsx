@@ -12,6 +12,7 @@ import {
 } from "@/lib/breeds-data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getSiteUrl } from "@/lib/site-url";
 import {
   ArrowLeft,
   Clock,
@@ -53,15 +54,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const siteUrl = getSiteUrl();
+  const canonical = `${siteUrl}/breeds/${breed.typeSlug}/${breed.id}`;
+  const climateHint =
+    breed.climateSuitability?.length > 0
+      ? ` Climate fit: ${breed.climateSuitability.join(", ")}.`
+      : "";
+  const rawDescription = `${breed.name} (${breed.type}) — ${breed.description.slice(0, 120)}... Size ${breed.sizeCategory}, ${breed.coatType} coat.${climateHint} Trusted breed guide for dog owners in India.`;
+
   return {
-    title: `${breed.name} | ${breed.type} | FurFam Pet Shop`,
-    description: `Learn about ${breed.name}: ${breed.description.slice(
-      0,
-      150,
-    )}... Size: ${breed.sizeCategory}, Coat: ${breed.coatType}.`,
-    keywords: `${breed.name}, ${
-      breed.type
-    }, dog breed, puppy, ${breed.temperament.join(", ")}, ${breed.sizeCategory} dog, ${breed.coatType} coat, pet shop`,
+    title: `${breed.name} Dog Breed in India | ${breed.type} | FurFam`,
+    description: rawDescription.slice(0, 160),
+    keywords: `${breed.name}, ${breed.name} India, ${breed.type} dog India, ${breed.sizeCategory} dog, ${breed.coatType} coat, ${breed.temperament.slice(0, 3).join(", ")}, FurFam`,
+    alternates: { canonical },
+    openGraph: {
+      title: `${breed.name} | FurFam India`,
+      description: rawDescription.slice(0, 160),
+      url: canonical,
+      locale: "en_IN",
+      type: "website",
+      images: breed.image
+        ? [
+            {
+              url: breed.image.startsWith("/")
+                ? breed.image
+                : `/${breed.image}`,
+            },
+          ]
+        : [],
+    },
   };
 }
 

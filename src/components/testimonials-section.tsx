@@ -273,30 +273,19 @@ export function TestimonialsSection() {
                   key={`${testimonial.name}-${index}`}
                   className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="rounded-2xl bg-card p-6 shadow-sm flex h-full flex-col">
-                    <div className="mb-4 flex gap-1">
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-primary text-primary"
-                        />
-                      ))}
-                    </div>
-                    <p className="mb-6 text-muted-foreground leading-relaxed">
-                      &quot;{testimonial.content}&quot;
-                    </p>
-                    <div className="mt-auto flex items-center gap-3">
-                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-border/70">
+                  <div className="flex h-full flex-col rounded-2xl bg-card p-6 shadow-sm">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-border/70">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
                           className="object-cover"
-                          sizes="56px"
+                          sizes="40px"
                           priority={index < 3}
                         />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <div className="font-semibold text-card-foreground">
                           {testimonial.name}
                         </div>
@@ -304,6 +293,21 @@ export function TestimonialsSection() {
                           {location}
                         </div>
                       </div>
+                    </div>
+                    <p className="mb-4 flex-1 text-muted-foreground leading-relaxed">
+                      &quot;{testimonial.content}&quot;
+                    </p>
+                    <div
+                      className="flex gap-1"
+                      aria-label={`${testimonial.rating} out of 5 stars`}
+                    >
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-primary text-primary"
+                          aria-hidden
+                        />
+                      ))}
                     </div>
                   </div>
                 </CarouselItem>

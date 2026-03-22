@@ -275,10 +275,15 @@ title: "Your Blog Post Title"
 date: "2024-01-01"
 description: "Post description"
 author: "Author Name"
+faqs:
+  - question: "Optional FAQ for rich results"
+    answer: "Short, helpful answer text."
 ---
 
 Your blog content here...
 ```
+
+Optional `faqs` in front matter powers the on-page FAQ block and FAQ structured data on blog post pages.
 
 ### Styling
 
@@ -313,7 +318,7 @@ The application can be deployed to any platform that supports Next.js:
   - `CLOUDINARY_CLOUD_NAME`
   - `CLOUDINARY_API_KEY`
   - `CLOUDINARY_API_SECRET`
-  - `NEXT_PUBLIC_SITE_URL` (set to your production domain)
+  - `NEXT_PUBLIC_SITE_URL` (set to your **canonical** production URL, e.g. `https://yourdomain.com` — no trailing slash. Used for `metadataBase`, Open Graph, `sitemap.xml`, `robots.txt`, and social share links.)
 
 ## License
 

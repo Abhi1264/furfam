@@ -1,9 +1,28 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { breeds } from "@/lib/breeds-data";
 import { Sparkles } from "lucide-react";
 import { BreedsGridClient } from "@/components/breeds/breeds-grid-client";
+import { getSiteUrl } from "@/lib/site-url";
+
+export const metadata: Metadata = {
+  title: "All Dog Breeds in India | Browse by Type, Size & Temperament",
+  description:
+    `Browse ${breeds.length}+ dog breeds on FurFam: filters for size, coat, climate fit, and temperament—built for pet parents across India.`,
+  keywords:
+    "all dog breeds India, dog breed list India, puppy breeds India, dog breeds by type, FurFam breeds",
+  alternates: { canonical: `${getSiteUrl()}/breeds` },
+  openGraph: {
+    title: "All Dog Breeds in India | FurFam",
+    description:
+      "Explore a complete breed directory with practical filters for Indian homes and climates.",
+    url: `${getSiteUrl()}/breeds`,
+    locale: "en_IN",
+    type: "website",
+  },
+};
 
 export default function BreedsPage() {
   const uniqueSizes = Array.from(
