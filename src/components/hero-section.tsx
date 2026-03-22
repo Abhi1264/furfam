@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PawPrint } from "lucide-react";
+import { PawPrint } from "lucide-react";
+import { HeroSearchButton } from "@/components/hero-search-button";
 
 export function HeroSection() {
   return (
@@ -22,13 +23,9 @@ export function HeroSection() {
               puppies raised with love and care.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" asChild>
-                <Link href="#breeds">
-                  Explore Breeds <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <HeroSearchButton />
               <Button size="lg" variant="outline" asChild>
-                <Link href="/about">Learn More</Link>
+                <Link href="/breeds">Explore All Breeds</Link>
               </Button>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { Command } from "cmdk";
 import { Search, FileText, Layout, Dog } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
+  createSearchIndex,
   searchContent,
   getSuggestedContent,
   type SearchResult,
@@ -51,6 +52,11 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
     }
   }, [open]);
 
+  const searchIndex = React.useMemo(
+    () => createSearchIndex(searchData),
+    [searchData],
+  );
+
   const searchResults = React.useMemo(() => {
     if (loading || searchData.length === 0) {
       return [];
@@ -59,8 +65,8 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
     if (!query || query.trim().length === 0) {
       return getSuggestedContent(searchData);
     }
-    return searchContent(query, searchData);
-  }, [query, searchData, loading]);
+    return searchContent(query, searchIndex);
+  }, [query, searchData, searchIndex, loading]);
 
   const handleSelect = React.useCallback(
     (url: string) => {

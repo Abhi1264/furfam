@@ -19,6 +19,7 @@ const pages: SearchResult[] = [
     description: "Find your perfect furry companion at FurFam",
     url: "/",
     category: "page",
+    tags: ["furfam", "home", "dogs", "puppies"],
   },
   {
     id: "about",
@@ -26,6 +27,7 @@ const pages: SearchResult[] = [
     description: "Learn about our commitment to ethical breeding and pet care",
     url: "/about",
     category: "page",
+    tags: ["about", "ethical breeding", "pet care"],
   },
   {
     id: "services",
@@ -33,6 +35,7 @@ const pages: SearchResult[] = [
     description: "Explore our comprehensive pet care services",
     url: "/services",
     category: "page",
+    tags: ["services", "pet care", "support"],
   },
   {
     id: "blogs",
@@ -40,6 +43,7 @@ const pages: SearchResult[] = [
     description: "Read expert advice and guides on dog care and breeds",
     url: "/blogs",
     category: "page",
+    tags: ["blog", "articles", "guides"],
   },
   {
     id: "contact",
@@ -47,6 +51,7 @@ const pages: SearchResult[] = [
     description: "Get in touch with our team for personalized guidance",
     url: "/contact",
     category: "page",
+    tags: ["contact", "help", "support"],
   },
   {
     id: "faqs",
@@ -54,13 +59,15 @@ const pages: SearchResult[] = [
     description: "Frequently asked questions about our services and breeds",
     url: "/faqs",
     category: "page",
+    tags: ["faq", "questions", "help"],
   },
   {
     id: "breeds",
     title: "All Breeds",
     description: "Browse all dog breeds by type",
-    url: "/breeds/sporting",
+    url: "/breeds",
     category: "page",
+    tags: ["breeds", "dog breeds", "all breeds"],
   },
 ];
 

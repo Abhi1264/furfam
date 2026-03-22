@@ -1,3 +1,5 @@
+import MiniSearch from "minisearch";
+
 export interface SearchResult {
   id: string;
   title: string;
@@ -12,84 +14,117 @@ export interface SearchCategory {
   results: SearchResult[];
 }
 
-// Perform search across content
-export function searchContent(
-  query: string,
-  allContent: SearchResult[],
-): SearchCategory[] {
+interface SearchDocument extends SearchResult {
+  searchText: string;
+}
+
+type RankedSearchResult = SearchResult & { score: number };
+export type SearchIndex = MiniSearch<SearchDocument>;
+
+const CATEGORY_BOOST: Record<SearchResult["category"], number> = {
+  breed: 25,
+  page: 10,
+  blog: 0,
+};
+
+const SEARCH_OPTIONS = {
+  prefix: true,
+  fuzzy: 0.2,
+  boost: {
+    title: 8,
+    tags: 5,
+    description: 2,
+    searchText: 1,
+  },
+};
+
+function stripScore(result: RankedSearchResult): SearchResult {
+  return {
+    id: result.id,
+    title: result.title,
+    description: result.description,
+    url: result.url,
+    category: result.category,
+    tags: result.tags,
+  };
+}
+
+function toSearchDocuments(allContent: SearchResult[]): SearchDocument[] {
+  return allContent.map((item) => ({
+    ...item,
+    searchText: [item.title, item.description, item.tags?.join(" ")]
+      .filter(Boolean)
+      .join(" "),
+  }));
+}
+
+export function createSearchIndex(allContent: SearchResult[]): SearchIndex {
+  const index = new MiniSearch<SearchDocument>({
+    idField: "id",
+    fields: ["title", "description", "tags", "searchText"],
+    storeFields: ["id", "title", "description", "url", "category", "tags"],
+    searchOptions: SEARCH_OPTIONS,
+  });
+
+  if (allContent.length > 0) {
+    index.addAll(toSearchDocuments(allContent));
+  }
+
+  return index;
+}
+
+// Perform indexed search across all content with breed-priority ranking
+export function searchContent(query: string, index: SearchIndex): SearchCategory[] {
   if (!query || query.trim().length === 0) {
     return [];
   }
 
-  const searchQuery = query.toLowerCase().trim();
+  const rawResults = index.search(query.trim(), SEARCH_OPTIONS) as unknown as Array<
+    SearchResult & { score: number }
+  >;
 
-  // Filter and score results
-  const scoredResults = allContent
-    .map((item) => {
-      let score = 0;
-      const titleLower = item.title.toLowerCase();
-      const descLower = item.description.toLowerCase();
-      const tagsLower = item.tags?.map((t) => t.toLowerCase()).join(" ") || "";
+  const deduped = new Map<string, RankedSearchResult>();
+  for (const result of rawResults) {
+    const ranked: RankedSearchResult = {
+      id: result.id,
+      title: result.title,
+      description: result.description,
+      url: result.url,
+      category: result.category,
+      tags: result.tags,
+      score: result.score + CATEGORY_BOOST[result.category],
+    };
 
-      // Exact title match - highest priority
-      if (titleLower === searchQuery) {
-        score += 100;
-      }
-      // Title starts with query
-      else if (titleLower.startsWith(searchQuery)) {
-        score += 50;
-      }
-      // Title includes query
-      else if (titleLower.includes(searchQuery)) {
-        score += 30;
-      }
+    const existing = deduped.get(ranked.id);
+    if (!existing || existing.score < ranked.score) {
+      deduped.set(ranked.id, ranked);
+    }
+  }
 
-      // Description includes query
-      if (descLower.includes(searchQuery)) {
-        score += 20;
-      }
+  const sortedResults = [...deduped.values()].sort((a, b) => b.score - a.score);
 
-      // Tags include query
-      if (tagsLower.includes(searchQuery)) {
-        score += 15;
-      }
-
-      // Check for word boundaries
-      const words = searchQuery.split(" ");
-      words.forEach((word) => {
-        if (word.length > 2) {
-          if (titleLower.includes(word)) score += 10;
-          if (descLower.includes(word)) score += 5;
-          if (tagsLower.includes(word)) score += 5;
-        }
-      });
-
-      return { ...item, score };
-    })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score);
-
-  // Group by category
-  const breeds = scoredResults
-    .filter((r) => r.category === "breed")
-    .slice(0, 5);
-  const blogs = scoredResults.filter((r) => r.category === "blog").slice(0, 5);
-  const pageResults = scoredResults
-    .filter((r) => r.category === "page")
-    .slice(0, 5);
+  const breeds = sortedResults
+    .filter((item) => item.category === "breed")
+    .slice(0, 6)
+    .map(stripScore);
+  const pages = sortedResults
+    .filter((item) => item.category === "page")
+    .slice(0, 4)
+    .map(stripScore);
+  const blogs = sortedResults
+    .filter((item) => item.category === "blog")
+    .slice(0, 4)
+    .map(stripScore);
 
   const categories: SearchCategory[] = [];
-
   if (breeds.length > 0) {
     categories.push({ name: "Dog Breeds", results: breeds });
   }
-
+  if (pages.length > 0) {
+    categories.push({ name: "Pages", results: pages });
+  }
   if (blogs.length > 0) {
     categories.push({ name: "Blog Posts", results: blogs });
-  }
-
-  if (pageResults.length > 0) {
-    categories.push({ name: "Pages", results: pageResults });
   }
 
   return categories;
