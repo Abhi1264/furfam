@@ -43,7 +43,7 @@ If numbers don’t add up, **wait** or choose a lower-maintenance adult dog.
 
 ## Step 2: Match energy to reality
 
-- **High-drive** breeds (many herding/working types) need **daily** physical *and* mental work—not just weekend hikes.
+- **High-drive** breeds (many herding/working types) need **daily** physical _and_ mental work—not just weekend hikes.
 - **Companion** breeds may need **less mileage** but still need **training, routine, and love**.
 
 Read [how much exercise dogs really need](/blogs/how-much-exercise-does-your-dog-really-need) and [active lifestyle breeds](/blogs/active-lifestyle-best-dog-breeds) if you run or hike regularly.

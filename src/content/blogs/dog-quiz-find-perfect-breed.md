@@ -32,66 +32,66 @@ Use this quiz to **shortlist** breeds that fit **your real week**—not your vac
 
 **Where do you live?**
 
-- **A)** Independent house or bungalow with fenced outdoor access  
-- **B)** Apartment / flat with lifts and shared corridors  
-- **C)** Joint-family home with frequent visitors and kids  
-- **D)** Frequent moves between cities  
+- **A)** Independent house or bungalow with fenced outdoor access
+- **B)** Apartment / flat with lifts and shared corridors
+- **C)** Joint-family home with frequent visitors and kids
+- **D)** Frequent moves between cities
 
-*India note: flats mean noise discipline and lift potty plans—see [apartment guide](/blogs/best-dog-breeds-for-apartment-dwellers-practical-guide).*
+_India note: flats mean noise discipline and lift potty plans—see [apartment guide](/blogs/best-dog-breeds-for-apartment-dwellers-practical-guide)._
 
 ## Question 2: Activity
 
 **How much real exercise can you give **every** day?**
 
-- **A)** 90+ minutes walking/training plus weekend adventures  
-- **B)** 45–60 minutes steady walking  
-- **C)** 30 minutes + indoor play  
-- **D)** Very limited; mostly indoor lifestyle  
+- **A)** 90+ minutes walking/training plus weekend adventures
+- **B)** 45–60 minutes steady walking
+- **C)** 30 minutes + indoor play
+- **D)** Very limited; mostly indoor lifestyle
 
-*Pair with [exercise science](/blogs/how-much-exercise-does-your-dog-really-need).*
+_Pair with [exercise science](/blogs/how-much-exercise-does-your-dog-really-need)._
 
 ## Question 3: Climate tolerance you can manage
 
 **Are you willing to manage thick coats or flat faces in Indian heat?**
 
-- **A)** Yes—I'll groom and schedule cool walks  
-- **B)** Prefer moderate coats  
-- **C)** Need heat-tolerant or short-coated types  
-- **D)** Want lowest grooming/time investment possible  
+- **A)** Yes—I'll groom and schedule cool walks
+- **B)** Prefer moderate coats
+- **C)** Need heat-tolerant or short-coated types
+- **D)** Want lowest grooming/time investment possible
 
 ## Question 4: Experience
 
 **Dog experience level?**
 
-- **A)** Grew up with dogs / trained before  
-- **B)** First dog but will hire trainer  
-- **C)** First dog, limited budget for help  
-- **D)** Nervous about behaviour—want easy adult  
+- **A)** Grew up with dogs / trained before
+- **B)** First dog but will hire trainer
+- **C)** First dog, limited budget for help
+- **D)** Nervous about behaviour—want easy adult
 
-*Read [first-time tips](/blogs/10-essential-tips-for-first-time-dog-owners).*
+_Read [first-time tips](/blogs/10-essential-tips-for-first-time-dog-owners)._
 
 ## Question 5: Household
 
 **Who shares your home?**
 
-- **A)** Solo or couple, calm home  
-- **B)** Young children under 8  
-- **C)** Seniors needing a calm companion  
-- **D)** Need watchdog alertness  
+- **A)** Solo or couple, calm home
+- **B)** Young children under 8
+- **C)** Seniors needing a calm companion
+- **D)** Need watchdog alertness
 
-*Kids? [Family guide](/blogs/best-dog-breeds-for-families-with-young-kids). Guarding? [Guard dog basics](/blogs/how-to-choose-the-right-guard-dog-for-home).*
+_Kids? [Family guide](/blogs/best-dog-breeds-for-families-with-young-kids). Guarding? [Guard dog basics](/blogs/how-to-choose-the-right-guard-dog-for-home)._
 
 ## Scoring key (rough guide)
 
-- **Mostly A**: you can consider higher-drive sporting/herding breeds **if** you commit to training—browse active groups on FurFam.  
-- **Mostly B**: versatile family breeds (many retrievers, spaniels, sturdy midsize dogs) often fit—verify coat and heat notes.  
-- **Mostly C**: companion and many small breeds + calm **adult Indies** shine—prioritise low drama and society-friendly training.  
+- **Mostly A**: you can consider higher-drive sporting/herding breeds **if** you commit to training—browse active groups on FurFam.
+- **Mostly B**: versatile family breeds (many retrievers, spaniels, sturdy midsize dogs) often fit—verify coat and heat notes.
+- **Mostly C**: companion and many small breeds + calm **adult Indies** shine—prioritise low drama and society-friendly training.
 - **Mostly D**: seek **adult**, emotionally mature dogs; avoid intense working lines until you gain skills.
 
 ## After the quiz
 
-1. Open [choosing the right breed](/blogs/choosing-right-dog-breed).  
-2. Filter [/breeds](/breeds) by **climate** and **size**.  
+1. Open [choosing the right breed](/blogs/choosing-right-dog-breed).
+2. Filter [/breeds](/breeds) by **climate** and **size**.
 3. [Contact FurFam](/contact) for ethical sourcing guidance **pan-India**.
 
 Quizzes start the conversation—**your calendar** finishes it. Choose honestly, and your future dog wins.

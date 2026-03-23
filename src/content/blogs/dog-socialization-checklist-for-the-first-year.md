@@ -26,7 +26,7 @@ faqs:
 
 # Dog Socialisation Checklist for the First Year (India)
 
-**Socialisation** means teaching your dog: *the world is safe enough to be curious*. In **Indian cities**, that includes **honking**, **elevators**, **house help visits**, **festivals**, and **street dogs**—all handled without fear or aggression.
+**Socialisation** means teaching your dog: _the world is safe enough to be curious_. In **Indian cities**, that includes **honking**, **elevators**, **house help visits**, **festivals**, and **street dogs**—all handled without fear or aggression.
 
 ## Principles that work
 

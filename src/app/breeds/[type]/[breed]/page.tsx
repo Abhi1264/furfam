@@ -5,11 +5,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CharacteristicBar } from "@/components/characteristic-bar";
-import {
-  breeds,
-  getBreedById,
-  getBreedTypeBySlug,
-} from "@/lib/breeds-data";
+import { breeds, getBreedById, getBreedTypeBySlug } from "@/lib/breeds-data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getSiteUrl } from "@/lib/site-url";

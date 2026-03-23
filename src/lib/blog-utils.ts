@@ -7,7 +7,9 @@ export interface BlogFaqEntry {
   answer: string;
 }
 
-function parseFaqsFromMatter(data: Record<string, unknown>): BlogFaqEntry[] | undefined {
+function parseFaqsFromMatter(
+  data: Record<string, unknown>,
+): BlogFaqEntry[] | undefined {
   const raw = data.faqs;
   if (!Array.isArray(raw) || raw.length === 0) {
     return undefined;

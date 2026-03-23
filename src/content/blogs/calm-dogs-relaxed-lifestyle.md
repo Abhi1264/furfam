@@ -30,9 +30,9 @@ If your ideal evening is **quiet tea**, **light walks**, and **early nights**, y
 
 ## What “calm” should mean
 
-- **Recover** quickly after moderate exercise  
-- **Settle** indoors without hours of sprinting  
-- **Trainable** barking for apartment corridors  
+- **Recover** quickly after moderate exercise
+- **Settle** indoors without hours of sprinting
+- **Trainable** barking for apartment corridors
 
 Calm is **not** “I never walk my dog.”
 

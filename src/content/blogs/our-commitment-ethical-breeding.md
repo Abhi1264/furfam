@@ -30,8 +30,8 @@ FurFam exists to help **Indian families** bring dogs home **responsibly**—with
 
 ## Health before hype
 
-- **Parent health awareness**: screening and veterinary care appropriate to breed and context.  
-- **Honest conversations** about risks—no breed is “perfect.”  
+- **Parent health awareness**: screening and veterinary care appropriate to breed and context.
+- **Honest conversations** about risks—no breed is “perfect.”
 - **Documentation**: buyers deserve clarity, not marketing fog.
 
 ## Welfare over volume
@@ -46,21 +46,21 @@ If you cannot ask hard questions, something is wrong. We encourage you to read [
 
 A puppy is not a product you “unbox.” We point new owners to:
 
-- [First-time owner tips](/blogs/10-essential-tips-for-first-time-dog-owners)  
-- [Nutrition basics](/blogs/nutrition-guide-healthy-dog-diet)  
-- [Puppy proofing](/blogs/puppy-proofing-your-home-complete-guide)  
+- [First-time owner tips](/blogs/10-essential-tips-for-first-time-dog-owners)
+- [Nutrition basics](/blogs/nutrition-guide-healthy-dog-diet)
+- [Puppy proofing](/blogs/puppy-proofing-your-home-complete-guide)
 - [Vaccination overview](/blogs/puppy-vaccination-schedule-and-health-checks)
 
 ## India-specific responsibility
 
-- **Heat safety** and realistic exercise plans.  
-- **Society living** and barking management.  
+- **Heat safety** and realistic exercise plans.
+- **Society living** and barking management.
 - **Indie dogs** as valued companions—climate-resilient and deserving of ethical adoption.
 
 ## Your role as a buyer
 
-- Never impulse-buy from roadside sellers.  
-- Budget **vet care**, **training**, and **emergencies**.  
+- Never impulse-buy from roadside sellers.
+- Budget **vet care**, **training**, and **emergencies**.
 - **Spay/neuter** and population control decisions belong in your plan—discuss timing with your vet.
 
 ## Talk to us

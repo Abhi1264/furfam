@@ -74,14 +74,18 @@ export function createSearchIndex(allContent: SearchResult[]): SearchIndex {
 }
 
 // Perform indexed search across all content with breed-priority ranking
-export function searchContent(query: string, index: SearchIndex): SearchCategory[] {
+export function searchContent(
+  query: string,
+  index: SearchIndex,
+): SearchCategory[] {
   if (!query || query.trim().length === 0) {
     return [];
   }
 
-  const rawResults = index.search(query.trim(), SEARCH_OPTIONS) as unknown as Array<
-    SearchResult & { score: number }
-  >;
+  const rawResults = index.search(
+    query.trim(),
+    SEARCH_OPTIONS,
+  ) as unknown as Array<SearchResult & { score: number }>;
 
   const deduped = new Map<string, RankedSearchResult>();
   for (const result of rawResults) {

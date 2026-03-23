@@ -25,7 +25,9 @@ console.log(`Missing: ${missing.length}`);
 const aliases = {
   "anjing-kintamani-bali": ["Kintamani dog", "Bali Dog"],
   "bayerischer-gebirgsschweisshund": ["Bavarian Mountain Hound"],
-  "anglo-francais-de-petite-venerie": ["Anglo-Fran\u00e7ais de Petite V\u00e9nerie"],
+  "anglo-francais-de-petite-venerie": [
+    "Anglo-Fran\u00e7ais de Petite V\u00e9nerie",
+  ],
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -58,7 +60,11 @@ function shouldRetry(error) {
   return false;
 }
 
-async function withRetry(taskName, fn, { maxAttempts = 4, baseDelayMs = 500 } = {}) {
+async function withRetry(
+  taskName,
+  fn,
+  { maxAttempts = 4, baseDelayMs = 500 } = {},
+) {
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -106,7 +112,11 @@ async function fetchSummary(title) {
     },
     { maxAttempts: 4, baseDelayMs: 400 },
   ).catch((error) => {
-    if (typeof error.status === "number" && error.status < 500 && error.status !== 429) {
+    if (
+      typeof error.status === "number" &&
+      error.status < 500 &&
+      error.status !== 429
+    ) {
       return null;
     }
     throw error;
@@ -151,7 +161,9 @@ for (const ref of missing) {
     try {
       summary = await fetchSummary(c);
     } catch (error) {
-      console.warn(`[warn] Could not fetch summary for "${c}": ${error.message}`);
+      console.warn(
+        `[warn] Could not fetch summary for "${c}": ${error.message}`,
+      );
       continue;
     }
     const thumb = summary?.thumbnail?.source;

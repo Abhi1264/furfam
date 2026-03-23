@@ -5,30 +5,30 @@ import {
   sizeClassifications,
   climateClassifications,
   coatClassifications,
-  getBreedsCount
+  getBreedsCount,
 } from "@/lib/breeds-data";
 
 export function BreedTypesSection() {
   // Prepare data with counts on the server
-  const groups = breedTypes.map(item => ({
+  const groups = breedTypes.map((item) => ({
     ...item,
     dimension: "group" as const,
-    breedCount: item.breedCount || getBreedsCount(breeds, 'group', item.slug)
+    breedCount: item.breedCount || getBreedsCount(breeds, "group", item.slug),
   }));
 
-  const sizes = sizeClassifications.map(item => ({
+  const sizes = sizeClassifications.map((item) => ({
     ...item,
-    breedCount: getBreedsCount(breeds, 'size', item.slug)
+    breedCount: getBreedsCount(breeds, "size", item.slug),
   }));
 
-  const climates = climateClassifications.map(item => ({
+  const climates = climateClassifications.map((item) => ({
     ...item,
-    breedCount: getBreedsCount(breeds, 'climate', item.slug)
+    breedCount: getBreedsCount(breeds, "climate", item.slug),
   }));
 
-  const coats = coatClassifications.map(item => ({
+  const coats = coatClassifications.map((item) => ({
     ...item,
-    breedCount: getBreedsCount(breeds, 'coat', item.slug)
+    breedCount: getBreedsCount(breeds, "coat", item.slug),
   }));
 
   return (

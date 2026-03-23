@@ -58,8 +58,8 @@ export function FeaturesSection() {
             Why Choose FurFam?
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We&apos;re committed to connecting you with your perfect companion while
-            ensuring the highest standards of care and ethics.
+            We&apos;re committed to connecting you with your perfect companion
+            while ensuring the highest standards of care and ethics.
           </p>
         </div>
 

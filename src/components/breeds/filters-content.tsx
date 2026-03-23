@@ -175,7 +175,8 @@ export function FiltersContent({
             <div className="grid grid-cols-6 gap-2 pt-1">
               {alphabetLetters.map((letter) => {
                 const breedCount = breeds.filter(
-                  (breed) => breed.name.trim().charAt(0).toUpperCase() === letter,
+                  (breed) =>
+                    breed.name.trim().charAt(0).toUpperCase() === letter,
                 ).length;
 
                 return (
@@ -251,7 +252,9 @@ export function FiltersContent({
                     (
                     {
                       breeds.filter((b) =>
-                        b.climateSuitability.includes(climate as "Hot" | "Cold" | "Moderate" | "Adaptable"),
+                        b.climateSuitability.includes(
+                          climate as "Hot" | "Cold" | "Moderate" | "Adaptable",
+                        ),
                       ).length
                     }
                     )

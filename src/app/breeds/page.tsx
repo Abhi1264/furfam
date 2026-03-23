@@ -9,8 +9,7 @@ import { getSiteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "All Dog Breeds in India | Browse by Type, Size & Temperament",
-  description:
-    `Browse ${breeds.length}+ dog breeds on FurFam: filters for size, coat, climate fit, and temperament—built for pet parents across India.`,
+  description: `Browse ${breeds.length}+ dog breeds on FurFam: filters for size, coat, climate fit, and temperament—built for pet parents across India.`,
   keywords:
     "all dog breeds India, dog breed list India, puppy breeds India, dog breeds by type, FurFam breeds",
   alternates: { canonical: `${getSiteUrl()}/breeds` },
@@ -61,11 +60,13 @@ export default function BreedsPage() {
           </div>
         </section>
 
-        <Suspense fallback={
-          <div className="container mx-auto px-4 py-8 text-center text-muted-foreground">
-            Loading filters...
-          </div>
-        }>
+        <Suspense
+          fallback={
+            <div className="container mx-auto px-4 py-8 text-center text-muted-foreground">
+              Loading filters...
+            </div>
+          }
+        >
           <BreedsGridClient
             breeds={breeds}
             uniqueSizes={uniqueSizes}

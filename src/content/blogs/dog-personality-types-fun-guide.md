@@ -68,8 +68,8 @@ Every dog is unique—but owners **understand faster** when we name patterns. Th
 
 ## Using types without boxing your dog
 
-- Adjust for **pain** (arthritic dogs act “stubborn”).  
-- Adjust for **adolescence** (teen dogs test boundaries).  
+- Adjust for **pain** (arthritic dogs act “stubborn”).
+- Adjust for **adolescence** (teen dogs test boundaries).
 - Celebrate **progress**, not perfection.
 
 ## Match lifestyle before labels

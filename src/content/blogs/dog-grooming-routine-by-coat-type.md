@@ -63,12 +63,12 @@ Examples: Shih Tzu, Afghan-style maintenance breeds.
 
 ## Tools cheat sheet
 
-| Coat | Tool ideas |
-|------|------------|
-| Short | Rubber curry, grooming glove |
-| Double | Slicker + undercoat rake (seasonal) |
-| Curly | Pin brush + metal comb |
-| Long | Slicker + comb + detangling spray (vet-approved) |
+| Coat   | Tool ideas                                       |
+| ------ | ------------------------------------------------ |
+| Short  | Rubber curry, grooming glove                     |
+| Double | Slicker + undercoat rake (seasonal)              |
+| Curly  | Pin brush + metal comb                           |
+| Long   | Slicker + comb + detangling spray (vet-approved) |
 
 ## Bath + brush order
 

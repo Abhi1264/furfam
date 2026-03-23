@@ -54,14 +54,20 @@ export function BreedsGridClient({
   const [showFilters, setShowFilters] = useState(false);
 
   // Helper to update URL params
-  const updateFilters = (key: string, value: string | null, action: "add" | "remove" | "set" | "toggle") => {
+  const updateFilters = (
+    key: string,
+    value: string | null,
+    action: "add" | "remove" | "set" | "toggle",
+  ) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
 
     if (action === "toggle") {
       const values = current.getAll(key);
       if (values.includes(value!)) {
         current.delete(key);
-        values.filter(v => v !== value).forEach(v => current.append(key, v));
+        values
+          .filter((v) => v !== value)
+          .forEach((v) => current.append(key, v));
       } else {
         current.append(key, value!);
       }
@@ -76,20 +82,27 @@ export function BreedsGridClient({
   };
 
   // Toggle functions using URL updates
-  const toggleType = (typeSlug: string) => updateFilters("type", typeSlug, "toggle");
+  const toggleType = (typeSlug: string) =>
+    updateFilters("type", typeSlug, "toggle");
   const toggleSize = (size: string) => updateFilters("size", size, "toggle");
-  const toggleCoatType = (coat: string) => updateFilters("coat", coat, "toggle");
-  const toggleClimate = (climate: string) => updateFilters("climate", climate, "toggle");
-  const toggleTemperament = (temp: string) => updateFilters("temperament", temp, "toggle");
-  const toggleLetter = (letter: string) => updateFilters("letter", letter, "toggle");
+  const toggleCoatType = (coat: string) =>
+    updateFilters("coat", coat, "toggle");
+  const toggleClimate = (climate: string) =>
+    updateFilters("climate", climate, "toggle");
+  const toggleTemperament = (temp: string) =>
+    updateFilters("temperament", temp, "toggle");
+  const toggleLetter = (letter: string) =>
+    updateFilters("letter", letter, "toggle");
 
   const setShowHypoallergenic = (show: boolean) =>
     updateFilters("hypoallergenic", show ? "true" : null, "set");
 
   const setSortBy = (sort: SortOption) => updateFilters("sort", sort, "set");
 
-  const setMinPrice = (price: string) => updateFilters("minPrice", price, "set");
-  const setMaxPrice = (price: string) => updateFilters("maxPrice", price, "set");
+  const setMinPrice = (price: string) =>
+    updateFilters("minPrice", price, "set");
+  const setMaxPrice = (price: string) =>
+    updateFilters("maxPrice", price, "set");
 
   const clearFilters = () => router.push(pathname, { scroll: false });
 
@@ -107,22 +120,28 @@ export function BreedsGridClient({
     let filtered = breeds;
 
     if (selectedTypes.length > 0) {
-      filtered = filtered.filter((breed) => selectedTypes.includes(breed.typeSlug));
+      filtered = filtered.filter((breed) =>
+        selectedTypes.includes(breed.typeSlug),
+      );
     }
     if (selectedLetters.length > 0) {
       filtered = filtered.filter((breed) =>
-        selectedLetters.includes(breed.name.trim().charAt(0).toUpperCase())
+        selectedLetters.includes(breed.name.trim().charAt(0).toUpperCase()),
       );
     }
     if (selectedSizes.length > 0) {
-      filtered = filtered.filter((breed) => selectedSizes.includes(breed.sizeCategory));
+      filtered = filtered.filter((breed) =>
+        selectedSizes.includes(breed.sizeCategory),
+      );
     }
     if (selectedCoatTypes.length > 0) {
-      filtered = filtered.filter((breed) => selectedCoatTypes.includes(breed.coatType));
+      filtered = filtered.filter((breed) =>
+        selectedCoatTypes.includes(breed.coatType),
+      );
     }
     if (selectedClimates.length > 0) {
       filtered = filtered.filter((breed) =>
-        breed.climateSuitability.some((c) => selectedClimates.includes(c))
+        breed.climateSuitability.some((c) => selectedClimates.includes(c)),
       );
     }
     if (showHypoallergenic) {
@@ -130,7 +149,7 @@ export function BreedsGridClient({
     }
     if (selectedTemperaments.length > 0) {
       filtered = filtered.filter((breed) =>
-        breed.temperament.some((t) => selectedTemperaments.includes(t))
+        breed.temperament.some((t) => selectedTemperaments.includes(t)),
       );
     }
     if (minPrice || maxPrice) {

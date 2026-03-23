@@ -36,10 +36,10 @@ faqs:
 
 ## Practical daily ranges (starting points)
 
-| Lifestyle | Approximate daily activity |
-|-----------|----------------------------|
-| Low-energy companion | 30–60 minutes easy walking + play |
-| Moderate pet breeds | 60–90 minutes walking + training |
+| Lifestyle                 | Approximate daily activity        |
+| ------------------------- | --------------------------------- |
+| Low-energy companion      | 30–60 minutes easy walking + play |
+| Moderate pet breeds       | 60–90 minutes walking + training  |
 | High-drive working breeds | 90+ minutes + intense mental work |
 
 Adjust for **weather**—summer plans should be **cooler, shorter, and smarter**, not “the same miles at noon.”

@@ -32,16 +32,16 @@ Buying a dog in **India** should feel less like a gamble and more like **informe
 
 Responsible networks **verify**:
 
-- Identity, registrations where applicable, and history.  
-- Housing conditions and daily care routines—not a one-time photo op.  
+- Identity, registrations where applicable, and history.
+- Housing conditions and daily care routines—not a one-time photo op.
 - Willingness to share **health documentation** and answer follow-up questions.
 
 ## 2. Health conversations early
 
 Expect discussion of:
 
-- **Vaccination and deworming** schedules appropriate to age.  
-- **Parent health** context for inherited conditions common in the breed.  
+- **Vaccination and deworming** schedules appropriate to age.
+- **Parent health** context for inherited conditions common in the breed.
 - **Parasite prevention** guidance for your region.
 
 Dig deeper with our [puppy vaccination article](/blogs/puppy-vaccination-schedule-and-health-checks).
@@ -50,8 +50,8 @@ Dig deeper with our [puppy vaccination article](/blogs/puppy-vaccination-schedul
 
 We want you to succeed in **your real home**:
 
-- Apartment? See [apartment guide](/blogs/best-dog-breeds-for-apartment-dwellers-practical-guide).  
-- Kids? [Family article](/blogs/best-dog-breeds-for-families-with-young-kids).  
+- Apartment? See [apartment guide](/blogs/best-dog-breeds-for-apartment-dwellers-practical-guide).
+- Kids? [Family article](/blogs/best-dog-breeds-for-families-with-young-kids).
 - First dog? [Ten tips](/blogs/10-essential-tips-for-first-time-dog-owners).
 
 Use [/breeds](/breeds) to compare **exercise**, **coat**, and **climate** before you commit.
@@ -60,8 +60,8 @@ Use [/breeds](/breeds) to compare **exercise**, **coat**, and **climate** before
 
 You should receive:
 
-- Feeding notes and transition diet plan.  
-- Vet records available at handover.  
+- Feeding notes and transition diet plan.
+- Vet records available at handover.
 - Written understanding of **support** and **welfare** if plans change.
 
 ## 5. After you go home
@@ -70,9 +70,9 @@ The first 72 hours set the tone—[puppy proof](/blogs/puppy-proofing-your-home-
 
 ## Red flags anywhere in India
 
-- Multiple breeds churning constantly from one flat.  
-- “Too cheap to be true” with zero paperwork.  
-- Pressure to pay **now** without questions.  
+- Multiple breeds churning constantly from one flat.
+- “Too cheap to be true” with zero paperwork.
+- Pressure to pay **now** without questions.
 - Refusal to show **where puppies live**.
 
 ## Our values in one line

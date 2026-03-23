@@ -22,7 +22,7 @@ export function ClassificationBrowser({
   groups,
   sizes,
   climates,
-  coats
+  coats,
 }: ClassificationBrowserProps) {
   const [activeTab, setActiveTab] = useState("group");
 

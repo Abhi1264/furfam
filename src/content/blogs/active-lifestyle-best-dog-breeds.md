@@ -36,15 +36,15 @@ High-drive dogs need **training jobs**. Read [how much exercise dogs need](/blog
 
 In **most of India**, **midday** road work is unsafe for many dogs. Plan:
 
-- **Pre-sunrise** or **post-sunset** sessions  
-- **Hydration** and **cool-down** walks  
-- **Paw checks** on hot asphalt  
+- **Pre-sunrise** or **post-sunset** sessions
+- **Hydration** and **cool-down** walks
+- **Paw checks** on hot asphalt
 
 [Seasonal checklist](/blogs/seasonal-dog-care-summer-monsoon-winter-checklist).
 
 ## Breeds commonly chosen by active owners
 
-*(Individual lines vary—verify energy with breeders/rescues.)*
+_(Individual lines vary—verify energy with breeders/rescues.)_
 
 ### Retrievers & spaniels
 
@@ -68,9 +68,9 @@ Loyal and athletic—hate being left alone 10 hours after a morning run.
 
 ## Gear and safety
 
-- **Harness** with front clip for pullers  
-- **GPS/tag** if you trail-run  
-- **First-aid** awareness for cuts and paw pads  
+- **Harness** with front clip for pullers
+- **GPS/tag** if you trail-run
+- **First-aid** awareness for cuts and paw pads
 
 ## Not ready for a superdog?
 

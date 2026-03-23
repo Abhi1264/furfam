@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Aarav Mehta",
     role: "Pet Parent, Mumbai, Maharashtra",
-    image: "/testimonials/testimonial-01.jpeg",
+    image: "/testimonials/testimonial-01.jpg",
     content:
       "From first call to delivery, FurFam made the whole process smooth and transparent. Our Labrador settled in just two days.",
     rating: 5,
@@ -24,7 +24,7 @@ const testimonials = [
   {
     name: "Ishita Verma",
     role: "Pet Parent, New Delhi, Delhi",
-    image: "/testimonials/testimonial-02.jpeg",
+    image: "/testimonials/testimonial-02.jpg",
     content:
       "I appreciated the health records and regular updates before pickup. Our Beagle is playful, confident, and very affectionate.",
     rating: 5,
@@ -32,7 +32,7 @@ const testimonials = [
   {
     name: "Naina Rao",
     role: "First-time Owner, Bengaluru, Karnataka",
-    image: "/testimonials/testimonial-03.jpeg",
+    image: "/testimonials/testimonial-03.jpg",
     content:
       "As a first-time pet parent, I had a lot of questions and the team answered every one patiently. Great after-adoption guidance too.",
     rating: 5,
@@ -40,7 +40,7 @@ const testimonials = [
   {
     name: "Saif Khan",
     role: "Pet Parent, Hyderabad, Telangana",
-    image: "/testimonials/testimonial-04.jpeg",
+    image: "/testimonials/testimonial-04.jpg",
     content:
       "Our Indie pup came home healthy and socialized. The care checklist FurFam shared has been super useful in the first month.",
     rating: 5,
@@ -48,7 +48,7 @@ const testimonials = [
   {
     name: "Harsh Vaidya",
     role: "Dog Owner, Kolhapur, Maharashtra",
-    image: "/testimonials/testimonial-05.jpeg",
+    image: "/testimonials/testimonial-05.jpg",
     content:
       "Professional, punctual, and genuinely caring team. We felt supported throughout the process and still get quick help on WhatsApp.",
     rating: 5,
@@ -56,7 +56,7 @@ const testimonials = [
   {
     name: "Pradeep Ghosh",
     role: "Pet Parent, Kolkata, West Bengal",
-    image: "/testimonials/testimonial-06.jpeg",
+    image: "/testimonials/testimonial-06.jpg",
     content:
       "FurFam matched us with the right temperament for apartment living. Our puppy adapted beautifully with their routine tips.",
     rating: 5,
@@ -64,7 +64,7 @@ const testimonials = [
   {
     name: "Kavya Joshi",
     role: "Pet Parent, Pune, Maharashtra",
-    image: "/testimonials/testimonial-07.jpeg",
+    image: "/testimonials/testimonial-07.jpg",
     content:
       "The onboarding call was detailed and practical. Vaccination schedule, food transitions, and training basics were all clearly explained.",
     rating: 5,
@@ -72,7 +72,7 @@ const testimonials = [
   {
     name: "Nirav Shah",
     role: "Pet Parent, Ahmedabad, Gujarat",
-    image: "/testimonials/testimonial-08.jpeg",
+    image: "/testimonials/testimonial-08.jpg",
     content:
       "I loved the ethical and transparent approach. Our little Shih Tzu came happy, healthy, and full of personality.",
     rating: 5,
@@ -80,7 +80,7 @@ const testimonials = [
   {
     name: "Ritwik Malhotra",
     role: "Pet Parent, Jaipur, Rajasthan",
-    image: "/testimonials/testimonial-09.jpeg",
+    image: "/testimonials/testimonial-09.jpg",
     content:
       "FurFam kept us informed at every step and made us feel confident. The post-adoption support has been excellent.",
     rating: 5,
@@ -88,7 +88,7 @@ const testimonials = [
   {
     name: "Tarun Srivastava",
     role: "Dog Owner, Lucknow, Uttar Pradesh",
-    image: "/testimonials/testimonial-10.jpeg",
+    image: "/testimonials/testimonial-10.jpg",
     content:
       "Our Cocker Spaniel arrived with all documents and clear care instructions. The team was warm, responsive, and reliable.",
     rating: 5,
@@ -96,7 +96,7 @@ const testimonials = [
   {
     name: "Aditya Kulkarni",
     role: "Pet Parent, Indore, Madhya Pradesh",
-    image: "/testimonials/testimonial-11.jpeg",
+    image: "/testimonials/testimonial-11.jpg",
     content:
       "The puppy temperament matched exactly what we discussed. That thoughtful matching made a big difference for our family.",
     rating: 5,
@@ -104,7 +104,7 @@ const testimonials = [
   {
     name: "Manav Tiwari",
     role: "Pet Parent, Bhopal, Madhya Pradesh",
-    image: "/testimonials/testimonial-12.jpeg",
+    image: "/testimonials/testimonial-12.jpg",
     content:
       "Everything felt well organized from consultation to handover. We had zero confusion thanks to their clear communication.",
     rating: 5,
@@ -112,7 +112,7 @@ const testimonials = [
   {
     name: "Gurleen Sandhu",
     role: "Dog Owner, Chandigarh, Punjab",
-    image: "/testimonials/testimonial-13.jpeg",
+    image: "/testimonials/testimonial-13.jpg",
     content:
       "Super smooth experience and genuine care for animal welfare. Even our vet praised the condition and records.",
     rating: 5,
@@ -120,7 +120,7 @@ const testimonials = [
   {
     name: "Sidharth Menon",
     role: "Pet Parent, Coimbatore, Tamil Nadu",
-    image: "/testimonials/testimonial-14.jpeg",
+    image: "/testimonials/testimonial-14.jpg",
     content:
       "FurFam helped us choose a breed that fits our routine and weather. That guidance saved us from making a rushed decision.",
     rating: 5,
@@ -128,7 +128,7 @@ const testimonials = [
   {
     name: "Anil Nair",
     role: "Pet Parent, Kochi, Kerala",
-    image: "/testimonials/testimonial-15.jpeg",
+    image: "/testimonials/testimonial-15.jpg",
     content:
       "Very reassuring process for a new pet parent. They checked in after adoption and shared practical training resources.",
     rating: 5,
@@ -136,7 +136,7 @@ const testimonials = [
   {
     name: "Devansh Agrawal",
     role: "Pet Parent, Nagpur, Maharashtra",
-    image: "/testimonials/testimonial-16.jpeg",
+    image: "/testimonials/testimonial-16.jpg",
     content:
       "Our pup is healthy, cheerful, and settled quickly with our kids. FurFam made this transition easy and joyful.",
     rating: 5,
@@ -144,7 +144,7 @@ const testimonials = [
   {
     name: "Khushi Patel",
     role: "Pet Parent, Surat, Gujarat",
-    image: "/testimonials/testimonial-17.jpeg",
+    image: "/testimonials/testimonial-17.jpg",
     content:
       "The pre-adoption counseling was very helpful and honest. We knew exactly what to expect in the first few weeks.",
     rating: 5,
@@ -152,7 +152,7 @@ const testimonials = [
   {
     name: "Vivek Reddy",
     role: "Dog Owner, Visakhapatnam, Andhra Pradesh",
-    image: "/testimonials/testimonial-18.jpeg",
+    image: "/testimonials/testimonial-18.jpg",
     content:
       "Quick responses, transparent process, and a genuinely caring team. We would confidently recommend FurFam to friends.",
     rating: 5,
@@ -160,7 +160,7 @@ const testimonials = [
   {
     name: "Rhea Bhandari",
     role: "Pet Parent, Udaipur, Rajasthan",
-    image: "/testimonials/testimonial-19.jpeg",
+    image: "/testimonials/testimonial-19.jpg",
     content:
       "Living in a smaller city, I expected delays, but everything was well coordinated. The experience exceeded expectations.",
     rating: 5,
@@ -168,7 +168,7 @@ const testimonials = [
   {
     name: "Aditi Dubey",
     role: "Pet Parent, Ranchi, Jharkhand",
-    image: "/testimonials/testimonial-20.jpeg",
+    image: "/testimonials/testimonial-20.jpg",
     content:
       "FurFam made pet adoption accessible and stress-free for us. Their step-by-step guidance was clear and practical.",
     rating: 5,
@@ -176,7 +176,7 @@ const testimonials = [
   {
     name: "Sohini Dutta",
     role: "Dog Owner, Siliguri, West Bengal",
-    image: "/testimonials/testimonial-21.jpeg",
+    image: "/testimonials/testimonial-21.jpg",
     content:
       "I loved how responsive the team was even after adoption. They truly care about long-term pet wellbeing.",
     rating: 5,
@@ -184,7 +184,7 @@ const testimonials = [
   {
     name: "Manpreet Kaur",
     role: "Pet Parent, Jalandhar, Punjab",
-    image: "/testimonials/testimonial-22.jpeg",
+    image: "/testimonials/testimonial-22.jpg",
     content:
       "The documentation and care notes were detailed and easy to follow. Our puppy settled in comfortably from day one.",
     rating: 5,
@@ -192,7 +192,7 @@ const testimonials = [
   {
     name: "Arjun Bisht",
     role: "Pet Parent, Dehradun, Uttarakhand",
-    image: "/testimonials/testimonial-23.jpeg",
+    image: "/testimonials/testimonial-23.jpg",
     content:
       "Excellent support for our first dog at home. The feeding and crate training plan worked exactly as suggested.",
     rating: 5,
@@ -200,7 +200,7 @@ const testimonials = [
   {
     name: "Madhuri Rao",
     role: "Dog Owner, Warangal, Telangana",
-    image: "/testimonials/testimonial-24.jpeg",
+    image: "/testimonials/testimonial-24.jpg",
     content:
       "I appreciated the honest communication and humane approach. The team felt more like pet mentors than sellers.",
     rating: 5,
@@ -208,7 +208,7 @@ const testimonials = [
   {
     name: "Kiran Nair",
     role: "Pet Parent, Tirunelveli, Tamil Nadu",
-    image: "/testimonials/testimonial-25.jpeg",
+    image: "/testimonials/testimonial-25.jpg",
     content:
       "Our family had a fantastic experience with FurFam. Every step was clearly explained and thoughtfully managed.",
     rating: 5,
@@ -216,7 +216,7 @@ const testimonials = [
   {
     name: "Pallavi Sahu",
     role: "Pet Parent, Bhilai, Chhattisgarh",
-    image: "/testimonials/testimonial-26.jpeg",
+    image: "/testimonials/testimonial-26.jpg",
     content:
       "Smooth coordination, healthy puppy, and strong post-adoption guidance. Could not have asked for a better experience.",
     rating: 5,
@@ -224,7 +224,7 @@ const testimonials = [
   {
     name: "Nandini Shetty",
     role: "Dog Owner, Hubballi, Karnataka",
-    image: "/testimonials/testimonial-27.jpeg",
+    image: "/testimonials/testimonial-27.jpg",
     content:
       "I was impressed by the quality checks and transparency. Our pup is thriving and everyone at home is delighted.",
     rating: 5,
@@ -232,7 +232,7 @@ const testimonials = [
   {
     name: "Faizan Ali",
     role: "Pet Parent, Aligarh, Uttar Pradesh",
-    image: "/testimonials/testimonial-28.jpeg",
+    image: "/testimonials/testimonial-28.jpg",
     content:
       "FurFam made the entire journey simple and trustworthy. It felt like they cared as much as we do about our pet.",
     rating: 5,
@@ -301,13 +301,15 @@ export function TestimonialsSection() {
                       className="flex gap-1"
                       aria-label={`${testimonial.rating} out of 5 stars`}
                     >
-                      {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-primary text-primary"
-                          aria-hidden
-                        />
-                      ))}
+                      {Array.from({ length: testimonial.rating }).map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            className="h-5 w-5 fill-primary text-primary"
+                            aria-hidden
+                          />
+                        ),
+                      )}
                     </div>
                   </div>
                 </CarouselItem>
