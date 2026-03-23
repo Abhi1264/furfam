@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 import { breeds } from "@/lib/breeds-data";
@@ -26,7 +23,6 @@ type GalleryItem = {
   price?: string;
 };
 
-// Specific breeds to show in the gallery
 const FEATURED_BREED_IDS = [
   "golden-retriever",
   "labrador-retriever",
@@ -39,7 +35,7 @@ const FEATURED_BREED_IDS = [
   "siberian-husky",
 ];
 
-const BASE_GALLERY: GalleryItem[] = breeds
+const GALLERY_ITEMS: GalleryItem[] = breeds
   .filter((breed) => FEATURED_BREED_IDS.includes(breed.id))
   .map((breed) => ({
     id: breed.id,
@@ -52,51 +48,6 @@ const BASE_GALLERY: GalleryItem[] = breeds
   }));
 
 export function GallerySection() {
-  const [items, setItems] = useState<GalleryItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fetch gallery items from API, fallback to BASE_GALLERY if empty
-  useEffect(() => {
-    async function loadGallery() {
-      try {
-        const res = await fetch("/api/gallery");
-        if (res.ok) {
-          const data = await res.json();
-          const galleryItems = data.items || [];
-
-          // Use uploaded items if available, otherwise use fallback
-          if (galleryItems.length > 0) {
-            setItems(galleryItems);
-          } else {
-            setItems(BASE_GALLERY);
-          }
-        } else {
-          // If API fails, use fallback
-          setItems(BASE_GALLERY);
-        }
-      } catch {
-        // On error, use fallback
-        setItems(BASE_GALLERY);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadGallery();
-  }, []);
-
-  // Show loading state
-  if (loading) {
-    return (
-      <section className="py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center min-h-[400px]">
-            <div className="text-muted-foreground">Loading gallery...</div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
       <div className="container mx-auto px-4">
@@ -124,7 +75,7 @@ export function GallerySection() {
           className="w-full"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
-            {items.map((item, index) => (
+            {GALLERY_ITEMS.map((item, index) => (
               <CarouselItem
                 key={`${item.id}-${index}`}
                 className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"

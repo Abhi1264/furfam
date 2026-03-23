@@ -1,17 +1,9 @@
-import { NextResponse } from "next/server";
+import "server-only";
+
 import { breeds, breedTypes } from "@/lib/breeds-data";
 import { getAllBlogPosts } from "@/lib/blog-utils";
+import type { SearchResult } from "@/lib/search-data";
 
-export interface SearchResult {
-  id: string;
-  title: string;
-  description: string;
-  url: string;
-  category: "breed" | "blog" | "page";
-  tags?: string[];
-}
-
-// Static pages
 const pages: SearchResult[] = [
   {
     id: "home",
@@ -71,51 +63,34 @@ const pages: SearchResult[] = [
   },
 ];
 
-export async function GET() {
-  try {
-    // Get breed types
-    const breedTypeResults: SearchResult[] = breedTypes.map((type) => ({
-      id: `breed-type-${type.id}`,
-      title: type.name,
-      description: type.description,
-      url: `/breeds/${type.slug}`,
-      category: "page" as const,
-    }));
+/** Build the full search corpus at request/build time (no client `fs`, no `/api/search`). */
+export function buildSearchResults(): SearchResult[] {
+  const breedTypeResults: SearchResult[] = breedTypes.map((type) => ({
+    id: `breed-type-${type.id}`,
+    title: type.name,
+    description: type.description,
+    url: `/breeds/${type.slug}`,
+    category: "page" as const,
+  }));
 
-    // Get all breeds
-    const breedResults: SearchResult[] = breeds.map((breed) => ({
-      id: breed.id,
-      title: breed.name,
-      description: breed.description,
-      url: `/breeds/${breed.typeSlug}/${breed.id}`,
-      category: "breed" as const,
-      tags: [breed.type, breed.size, ...breed.temperament],
-    }));
+  const breedResults: SearchResult[] = breeds.map((breed) => ({
+    id: breed.id,
+    title: breed.name,
+    description: breed.description,
+    url: `/breeds/${breed.typeSlug}/${breed.id}`,
+    category: "breed" as const,
+    tags: [breed.type, breed.size, ...breed.temperament],
+  }));
 
-    // Get blog posts
-    const posts = getAllBlogPosts();
-    const blogResults: SearchResult[] = posts.map((post) => ({
-      id: post.slug,
-      title: post.title,
-      description: post.description,
-      url: `/blogs/${post.slug}`,
-      category: "blog" as const,
-      tags: [post.category, ...post.tags],
-    }));
+  const posts = getAllBlogPosts();
+  const blogResults: SearchResult[] = posts.map((post) => ({
+    id: post.slug,
+    title: post.title,
+    description: post.description,
+    url: `/blogs/${post.slug}`,
+    category: "blog" as const,
+    tags: [post.category, ...post.tags],
+  }));
 
-    const allContent = [
-      ...pages,
-      ...breedTypeResults,
-      ...breedResults,
-      ...blogResults,
-    ];
-
-    return NextResponse.json({ data: allContent });
-  } catch (error) {
-    console.error("Error fetching search data:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch search data" },
-      { status: 500 },
-    );
-  }
+  return [...pages, ...breedTypeResults, ...breedResults, ...blogResults];
 }

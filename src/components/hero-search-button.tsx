@@ -8,48 +8,18 @@ import {
   createSearchIndex,
   getSuggestedContent,
   searchContent,
-  type SearchResult,
 } from "@/lib/search-data";
+import { useSearchData } from "@/components/search-provider";
 
 export function HeroSearchButton() {
   const router = useRouter();
+  const searchData = useSearchData();
   const panelRef = React.useRef<HTMLDivElement | null>(null);
   const buttonRef = React.useRef<HTMLButtonElement | null>(null);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
   const [isOpen, setIsOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
-  const [loading, setLoading] = React.useState(true);
-  const [searchData, setSearchData] = React.useState<SearchResult[]>([]);
-
-  React.useEffect(() => {
-    let isMounted = true;
-
-    async function fetchSearchData() {
-      try {
-        const response = await fetch("/api/search");
-        if (!response.ok) {
-          return;
-        }
-
-        const json = await response.json();
-        if (isMounted) {
-          setSearchData(json.data ?? []);
-        }
-      } catch (error) {
-        console.error("Failed to fetch hero search data:", error);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    fetchSearchData();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const searchIndex = React.useMemo(
     () => createSearchIndex(searchData),
@@ -57,7 +27,7 @@ export function HeroSearchButton() {
   );
 
   const results = React.useMemo(() => {
-    if (loading || searchData.length === 0) {
+    if (searchData.length === 0) {
       return [];
     }
 
@@ -66,7 +36,7 @@ export function HeroSearchButton() {
     }
 
     return searchContent(query, searchIndex);
-  }, [loading, query, searchData, searchIndex]);
+  }, [query, searchData, searchIndex]);
 
   React.useEffect(() => {
     if (!isOpen) {
@@ -160,11 +130,7 @@ export function HeroSearchButton() {
             </div>
 
             <div className="max-h-[58vh] overflow-y-auto p-3">
-              {loading ? (
-                <p className="py-6 text-center text-sm text-muted-foreground">
-                  Loading...
-                </p>
-              ) : results.length === 0 ? (
+              {results.length === 0 ? (
                 <p className="py-6 text-center text-sm text-muted-foreground">
                   No results found for &quot;{query}&quot;
                 </p>

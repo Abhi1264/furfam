@@ -4,6 +4,7 @@ import { Nunito, Fredoka } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SearchProviderWithContext } from "@/components/search-provider";
 import { SiteJsonLd } from "@/components/site-json-ld";
+import { buildSearchResults } from "@/lib/search-results";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -181,6 +182,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const searchData = buildSearchResults();
+
   return (
     <html lang="en">
       <head>
@@ -188,7 +191,9 @@ export default function RootLayout({
       </head>
       <body className={`${nunito.className} ${fredoka.className} antialiased`}>
         <SiteJsonLd />
-        <SearchProviderWithContext>{children}</SearchProviderWithContext>
+        <SearchProviderWithContext searchData={searchData}>
+          {children}
+        </SearchProviderWithContext>
         <Analytics />
       </body>
     </html>

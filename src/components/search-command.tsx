@@ -16,34 +16,20 @@ import { cn } from "@/lib/utils";
 interface SearchCommandProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  searchData: SearchResult[];
 }
 
-export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
+export function SearchCommand({
+  open,
+  onOpenChange,
+  searchData,
+}: SearchCommandProps) {
   const router = useRouter();
   const [query, setQuery] = React.useState("");
   const [mounted, setMounted] = React.useState(false);
-  const [searchData, setSearchData] = React.useState<SearchResult[]>([]);
-  const [loading, setLoading] = React.useState(true);
 
-  // Fetch search data on mount
   React.useEffect(() => {
     setMounted(true);
-
-    async function fetchSearchData() {
-      try {
-        const response = await fetch("/api/search");
-        if (response.ok) {
-          const json = await response.json();
-          setSearchData(json.data || []);
-        }
-      } catch (error) {
-        console.error("Failed to fetch search data:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchSearchData();
   }, []);
 
   React.useEffect(() => {
@@ -58,7 +44,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
   );
 
   const searchResults = React.useMemo(() => {
-    if (loading || searchData.length === 0) {
+    if (searchData.length === 0) {
       return [];
     }
 
@@ -66,7 +52,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
       return getSuggestedContent(searchData);
     }
     return searchContent(query, searchIndex);
-  }, [query, searchData, searchIndex, loading]);
+  }, [query, searchData, searchIndex]);
 
   const handleSelect = React.useCallback(
     (url: string) => {
@@ -111,51 +97,43 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
           </div>
 
           <Command.List className="max-h-[400px] overflow-y-auto overflow-x-hidden p-2">
-            {loading ? (
-              <div className="py-6 text-center text-sm text-muted-foreground">
-                Loading...
-              </div>
-            ) : (
-              <>
-                <Command.Empty className="py-6 text-center text-sm text-muted-foreground">
-                  No results found for &quot;{query}&quot;
-                </Command.Empty>
+            <Command.Empty className="py-6 text-center text-sm text-muted-foreground">
+              No results found for &quot;{query}&quot;
+            </Command.Empty>
 
-                {searchResults.map((category, idx) => (
-                  <Command.Group
-                    key={idx}
-                    heading={category.name}
-                    className="**:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-semibold **:[[cmdk-group-heading]]:text-foreground"
+            {searchResults.map((category, idx) => (
+              <Command.Group
+                key={idx}
+                heading={category.name}
+                className="**:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-semibold **:[[cmdk-group-heading]]:text-foreground"
+              >
+                {category.results.map((result) => (
+                  <Command.Item
+                    key={result.id}
+                    value={`${result.title} ${result.description}`}
+                    onSelect={() => handleSelect(result.url)}
+                    className={cn(
+                      "relative flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none",
+                      "aria-selected:bg-muted aria-selected:text-foreground",
+                      "data-disabled:pointer-events-none data-disabled:opacity-50",
+                      "hover:bg-muted/50",
+                    )}
                   >
-                    {category.results.map((result) => (
-                      <Command.Item
-                        key={result.id}
-                        value={`${result.title} ${result.description}`}
-                        onSelect={() => handleSelect(result.url)}
-                        className={cn(
-                          "relative flex cursor-pointer select-none items-center rounded-md px-3 py-2 text-sm outline-none",
-                          "aria-selected:bg-muted aria-selected:text-foreground",
-                          "data-disabled:pointer-events-none data-disabled:opacity-50",
-                          "hover:bg-muted/50",
-                        )}
-                      >
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
-                          {getCategoryIcon(result.category)}
-                          <div className="flex flex-col gap-1 flex-1 min-w-0">
-                            <div className="font-medium truncate">
-                              {result.title}
-                            </div>
-                            <div className="text-xs text-muted-foreground truncate">
-                              {result.description}
-                            </div>
-                          </div>
+                    <div className="flex items-center gap-3 flex-1 min-w-0">
+                      {getCategoryIcon(result.category)}
+                      <div className="flex flex-col gap-1 flex-1 min-w-0">
+                        <div className="font-medium truncate">
+                          {result.title}
                         </div>
-                      </Command.Item>
-                    ))}
-                  </Command.Group>
+                        <div className="text-xs text-muted-foreground truncate">
+                          {result.description}
+                        </div>
+                      </div>
+                    </div>
+                  </Command.Item>
                 ))}
-              </>
-            )}
+              </Command.Group>
+            ))}
           </Command.List>
 
           <div className="border-t border-border px-3 py-2 text-xs text-muted-foreground">
