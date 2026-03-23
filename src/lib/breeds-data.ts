@@ -46,7 +46,6 @@ export interface BreedType {
   name: string;
   description: string;
   image: string;
-  breedCount: number;
 }
 
 export interface Classification {
@@ -167,7 +166,7 @@ export const coatClassifications: Classification[] = [
     name: "Curly Coat",
     description: "Low shedding",
     dimension: "coat",
-    image: "/poodle-standard.jpg",
+    image: "/curly-coat.jpg",
   }, // Need to make sure poodle image exists or use generic
   {
     id: "wire",
@@ -220,7 +219,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Active, alert, and friendly dogs bred for hunting and retrieving. Perfect for active families who love outdoor adventures.",
     image: "/sporting.jpg",
-    breedCount: 8,
   },
   {
     id: "2",
@@ -229,7 +227,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Strong, intelligent dogs bred for tasks like guarding, pulling sleds, and rescue work. Loyal protectors and hardworking companions.",
     image: "/working.jpg",
-    breedCount: 10,
   },
   {
     id: "3",
@@ -238,7 +235,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Highly intelligent dogs with natural instincts for controlling livestock. Excellent family pets known for their loyalty and trainability.",
     image: "/herding.jpg",
-    breedCount: 7,
   },
   {
     id: "4",
@@ -247,7 +243,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Small, affectionate companions perfect for apartment living. Big personalities in tiny packages, ideal for those seeking a loving lap dog.",
     image: "/toy.jpg",
-    breedCount: 9,
   },
   {
     id: "5",
@@ -256,7 +251,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Feisty, energetic dogs with bold personalities. Originally bred for hunting vermin, they make spirited and entertaining family pets.",
     image: "/terrier.jpg",
-    breedCount: 8,
   },
   {
     id: "6",
@@ -265,7 +259,6 @@ export const breedTypes: BreedType[] = [
     description:
       "Dogs with exceptional scenting or sight abilities. From gentle giants to speedy athletes, hounds offer diverse personalities and sizes.",
     image: "/hound.jpg",
-    breedCount: 7,
   },
   {
     id: "7",
@@ -274,7 +267,6 @@ export const breedTypes: BreedType[] = [
     description:
       "A diverse group combining various sizes, coats, and personalities. From the elegant Poodle to the sturdy Bulldog, these versatile companions adapt well to different lifestyles.",
     image: "/non-sporting.jpg",
-    breedCount: 21,
   },
 ];
 

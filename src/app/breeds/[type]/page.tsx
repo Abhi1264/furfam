@@ -6,7 +6,9 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import {
   breedTypes,
+  breeds,
   getBreedsByType,
+  getBreedsCount,
   getBreedTypeBySlug,
 } from "@/lib/breeds-data";
 import { getSiteUrl } from "@/lib/site-url";
@@ -203,7 +205,7 @@ export default async function BreedTypePage({ params }: Props) {
                         {t.name}
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        {t.breedCount} breeds
+                        {getBreedsCount(breeds, "group", t.slug)} breeds
                       </div>
                     </div>
                   </Link>

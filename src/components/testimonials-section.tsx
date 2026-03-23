@@ -118,16 +118,16 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Sidharth Menon",
-    role: "Pet Parent, Coimbatore, Tamil Nadu",
+    name: "Aarav Kumar",
+    role: "Pet Parent, Ranchi, Jharkhand",
     image: "/testimonials/testimonial-14.jpg",
     content:
       "FurFam helped us choose a breed that fits our routine and weather. That guidance saved us from making a rushed decision.",
     rating: 5,
   },
   {
-    name: "Anil Nair",
-    role: "Pet Parent, Kochi, Kerala",
+    name: "Anil Nayak",
+    role: "Pet Parent, Bermapur, Odisha",
     image: "/testimonials/testimonial-15.jpg",
     content:
       "Very reassuring process for a new pet parent. They checked in after adoption and shared practical training resources.",

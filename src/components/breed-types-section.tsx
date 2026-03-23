@@ -13,7 +13,7 @@ export function BreedTypesSection() {
   const groups = breedTypes.map((item) => ({
     ...item,
     dimension: "group" as const,
-    breedCount: item.breedCount || getBreedsCount(breeds, "group", item.slug),
+    breedCount: getBreedsCount(breeds, "group", item.slug),
   }));
 
   const sizes = sizeClassifications.map((item) => ({
