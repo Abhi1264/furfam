@@ -44,7 +44,7 @@ export function Header() {
           <Image
             src="/logo.svg"
             alt="Logo"
-            width={130}
+            width={132}
             height={40}
             draggable={false}
           />
