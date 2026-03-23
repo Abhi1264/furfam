@@ -70,8 +70,8 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Nirav Shah",
-    role: "Pet Parent, Ahmedabad, Gujarat",
+    name: "Akash Kapare Patil",
+    role: "Pet Parent, Owner of AK Networks, Pune, Maharashtra",
     image: "/testimonials/testimonial-08.jpg",
     content:
       "I loved the ethical and transparent approach. Our little Shih Tzu came happy, healthy, and full of personality.",
@@ -86,8 +86,8 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Tarun Srivastava",
-    role: "Dog Owner, Lucknow, Uttar Pradesh",
+    name: "Dr H S Horo",
+    role: "Dog Owner, Professor, Ranchi, Jharkhand",
     image: "/testimonials/testimonial-10.jpg",
     content:
       "Our Cocker Spaniel arrived with all documents and clear care instructions. The team was warm, responsive, and reliable.",
@@ -102,16 +102,16 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Manav Tiwari",
-    role: "Pet Parent, Bhopal, Madhya Pradesh",
+    name: "Dr Gaurav Mudgal",
+    role: "Pet Parent, Noida, Uttar Pradesh",
     image: "/testimonials/testimonial-12.jpg",
     content:
       "Everything felt well organized from consultation to handover. We had zero confusion thanks to their clear communication.",
     rating: 5,
   },
   {
-    name: "Gurleen Sandhu",
-    role: "Dog Owner, Chandigarh, Punjab",
+    name: "Dr Rohita Soy",
+    role: "Dog Owner, Professor, Women's College, Ranchi, Jharkhand",
     image: "/testimonials/testimonial-13.jpg",
     content:
       "Super smooth experience and genuine care for animal welfare. Even our vet praised the condition and records.",
