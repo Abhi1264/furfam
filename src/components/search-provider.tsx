@@ -41,7 +41,11 @@ export function SearchProviderWithContext({
     <SearchDataContext.Provider value={searchData}>
       <SearchContext.Provider value={{ openSearch, closeSearch, toggleSearch }}>
         {children}
-        <SearchCommand open={open} onOpenChange={setOpen} searchData={searchData} />
+        <SearchCommand
+          open={open}
+          onOpenChange={setOpen}
+          searchData={searchData}
+        />
       </SearchContext.Provider>
     </SearchDataContext.Provider>
   );
@@ -50,7 +54,9 @@ export function SearchProviderWithContext({
 export function useSearchContext() {
   const context = React.useContext(SearchContext);
   if (!context) {
-    throw new Error("useSearchContext must be used within SearchProviderWithContext");
+    throw new Error(
+      "useSearchContext must be used within SearchProviderWithContext",
+    );
   }
   return context;
 }
@@ -58,7 +64,9 @@ export function useSearchContext() {
 export function useSearchData(): SearchResult[] {
   const data = React.useContext(SearchDataContext);
   if (data === null) {
-    throw new Error("useSearchData must be used within SearchProviderWithContext");
+    throw new Error(
+      "useSearchData must be used within SearchProviderWithContext",
+    );
   }
   return data;
 }

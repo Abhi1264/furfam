@@ -1,7 +1,7 @@
 import { ClassificationBrowser } from "@/components/classification-browser";
 import {
   breeds,
-  breedTypes,
+  // breedTypes,
   sizeClassifications,
   climateClassifications,
   coatClassifications,
@@ -10,11 +10,11 @@ import {
 
 export function BreedTypesSection() {
   // Prepare data with counts on the server
-  const groups = breedTypes.map((item) => ({
+  /* const groups = breedTypes.map((item) => ({
     ...item,
     dimension: "group" as const,
     breedCount: getBreedsCount(breeds, "group", item.slug),
-  }));
+  })); */
 
   const sizes = sizeClassifications.map((item) => ({
     ...item,
@@ -46,7 +46,7 @@ export function BreedTypesSection() {
         </div>
 
         <ClassificationBrowser
-          groups={groups}
+          // groups={groups}
           sizes={sizes}
           climates={climates}
           coats={coats}

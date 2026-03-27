@@ -12,19 +12,19 @@ interface ClassificationItem extends Classification {
 }
 
 interface ClassificationBrowserProps {
-  groups: ClassificationItem[];
+  // groups: ClassificationItem[];
   sizes: ClassificationItem[];
   climates: ClassificationItem[];
   coats: ClassificationItem[];
 }
 
 export function ClassificationBrowser({
-  groups,
+  // groups,
   sizes,
   climates,
   coats,
 }: ClassificationBrowserProps) {
-  const [activeTab, setActiveTab] = useState("group");
+  const [activeTab, setActiveTab] = useState("size");
 
   const getIcon = (dimension: string) => {
     switch (dimension) {
@@ -94,20 +94,20 @@ export function ClassificationBrowser({
   return (
     <div className="w-full space-y-8">
       <Tabs
-        defaultValue="group"
+        defaultValue="size"
         value={activeTab}
         onValueChange={setActiveTab}
         className="w-full text-center"
       >
         <TabsList className="inline-flex h-auto flex-wrap justify-center gap-2 bg-transparent p-0">
-          <TabsTrigger
+          {/* <TabsTrigger
             value="group"
             className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
           >
             <span className="flex items-center gap-2">
               {getIcon("group")} Breed Groups
             </span>
-          </TabsTrigger>
+          </TabsTrigger> */}
           <TabsTrigger
             value="size"
             className="rounded-full border border-border bg-background px-6 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground cursor-pointer"
@@ -135,12 +135,12 @@ export function ClassificationBrowser({
         </TabsList>
 
         <div className="mt-8 text-left">
-          <TabsContent
+          {/* <TabsContent
             value="group"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"
           >
             {renderGrid(groups, "group")}
-          </TabsContent>
+          </TabsContent>  */}
           <TabsContent
             value="size"
             className="mt-0 animate-in fade-in-50 zoom-in-95 duration-300"

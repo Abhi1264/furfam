@@ -14,8 +14,9 @@ export function Footer() {
               <Image
                 src="/logo.svg"
                 alt="Logo"
-                width={175}
-                height={56}
+                width={391}
+                height={122}
+                className="h-auto w-[175px] object-contain"
                 draggable={false}
               />
             </Link>

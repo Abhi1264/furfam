@@ -41,16 +41,15 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full bg-foreground">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2">
-          <div style={{ position: "relative", width: 108, height: 108 }}>
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              fill
-              className="object-contain"
-              draggable={false}
-              priority
-            />
-          </div>
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={391}
+            height={122}
+            className="h-auto w-[108px] object-contain"
+            draggable={false}
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
