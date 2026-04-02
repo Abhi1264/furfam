@@ -1,41 +1,68 @@
-import { Shield, Heart, Award, Clock, Sparkles } from "lucide-react";
+import {
+  Shield,
+  Heart,
+  Tag,
+  Users,
+  Truck,
+  Clock,
+  Sparkles,
+  Award,
+} from "lucide-react";
 
 const features = [
   {
     icon: Shield,
-    title: "Health Guaranteed",
+    title: "Network of Ethical Breeders",
     description:
-      "All our puppies come with comprehensive health checks and vaccinations to ensure a healthy start.",
+      "No matter the breed, every FurFam puppy is sourced from responsible, ethical breeders who raise your future family member with love, proper nutrition, and an emotionally supportive environment for healthy mental development.",
     gradient: "from-blue-500/10 to-cyan-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
     borderColor: "group-hover:border-blue-500/50",
   },
   {
     icon: Heart,
-    title: "Raised with Love",
+    title: "Lifetime Support",
     description:
-      "Our puppies are raised in loving environments with early socialization and proper care.",
+      "From the first day onward, our team is here for guidance you can count on. Get chat and call support for grooming, diet, nutrition, and minor health questions—so you can give your dog the best care without expensive, unnecessary add-ons.",
     gradient: "from-pink-500/10 to-rose-500/10",
     iconColor: "text-pink-600 dark:text-pink-400",
     borderColor: "group-hover:border-pink-500/50",
   },
   {
-    icon: Award,
-    title: "Premium Breeds",
+    icon: Tag,
+    title: "Better Pricing",
     description:
-      "We partner only with certified, responsible breeders who meet our high standards.",
+      "Enjoy transparent, fair pricing. We help you understand the puppy lineage that best fits your needs—balancing budget with quality—so you can choose with confidence and avoid surprises.",
     gradient: "from-amber-500/10 to-yellow-500/10",
     iconColor: "text-amber-600 dark:text-amber-400",
     borderColor: "group-hover:border-amber-500/50",
   },
   {
-    icon: Clock,
-    title: "Lifetime Support",
+    icon: Users,
+    title: "Diversity of Options",
     description:
-      "Get expert advice and support throughout your pet's life with our dedicated team.",
+      "Find the right match for your lifestyle—from small breeds to giants, long coats to short, and warm-climate companions to cold-weather favorites. We also offer both domestic and imported options, with support to help you finalize the perfect breed for your home and family.",
     gradient: "from-purple-500/10 to-indigo-500/10",
     iconColor: "text-purple-600 dark:text-purple-400",
     borderColor: "group-hover:border-purple-500/50",
+  },
+  {
+    icon: Truck,
+    title: "Nationwide Coverage",
+    description:
+      "Need puppy delivery across the country? We ship via train and flight to cities throughout India, including Bengaluru, Mumbai, Delhi, Hyderabad, Chennai, Pune, Kolkata, Chandigarh, and more.",
+    gradient: "from-emerald-500/10 to-teal-500/10",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
+    borderColor: "group-hover:border-emerald-500/50",
+  },
+  {
+    icon: Clock,
+    title: "Year round Availability",
+    description:
+      "Because we work with a large network of breeders, many breeds are available throughout the year. If you’re after a specific color combination or a breed we need to source, you may only need to wait for transportation timing—so you can move into your new FurFam home when your puppy is ready.",
+    gradient: "from-orange-500/10 to-red-500/10",
+    iconColor: "text-orange-600 dark:text-orange-400",
+    borderColor: "group-hover:border-orange-500/50",
   },
 ];
 
@@ -64,11 +91,11 @@ export function FeaturesSection() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`group relative rounded-2xl border border-border bg-card p-8 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${feature.borderColor}`}
+              className={`group relative rounded-2xl border border-border bg-card p-6 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${feature.borderColor}`}
             >
               {/* Gradient background on hover */}
               <div
@@ -76,7 +103,7 @@ export function FeaturesSection() {
               />
 
               {/* Icon container with animation */}
-              <div className="relative mx-auto mb-6 flex h-16 w-16 items-center justify-center">
+              <div className="relative mx-auto mb-5 flex h-14 w-14 items-center justify-center">
                 {/* Outer ring */}
                 <div
                   className={`absolute inset-0 rounded-full bg-linear-to-br ${feature.gradient} opacity-100 group-hover:scale-110 transition-transform duration-500`}
@@ -85,16 +112,16 @@ export function FeaturesSection() {
                 <div className="absolute inset-1 rounded-full bg-card" />
                 {/* Icon */}
                 <feature.icon
-                  className={`relative h-8 w-8 ${feature.iconColor} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}
+                  className={`relative h-7 w-7 ${feature.iconColor} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}
                   strokeWidth={2}
                 />
               </div>
 
               {/* Content */}
-              <h3 className="mb-3 text-xl font-bold text-card-foreground font-serif">
+              <h3 className="mb-2 text-lg font-bold text-card-foreground font-serif">
                 {feature.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground text-justify leading-relaxed">
                 {feature.description}
               </p>
 

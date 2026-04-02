@@ -6,7 +6,7 @@ const steps = [
     step: "01",
     title: "Browse & Select",
     description:
-      "Explore our collection of healthy, happy puppies. Filter by breed, size, and temperament to find your perfect match.",
+      "Explore our collection of healthy, happy puppies. Filter by breed, size, and temperament to find your perfect match. You can also take suggestions from our customer support team.",
   },
   {
     icon: Syringe,
@@ -18,9 +18,9 @@ const steps = [
   {
     icon: Truck,
     step: "03",
-    title: "Meet & Pickup",
+    title: "Schedule Delivery",
     description:
-      "Visit our facility for a meet-and-greet or schedule a delivery. We offer safe, comfortable transport options to bring your new family member home nationwide.",
+      "Share your location details, pay the deposit amount and schedule a delivery, which takes 1-3 days depending on the location. We offer safe, comfortable transport options to bring your new family member home nationwide.",
   },
   {
     icon: Heart,
@@ -48,12 +48,12 @@ export function ProcessSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {steps.map((step, index) => (
             <div key={step.step} className="relative">
               {/* Connector line */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-[2px] bg-border" />
+                <div className="hidden lg:block absolute top-10 left-[65%] w-[87%] h-[2px] bg-border" />
               )}
 
               <div className="text-center">
@@ -66,7 +66,7 @@ export function ProcessSection() {
                 <h3 className="font-serif font-bold text-xl text-foreground mb-2">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed text-pretty">
+                <p className="text-muted-foreground leading-relaxed text-justify">
                   {step.description}
                 </p>
               </div>

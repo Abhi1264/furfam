@@ -56,6 +56,15 @@ function circularOffset(index: number, active: number, length: number): number {
   return diff;
 }
 
+function toTransparentImagePath(imagePath: string): string {
+  // Expected: "/golden-retriever.png" -> "/golden-retriever-transparent.png"
+  // Handles typical asset paths with or without leading "/"
+  // Find the last ".png" and insert "-transparent" before the extension
+  const pngIndex = imagePath.lastIndexOf(".png");
+  if (pngIndex === -1) return imagePath;
+  return imagePath.slice(0, pngIndex) + "-transparent.png";
+}
+
 export function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const dragStartX = useRef<number | null>(null);
@@ -149,6 +158,7 @@ export function GallerySection() {
                 const isCenter = offset === 0;
                 const depth = Math.abs(offset);
                 const href = `/breeds/${item.typeSlug}/${item.id}`;
+                const transparentImage = toTransparentImagePath(item.image);
 
                 return (
                   <div
@@ -198,22 +208,22 @@ export function GallerySection() {
                       <article className="group relative">
                         <div
                           className={cn(
-                            "overflow-hidden rounded-2xl bg-card/95 border shadow-sm transition-[box-shadow,transform] duration-500",
+                            "overflow-visible rounded-2xl bg-card/95 border shadow-sm transition-[box-shadow,transform] duration-500",
                             isCenter &&
                               "shadow-2xl ring-2 ring-primary/30 ring-offset-2 ring-offset-background",
                           )}
                         >
-                          <div className="relative aspect-4/3 min-h-[170px] overflow-hidden bg-secondary/40 sm:min-h-[205px] md:min-h-[230px]">
+                          <div className="relative aspect-4/3 min-h-[170px] overflow-visible bg-transparent sm:min-h-[205px] md:min-h-[230px]">
                             <Image
-                              src={item.image}
+                              src={transparentImage}
                               alt={item.name}
                               fill
                               sizes="(min-width: 768px) 380px, 92vw"
-                              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                              className="object-contain object-top -translate-y-12 scale-[1.08] opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.12]"
                               draggable={false}
                               priority={index < 3}
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-linear-to-t from-card/95 via-card/40 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
                           </div>
 
                           <div className="p-3 sm:p-4 flex flex-col gap-2">
