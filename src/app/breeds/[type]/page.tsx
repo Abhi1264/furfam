@@ -62,7 +62,7 @@ export default async function BreedTypePage({ params }: Props) {
     notFound();
   }
 
-  const breeds = getBreedsByType(type);
+  const breedsInThisType = getBreedsByType(type);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -81,7 +81,7 @@ export default async function BreedTypePage({ params }: Props) {
             <div className="grid items-center gap-8 lg:grid-cols-2">
               <div className="space-y-4">
                 <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                  {breeds.length} Breeds Available
+                  {breedsInThisType.length} Breeds Available
                 </span>
                 <h1 className="font-serif text-4xl font-bold text-foreground md:text-5xl text-balance">
                   {breedType.name}
@@ -114,9 +114,9 @@ export default async function BreedTypePage({ params }: Props) {
               Available {breedType.name}
             </h2>
 
-            {breeds.length > 0 ? (
+            {breedsInThisType.length > 0 ? (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {breeds.map((breed) => (
+                {breedsInThisType.map((breed) => (
                   <Link
                     key={breed.id}
                     href={`/breeds/${type}/${breed.id}`}
@@ -161,7 +161,7 @@ export default async function BreedTypePage({ params }: Props) {
                   </Link>
                 ))}
               </div>
-            ) : (
+              ) : (
               <div className="rounded-2xl bg-secondary p-12 text-center">
                 <p className="text-muted-foreground">
                   No breeds available in this category at the moment. Please

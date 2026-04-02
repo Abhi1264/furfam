@@ -192,14 +192,14 @@ export const breedUpdates = {
     coatLength: "Medium" as const,
     hypoallergenic: false,
   },
-  beagle: {
+  "beagle": {
     sizeCategory: "Small" as const,
     climateSuitability: ["Moderate", "Adaptable"] as const,
     coatType: "Short" as const,
     coatLength: "Short" as const,
     hypoallergenic: false,
   },
-  dachshund: {
+  "dachshund": {
     sizeCategory: "Small" as const,
     climateSuitability: ["Moderate"] as const,
     coatType: "Short" as const,
@@ -213,7 +213,7 @@ export const breedUpdates = {
     coatLength: "Short" as const,
     hypoallergenic: false,
   },
-  greyhound: {
+  "greyhound": {
     sizeCategory: "Large" as const,
     climateSuitability: ["Moderate", "Hot"] as const,
     coatType: "Short" as const,
@@ -227,14 +227,14 @@ export const breedUpdates = {
     coatLength: "Short" as const,
     hypoallergenic: false,
   },
-  goldendoodle: {
+  "golden-doodle": {
     sizeCategory: "Large" as const,
     climateSuitability: ["Moderate", "Adaptable"] as const,
     coatType: "Curly" as const,
     coatLength: "Long" as const,
     hypoallergenic: true,
   },
-  maltipoo: {
+  "maltipoo": {
     sizeCategory: "Small" as const,
     climateSuitability: ["Moderate"] as const,
     coatType: "Curly" as const,

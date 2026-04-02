@@ -26,7 +26,7 @@ const FEATURED_BREED_IDS = [
   "poodle",
   "maltese",
   "maltipoo",
-  "goldendoodle",
+  "golden-doodle",
   "german-shepherd",
   "shih-tzu",
   "siberian-husky",
@@ -57,19 +57,26 @@ function circularOffset(index: number, active: number, length: number): number {
 }
 
 function toTransparentImagePath(imagePath: string): string {
-  // Expected: "/golden-retriever.png" -> "/golden-retriever-transparent.png"
-  // Handles typical asset paths with or without leading "/"
-  // Find the last ".png" and insert "-transparent" before the extension
-  const pngIndex = imagePath.lastIndexOf(".png");
-  if (pngIndex === -1) return imagePath;
-  return imagePath.slice(0, pngIndex) + "-transparent.png";
+  // Converts "/pet-name.jpg" -> "/pet-name-transparent.png"
+  // so transparent assets are consistently used in this gallery section.
+  if (imagePath.includes("-transparent.")) return imagePath;
+
+  const replaced = imagePath.replace(/\.(png|jpe?g|webp)$/i, "-transparent.png");
+  return replaced === imagePath ? imagePath : replaced;
 }
 
 export function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const dragStartX = useRef<number | null>(null);
-  const dragMoved = useRef(false);
-  const swipeTriggered = useRef(false);
+  const dragState = useRef<{
+    startX: number;
+    startY: number;
+    didDrag: boolean;
+    swipeTriggered: boolean;
+  } | null>(null);
+
+  // Used to suppress Link navigation only after we detect a real swipe/drag gesture.
+  // Cleared on the next Link click.
+  const suppressNextClick = useRef(false);
 
   const count = GALLERY_ITEMS.length;
 
@@ -81,43 +88,53 @@ export function GallerySection() {
     setActiveIndex((i) => (i + 1) % count);
   }, [count]);
 
-  const endDrag = () => {
-    dragStartX.current = null;
-    swipeTriggered.current = false;
-  };
-
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    dragStartX.current = e.clientX;
-    dragMoved.current = false;
-    swipeTriggered.current = false;
-    e.currentTarget.setPointerCapture(e.pointerId);
+    suppressNextClick.current = false;
+    dragState.current = {
+      startX: e.clientX,
+      startY: e.clientY,
+      didDrag: false,
+      swipeTriggered: false,
+    };
+    // Pointer capture can interfere with desktop click behavior on trackpads,
+    // so only enable it for touch interactions.
+    if (e.pointerType === "touch") {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    }
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (dragStartX.current === null || swipeTriggered.current) return;
-    const dx = e.clientX - dragStartX.current;
+    if (!dragState.current || dragState.current.swipeTriggered) return;
 
-    if (Math.abs(dx) > 6) {
-      dragMoved.current = true;
+    const dx = e.clientX - dragState.current.startX;
+    const dy = e.clientY - dragState.current.startY;
+
+    // Avoid interfering with vertical scrolling / trackpad gestures:
+    // Only start considering a drag when horizontal movement clearly dominates.
+    if (!dragState.current.didDrag) {
+      const horizontalDominates = Math.abs(dx) > Math.abs(dy) * 1.2;
+      const activationThreshold = e.pointerType === "touch" ? 14 : 18;
+      const passedActivation = Math.abs(dx) >= activationThreshold;
+      if (!(horizontalDominates && passedActivation)) return;
+      dragState.current.didDrag = true;
     }
 
-    if (Math.abs(dx) < 58) return;
+    // Trigger carousel step only after a meaningful swipe.
+    const SWIPE_THRESHOLD = e.pointerType === "touch" ? 58 : 80;
+    if (Math.abs(dx) < SWIPE_THRESHOLD) return;
 
-    swipeTriggered.current = true;
+    dragState.current.swipeTriggered = true;
+    suppressNextClick.current = true;
     if (dx > 0) goPrev();
     else goNext();
   };
 
   const onPointerUp = () => {
-    // Let click handlers know if a drag happened, then reset.
-    window.setTimeout(() => {
-      dragMoved.current = false;
-    }, 0);
-    endDrag();
+    dragState.current = null;
   };
 
   return (
-    <section className="overflow-x-clip py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
+    <section className="overflow-x-clip overflow-y-hidden py-16 md:py-24 bg-linear-to-b from-background via-secondary/30 to-background">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
@@ -128,7 +145,7 @@ export function GallerySection() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2">
               Popular Dog Breeds
             </h2>
-            <p className="text-muted-foreground mt-3 text-pretty">
+            <p className="text-muted-foreground mt-3 mb-6 text-pretty">
               Discover our most sought-after breeds that families love. Each
               puppy is health-checked and ready for their forever home.
             </p>
@@ -136,7 +153,7 @@ export function GallerySection() {
         </div>
 
         <div className="relative mx-auto max-w-6xl overflow-x-clip">
-          <div className="pointer-events-none absolute inset-x-8 top-[18%] h-32 rounded-full bg-primary/20 blur-3xl md:top-[24%] md:h-40" />
+          {/* <div className="pointer-events-none absolute inset-x-8 top-[18%] h-32 rounded-full bg-primary/20 blur-3xl md:top-[24%] md:h-40" /> */}
           <div
             className="relative perspective-[1650px] select-none"
             onPointerDown={onPointerDown}
@@ -164,7 +181,7 @@ export function GallerySection() {
                   <div
                     key={item.id}
                     className={cn(
-                      "absolute left-1/2 top-1/2 w-[min(76vw,360px)] sm:w-[min(72vw,390px)] md:w-[min(64vw,410px)] origin-center",
+                      "absolute left-1/2 top-1/2 w-[min(66vw,300px)] sm:w-[min(62vw,340px)] md:w-[min(54vw,380px)] origin-center",
                       "transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                       "motion-reduce:transition-none",
                     )}
@@ -172,9 +189,9 @@ export function GallerySection() {
                       transform: `
                         translate(-50%, -50%)
                         translateX(calc(${offset} * clamp(58px, 17vw, 170px)))
-                        translateY(${isCenter ? "-2%" : depth === 1 ? "3.4%" : "6.4%"})
+                        translateY(${isCenter ? "-1%" : depth === 1 ? "2.2%" : "4.2%"})
                         translateZ(${isCenter ? 116 : -depth * 128}px)
-                        scale(${isCenter ? 1.06 : depth === 1 ? 0.9 : 0.78})
+                        scale(${isCenter ? 1.03 : depth === 1 ? 0.86 : 0.72})
                         rotateY(${offset * -22}deg)
                       `,
                       opacity: isCenter ? 1 : depth === 1 ? 0.62 : 0.28,
@@ -190,13 +207,10 @@ export function GallerySection() {
                       href={href}
                       scroll
                       onClick={(e) => {
-                        if (dragMoved.current) {
+                        if (suppressNextClick.current) {
                           e.preventDefault();
+                          suppressNextClick.current = false;
                           return;
-                        }
-                        if (!isCenter) {
-                          e.preventDefault();
-                          setActiveIndex(index);
                         }
                       }}
                       className={cn(
@@ -213,20 +227,19 @@ export function GallerySection() {
                               "shadow-2xl ring-2 ring-primary/30 ring-offset-2 ring-offset-background",
                           )}
                         >
-                          <div className="relative aspect-4/3 min-h-[170px] overflow-visible bg-transparent sm:min-h-[205px] md:min-h-[230px]">
+                          <div className="relative aspect-square min-h-[135px] overflow-visible bg-transparent sm:min-h-[155px] md:min-h-[175px]">
                             <Image
                               src={transparentImage}
                               alt={item.name}
                               fill
-                              sizes="(min-width: 768px) 380px, 92vw"
-                              className="object-contain object-top -translate-y-12 scale-[1.08] opacity-95 transition-transform duration-700 ease-out group-hover:scale-[1.12]"
+                              sizes="(min-width: 768px) 140px, 32vw"
+                              className="object-contain object-top -translate-y-16 scale-[0.92] opacity-100 transition-transform duration-700 ease-out group-hover:scale-[0.96]"
                               draggable={false}
                               priority={index < 3}
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-card/95 via-card/40 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
                           </div>
 
-                          <div className="p-3 sm:p-4 flex flex-col gap-2">
+                          <div className="p-2 sm:p-3 -mt-20 flex flex-col gap-2">
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Badge variant="secondary" className="capitalize">
                                 {item.type}
@@ -238,7 +251,7 @@ export function GallerySection() {
                             </div>
                             <h3
                               className={cn(
-                                "font-serif text-lg sm:text-xl font-bold text-foreground transition-colors",
+                                "font-serif text-[17px] sm:text-lg font-bold text-foreground transition-colors",
                                 isCenter && "group-hover:text-primary",
                               )}
                             >
@@ -287,7 +300,7 @@ export function GallerySection() {
           </div>
 
           <div
-            className="mt-8 flex justify-center gap-2"
+            className="mt-6 flex justify-center gap-2"
             role="tablist"
             aria-label="Carousel slides"
           >

@@ -8,7 +8,7 @@ import { BreedTypesSection } from "@/components/breed-types-section";
 import { AboutPreviewSection } from "@/components/about-preview-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { NewsletterSection } from "@/components/newsletter-section";
-import { PartnersSection } from "@/components/partners-section";
+// import { PartnersSection } from "@/components/partners-section";
 import { FAQSection } from "@/components/faq-section";
 import { GallerySection } from "@/components/gallery-section";
 import { CTABanner } from "@/components/cta-banner";
@@ -49,7 +49,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <PartnersSection />
+        {/* <PartnersSection /> */}
         <GallerySection />
         <FeaturesSection />
         <BreedTypesSection />

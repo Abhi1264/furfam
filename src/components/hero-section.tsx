@@ -105,15 +105,15 @@ export function HeroSection() {
       </div>
 
       {/* Wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0" style={{ height: "120px" }}>
         <svg
-          viewBox="0 0 1440 100"
+          viewBox="0 0 1440 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full"
         >
           <path
-            d="M0 50L48 45.8C96 41.7 192 33.3 288 37.5C384 41.7 480 58.3 576 62.5C672 66.7 768 58.3 864 50C960 41.7 1056 33.3 1152 37.5C1248 41.7 1344 58.3 1392 66.7L1440 75V100H1392C1344 100 1248 100 1152 100C1056 100 960 100 864 100C768 100 672 100 576 100C480 100 384 100 288 100C192 100 96 100 48 100H0V50Z"
+            d="M0 80L48 73C96 66 192 53 288 60C384 66 480 93 576 100C672 107 768 93 864 80C960 67 1056 53 1152 60C1248 66 1344 93 1392 107L1440 120V160H1392C1344 160 1248 160 1152 160C1056 160 960 160 864 160C768 160 672 160 576 160C480 160 384 160 288 160C192 160 96 160 48 160H0V80Z"
             className="fill-background"
           />
         </svg>

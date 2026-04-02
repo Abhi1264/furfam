@@ -87,7 +87,7 @@ export default async function BreedDetailPage({ params }: Props) {
   const breed = getBreedById(breedId);
   const breedType = getBreedTypeBySlug(type);
   const priceDisclaimer =
-    "Price may vary based on KCI/non-kCI, size, coat, color, bloodline, availability, and location.";
+    "Price may vary based on KCI/non-KCI, size, coat, color, bloodline, availability, and location.";
 
   if (!breed || !breedType) {
     notFound();

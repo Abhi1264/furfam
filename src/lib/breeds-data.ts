@@ -268,6 +268,15 @@ export const breedTypes: BreedType[] = [
       "A diverse group combining various sizes, coats, and personalities. From the elegant Poodle to the sturdy Bulldog, these versatile companions adapt well to different lifestyles.",
     image: "/non-sporting.jpg",
   },
+  {
+    id: "8",
+    slug: "hybrid",
+    name: "Hybrid Dogs",
+    description:
+      "Crossbreeds that combine traits from two distinct parent breeds. Known for friendly temperaments and a wide range of sizes and coat types.",
+    // Fallback image (no dedicated hybrid.jpg in /public).
+    image: "/non-sporting.jpg",
+  },
 ];
 
 export const BREED_PRICING_DISCLAIMER =
@@ -324,7 +333,7 @@ export const EXPLICIT_BREED_PRICES: Record<string, string> = {
   "great-dane": "₹20,000 - ₹50,000",
   greyhound: "₹50,000 - ₹1,50,000",
   "giant-schnauzer": "₹1,50,000+",
-  goldendoodle: "₹50,000 - ₹1,50,000",
+  "golden-doodle": "₹50,000 - ₹1,50,000",
   "great-pyrenees": "₹2,50,000+",
   "german-pinscher": "₹20,000 - ₹50,000",
   "deutscher-spitz": "₹10,000 - ₹20,000",
@@ -7506,7 +7515,7 @@ export const breeds: Breed[] = [
     hypoallergenic: false,
   },
   {
-    id: "goldendoodle",
+    id: "golden-doodle",
     name: "Golden Doodle",
     type: "Hybrid Dogs",
     typeSlug: "hybrid",
@@ -7518,7 +7527,7 @@ export const breeds: Breed[] = [
     height: "20-24 inches",
     origin: "USA",
     description:
-      "The Goldendoodle is a crossbreed between a Golden Retriever and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
+      "The Golden Doodle is a crossbreed between a Golden Retriever and a Poodle. They are highly social, intelligent, and famous for their low-shedding coats and friendly dispositions.",
     characteristics: {
       friendliness: 5,
       energyLevel: 4,
@@ -7528,7 +7537,7 @@ export const breeds: Breed[] = [
     },
     funFacts: [
       "They were originally bred as guide dogs for the blind",
-      "Goldendoodles come in three coat types: curly, wavy, and straight",
+      "Golden Doodles come in three coat types: curly, wavy, and straight",
       "They are known for their hypoallergenic coats",
     ],
     careInfo: {
